@@ -61,20 +61,16 @@
                 <ul class="nav" id="side-menu">
                     <li><a href="OperatorMainPage.jsp"><i class="fa fa-dashboard fa-fw"></i>系统首页</a></li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 我的合同<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 创建合同合同<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">起草合同</a>
                             </li>
 
-                            <li>
-                                <a href="#">定稿合同</a>
-                            </li>
-
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 管理合同<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 合同列表<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
 
                             <li>
@@ -85,7 +81,14 @@
                             </li>
 
                             <li>
-                                <a href="#" target="_self">待审批合同</a>
+                                <a href="#">待定稿合同</a>
+                            </li>
+
+                            <li>
+                                <a href="#">已定稿合同</a>
+                            </li>
+                            <li>
+                                <a href="#">待审批合同</a>
                             </li>
                             <li>
                                 <a href="#">已审批合同</a>
@@ -96,7 +99,6 @@
                             <li>
                                 <a href="#">已签订合同</a>
                             </li>
-
                         </ul>
                     </li>
                 </ul>
