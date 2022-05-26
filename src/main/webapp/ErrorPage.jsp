@@ -42,7 +42,7 @@
                         <%--<%=exception.getMessage()%>--%>
                     </div>
                     <div class="form-group">
-                        <a href="index.jsp" class="btn btn-lg btn-success btn-block">返回主页</a>
+                        <a href="Login.jsp" class="btn btn-lg btn-success btn-block">返回主页</a>
                     </div>
                 </div>
             </div>

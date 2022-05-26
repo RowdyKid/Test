@@ -5,7 +5,7 @@
   Time: 10:34
   签订合同表单
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>合同管理系统</title>
@@ -140,16 +140,19 @@
                             <form role="form" action="SignContract.jsp" method="post">
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" name="contractName" value="xx合同" readonly>
+                                    <label>
+                                        <input class="form-control" name="contractName" value="xx合同" readonly>
+                                    </label>
                                 </div>
                                 <div class="form-group">
                                     <label>客户名称</label>
-                                    <input class="form-control" name="customerName" value="张三" readonly>
+                                    <label>
+                                        <input class="form-control" name="customerName" value="张三" readonly>
+                                    </label>
                                 </div>
                                 <div class="form-group">
                                     <label>签订信息</label>
-                                    <textarea class="form-control"
-                                              name="contractContent" rows="3">这里是签订信息</textarea>
+                                    <textarea class="form-control" name="contractContent" rows="5">这里是签订信息</textarea>
                                 </div>
                                 <button type="submit" class="btn btn-default">提交</button>
                                 <button type="reset" class="btn btn-default">重置</button>
