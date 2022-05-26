@@ -1,9 +1,9 @@
 <%--
   Created by IntelliJ IDEA.
   User: 王宇轩
-  Date: 2022/5/24
-  Time: 20:00
-  操作人员的主界面
+  Date: 2022/5/26
+  Time: 11:42
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -27,7 +27,6 @@
     <script src="assets/metisMenu/metisMenu.min.js"></script>
 
     <script src="assets/sbadmin2/js/sb-admin-2.js"></script>
-
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -121,17 +120,6 @@
             </div>
         </div>
     </nav>
-</div>
-<%--主页展示界面--%>
-<div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12" style="background-size: cover">
-                <%--将hi标签居中--%>
-                <h1 class="page-header" style="text-align: center">欢迎来到本合同管理系统</h1>
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 </html>

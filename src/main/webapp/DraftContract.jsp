@@ -56,6 +56,7 @@
     </script>
 </head>
 <body>
+<%--整体包裹容器--%>
 <div id="wrapper">
 
     <!-- 整体导航栏 -->
@@ -86,44 +87,60 @@
                 <ul class="nav" id="side-menu">
                     <li><a href="OperatorMainPage.jsp"><i class="fa fa-dashboard fa-fw"></i>系统首页</a></li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 创建合同合同<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 创建合同<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">起草合同</a>
+                                <a href="DraftContract.jsp">起草合同</a>
                             </li>
 
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 合同列表<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 会签合同<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-
                             <li>
-                                <a href="#">待会签合同</a>
+                                <a href="WaittingForCountersignContractList.jsp">待会签合同</a>
                             </li>
                             <li>
-                                <a href="#">已会签合同</a>
-                            </li>
-
-                            <li>
-                                <a href="#">待定稿合同</a>
+                                <a href="HaveCountersignContractList.jsp">已会签合同</a>
                             </li>
 
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 定稿合同<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">已定稿合同</a>
+                                <a href="WaittingForFinalizedContractList.jsp">待定稿合同</a>
                             </li>
                             <li>
-                                <a href="#">待审批合同</a>
+                                <a href="HaveFinalizedContractList.jsp">已定稿合同</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 审批合同<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="WaittingForApproveContractList.jsp">待审批合同</a>
                             </li>
                             <li>
-                                <a href="#">已审批合同</a>
+                                <a href="HaveApproveContractList.jsp">已审批合同</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 签订合同<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="WaittingForSignContractList.jsp">待签订合同</a>
                             </li>
                             <li>
-                                <a href="#">待签订合同</a>
+                                <a href="HaveSignContractList.jsp">已签订合同</a>
                             </li>
-                            <li>
-                                <a href="#">已签订合同</a>
-                            </li>
+
                         </ul>
                     </li>
                 </ul>
