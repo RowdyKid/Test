@@ -2,36 +2,35 @@
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/5/26
-  Time: 10:29
-  待定稿合同列表
+  Time: 10:30
+  定稿合同表单
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../assets/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <link href="assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
 
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="assets/metisMenu/metisMenu.min.js"></script>
+    <script src="../assets/metisMenu/metisMenu.min.js"></script>
 
-    <script src="assets/sbadmin2/js/sb-admin-2.js"></script>
+    <script src="../assets/sbadmin2/js/sb-admin-2.js"></script>
 </head>
 <body>
 <%--整体包裹容器--%>
 <div id="wrapper">
-
     <!-- 整体导航栏 -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <%--导航主页--%>
@@ -49,11 +48,11 @@
             <p class="navbar-brand">你好,<%=userName%>
             </p>
             <%--退出按钮--%>
-            <p><a href="Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
-            </p>
+                <p><a href="../Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
+                </p>
         </ul>
 
-        <%--导航栏左侧--%>
+            <%--导航栏左侧--%>
         <div class="navbar-default sidebar" role="navigation">
             <%--添加折叠栏--%>
             <div class="sidebar-nav navbar-collapse">
@@ -113,6 +112,7 @@
                             <li>
                                 <a href="HaveSignContractList.jsp">已签订合同</a>
                             </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -120,76 +120,49 @@
         </div>
     </nav>
 </div>
-<%--生成待定稿合同列表，表头包括合同名称，起草时间和操作--%>
+<%--在剩余页面放置定稿合同表单，展示合同名称，客户名称，合同开始时间，结束时间，以上内容不可编辑，合同的原内容（可修改），提供提交和重置按钮--%>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" style="text-align: center">待定稿合同</h1>
+            <h1 class="page-header" style="text-align: center">定稿合同</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    待定稿合同列表
+                    定稿合同表单
                 </div>
                 <div class="panel-body">
-                    <%--添加搜索栏，可通过搜索栏输入合同名称搜素待会签合同，并在下方表格中展示--%>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入合同名称">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">搜索</button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <%--表格主体--%>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>合同名称</th>
-                                <th>起草时间</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <%-- <%
-                                 for(int i = 0; i < contractList.size(); i++){
-                             %>--%>
-                            <tr>
-                                <td><%--<%=contractList.get(i).getContractName()%>--%></td>
-                                <td><%--<%=contractList.get(i).getCreateTime()%>--%></td>
-                                <td>
-                                    <%--等待后续后端功能的实现，目前先直接跳转--%>
-                                    <a href="FinalizedContract.jsp">定稿</a>
-                                    <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
-                                </td>
-                            </tr>
-                            <%-- <%
-                                 }
-                             %>--%>
-                            </tbody>
-                        </table>
-                    </div>
-                    <%--将上述表格实现分页功能--%>
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="dataTables_info" id="dataTables-example_info" role="alert"
-                                 aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
-                            </div>
-                            <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-                                <ul class="pagination">
-                                    <li class="paginate_button previous disabled" aria-controls="dataTables-example"
-                                        tabindex="0" id="dataTables-example_previous"><a href="#">上一页</a></li>
-                                    <li class="paginate_button next" aria-controls
-                                        is="dataTables-example" tabindex="0" id="dataTables-example_next"><a
-                                            href="#">下一页</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <form role="form" action="FinalizedContract.jsp" method="post">
+                                <div class="form-group">
+                                    <label>合同名称</label>
+                                    <input class="form-control" name="contractName" value="xx合同" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>客户名称</label>
+                                    <input class="form-control" name="customerName" value="张三" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>合同开始时间</label>
+                                    <input class="form-control" name="contractStartTime" value="2022-05-26"
+                                           readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>合同结束时间</label>
+                                    <input class="form-control" name="contractEndTime" value="2022-05-27"
+                                           readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>合同内容</label>
+                                    <textarea class="form-control"
+                                              name="contractContent" rows="3">这里是合同内容</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-default">提交</button>
+                                <button type="reset" class="btn btn-default">重置</button>
+                            </form>
                         </div>
                     </div>
                 </div>

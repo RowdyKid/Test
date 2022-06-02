@@ -1,32 +1,33 @@
 <%--
   Created by IntelliJ IDEA.
   User: 王宇轩
-  Date: 2022/5/30
-  Time: 16:37
-  审批合同详情页面
+  Date: 2022/5/25
+  Time: 21:15
+  会签人员查看待会签合同列表，可选择某一合同查看其内容，并录入会签意见进行会签
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../assets/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <link href="assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
 
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="assets/metisMenu/metisMenu.min.js"></script>
+    <script src="../assets/metisMenu/metisMenu.min.js"></script>
 
-    <script src="assets/sbadmin2/js/sb-admin-2.js"></script>
+    <script src="../assets/sbadmin2/js/sb-admin-2.js"></script>
+
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -49,11 +50,11 @@
             <p class="navbar-brand">你好,<%=userName%>
             </p>
             <%--退出按钮--%>
-            <p><a href="Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
-            </p>
+                <p><a href="../Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
+                </p>
         </ul>
 
-        <%--导航栏左侧--%>
+            <%--导航栏左侧--%>
         <div class="navbar-default sidebar" role="navigation">
             <%--添加折叠栏--%>
             <div class="sidebar-nav navbar-collapse">
@@ -121,47 +122,78 @@
         </div>
     </nav>
 </div>
-<%--在页面剩余部分展示审批合同信息表单，包括合同名称，审批意见，是否通过，返回按钮，以上信息均不可修改--%>
+<%--在该页面剩余部分创建待会前合同列表，可通过搜索栏输入合同名称查找待会签合同，表格分三列，表头分别为合同名称，起草时间，操作。
+表格可进行页面切换--%>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">审批合同</h1>
+            <h1 class="page-header" style="text-align: center">待会签合同</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    审批合同
+                    待会签合同列表
                 </div>
                 <div class="panel-body">
+                    <%--添加搜索栏，可通过搜索栏输入合同名称搜素待会签合同，并在下方表格中展示--%>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="请输入合同名称">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">搜索</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <%--表格主体--%>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>合同名称</th>
-                                <th>审批意见</th>
-                                <th>是否通过</th>
-                                <th>返回</th>
+                                <th>起草时间</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <%
-                                String contractName = (String) session.getAttribute("contractName");
-                                String approvalOpinion = (String) session.getAttribute("approvalOpinion");
-                                String isPass = (String) session.getAttribute("isPass");
-                            %>
+                            <%-- <%
+                                 for(int i = 0; i < contractList.size(); i++){
+                             %>--%>
                             <tr>
-                                <td><%=contractName%>
+                                <td><%--<%=contractList.get(i).getContractName()%>--%></td>
+                                <td><%--<%=contractList.get(i).getCreateTime()%>--%></td>
+                                <td>
+                                    <%--等待后续后端功能的实现，目前先直接跳转--%>
+                                    <a href="CountersignContract.jsp">会签</a>
+                                    <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
                                 </td>
-                                <td><%=approvalOpinion%>
-                                </td>
-                                <td><%=isPass%>
-                                </td>
-                                <td><a href="OperatorMainPage.jsp">返回</a></td>
                             </tr>
+                            <%-- <%
+                                 }
+                             %>--%>
                             </tbody>
                         </table>
+                    </div>
+                        <%--将上述表格实现分页功能--%>
+                        <div class="row">
+                        <div class="col-lg-6">
+                            <div class="dataTables_info" id="dataTables-example_info" role="alert"
+                                 aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
+                            </div>
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button previous disabled" aria-controls="dataTables-example"
+                                        tabindex="0" id="dataTables-example_previous"><a href="#">上一页</a></li>
+                                    <li class="paginate_button next" aria-controls
+                                        is="dataTables-example" tabindex="0" id="dataTables-example_next"><a
+                                            href="#">下一页</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

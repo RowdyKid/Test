@@ -1,32 +1,59 @@
 <%--
   Created by IntelliJ IDEA.
   User: 王宇轩
-  Date: 2022/5/26
-  Time: 10:32
-  审批合同表单
+  Date: 2022/5/25
+  Time: 14:08
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>合同管理系统</title>
     <%--导入相关美化部件--%>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../assets/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <link href="assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
 
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="assets/metisMenu/metisMenu.min.js"></script>
+    <script src="../assets/metisMenu/metisMenu.min.js"></script>
 
-    <script src="assets/sbadmin2/js/sb-admin-2.js"></script>
+    <script src="../assets/sbadmin2/js/sb-admin-2.js"></script>
+    <%--创建check（）方法
+验证
+(1)	验证填写信息不能为空，否则给出提示 起草失败。
+(2)	若上传了附件，则验证附件为 doc、 jpg、 jpeg、png、bmp 或 gif 格式。
+(3)	保存合同信息和状态信息，返回起草合同页面给出提示“起草成功！”。
+若发生系统异常，跳转到异常页面。
+--%>
+    <script type="text/javascript">
+        function check() {
+            var contract_name = document.getElementById("contractName").value;
+            var customer_name = document.getElementById("customerName").value;
+            if (contract_name == "" || customer_name == "") {
+                alert("起草失败！");
+                return false;
+            }
+            /*验证添加的附件为 doc或jpg或 jpeg或png、或bmp 或 gif 格式。*/
+            var file = document.getElementById("file").value;
+            var fileType = file.substring(file.lastIndexOf(".") + 1, file.length);
+            if (fileType != "doc" || fileType != "jpg" || fileType != "jpeg" || fileType != "png" || fileType != "bmp" || fileType != "gif") {
+                alert("起草失败！");
+                return false;
+            } else {
+                alert("起草成功！");
+                return true;
+            }
+        }
+    </script>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -49,11 +76,11 @@
             <p class="navbar-brand">你好,<%=userName%>
             </p>
             <%--退出按钮--%>
-            <p><a href="Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
-            </p>
+                <p><a href="../Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
+                </p>
         </ul>
 
-        <%--导航栏左侧--%>
+            <%--导航栏左侧--%>
         <div class="navbar-default sidebar" role="navigation">
             <%--添加折叠栏--%>
             <div class="sidebar-nav navbar-collapse">
@@ -121,44 +148,53 @@
         </div>
     </nav>
 </div>
-<%--在页面剩余部分展示审批合同表单，包括合同名称（不可修改），审批意见，通过或拒绝勾选项，提交和重置按钮--%>
+<%--在该页面剩余位置生成合同起草表单，填写内容包括合同名称，客户名称，开始时间，结束时间，合同内容，可以添加附件，包含提交和重置按钮--%>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" style="text-align: center">审批合同</h1>
+            <h1 class="page-header" style="text-align: center">起草合同</h1>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
-    <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    审批合同
+                    起草合同
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="ApproveContract.jsp" method="post">
+                            <form role="form" action="ContractDraft.jsp" method="post">
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" name="contractName" value="xx合同" readonly>
+                                    <input class="form-control" placeholder="请输入合同名称" name="contractName">
                                 </div>
                                 <div class="form-group">
-                                    <label>审批意见</label>
-                                    <textarea class="form-control" rows="3" name="approveOpinion"></textarea>
+                                    <label>客户名称</label>
+                                    <input class="form-control" placeholder="请输入客户名称" name="customerName">
                                 </div>
                                 <div class="form-group">
-                                    <label>审批结果</label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="approveResult" id="optionsRadiosInline1" value="1"
-                                               checked>通过
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="approveResult" id="optionsRadiosInline2" value="0">拒绝
+                                    <label>开始时间</label>
+                                    <input type="date" class="form-control" id="startTime" name="startTime"
+                                           placeholder="请输入开始时间">
+                                </div>
+                                <div class="form-group">
+                                    <label>结束时间</label>
+                                    <input type="date" class="form-control" id="endTime" name="endTime"
+                                           placeholder="请输入结束时间">
+                                </div>
+                                <div class="form-group">
+                                    <label>合同内容
+                                        <textarea class="form-control" rows="4" cols="73" id="contractContent"
+                                                  name="contractContent"
+                                                  placeholder="请输入合同内容"></textarea>
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-default">提交</button>
+                                <div class="form-group">
+                                    <label>附件</label>
+                                    <input type="file" name="file">
+                                </div>
+                                <button type="submit" class="btn btn-default" onclick="checkInfo">提交</button>
                                 <button type="reset" class="btn btn-default">重置</button>
                             </form>
                         </div>

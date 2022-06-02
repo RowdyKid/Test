@@ -10,23 +10,23 @@
 <head>
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../assets/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <link href="assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
 
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="assets/metisMenu/metisMenu.min.js"></script>
+    <script src="../assets/metisMenu/metisMenu.min.js"></script>
 
-    <script src="assets/sbadmin2/js/sb-admin-2.js"></script>
+    <script src="../assets/sbadmin2/js/sb-admin-2.js"></script>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -49,11 +49,11 @@
             <p class="navbar-brand">你好,<%=userName%>
             </p>
             <%--退出按钮--%>
-            <p><a href="Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
-            </p>
+                <p><a href="../Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
+                </p>
         </ul>
 
-        <%--导航栏左侧--%>
+            <%--导航栏左侧--%>
         <div class="navbar-default sidebar" role="navigation">
             <%--添加折叠栏--%>
             <div class="sidebar-nav navbar-collapse">
@@ -124,17 +124,17 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" style="text-align: center">已定稿合同</h1>
+            <h1 class="page-header" style="text-align: center">已签订合同</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    已定稿合同列表
+                    已签订合同列表
                 </div>
                 <div class="panel-body">
-                    <%--添加搜索栏，可通过搜索栏输入合同名称搜素已定稿合同，并在下方表格中展示--%>
+                    <%--添加搜索栏，可通过搜索栏输入合同名称搜素已签订合同，并在下方表格中展示--%>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group">
@@ -164,7 +164,7 @@
                                 <td><%--<%=contractList.get(i).getCreateTime()%>--%></td>
                                 <td>
                                     <%--等待后续后端功能的实现，目前先直接跳转--%>
-                                    <a href="ApproveContract.jsp">查看</a>
+                                    <a href="InfoOfSignContract.jsp">查看</a>
                                     <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
                                 </td>
                             </tr>

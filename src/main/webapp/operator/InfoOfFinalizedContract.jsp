@@ -10,23 +10,23 @@
 <head>
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../assets/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <link href="assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
 
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
-    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
 
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="assets/metisMenu/metisMenu.min.js"></script>
+    <script src="../assets/metisMenu/metisMenu.min.js"></script>
 
-    <script src="assets/sbadmin2/js/sb-admin-2.js"></script>
+    <script src="../assets/sbadmin2/js/sb-admin-2.js"></script>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -48,11 +48,11 @@
             <p class="navbar-brand">你好,<%=userName%>
             </p>
             <%--退出按钮--%>
-            <p><a href="Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
-            </p>
+                <p><a href="../Login.jsp"><i class="fa fa-sign-out fa-fw"></i>退出登录</a>
+                </p>
         </ul>
 
-        <%--导航栏左侧--%>
+            <%--导航栏左侧--%>
         <div class="navbar-default sidebar" role="navigation">
             <%--添加折叠栏--%>
             <div class="sidebar-nav navbar-collapse">
