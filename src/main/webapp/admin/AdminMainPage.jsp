@@ -17,5 +17,16 @@
 <div id="wrapper">
     <%@include file="AdminMenu.jsp" %>
 </div>
+<%--主页展示界面--%>
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12" style="background-size: cover">
+                <%--将hi标签居中--%>
+                <h1 class="page-header" style="text-align: center">欢迎登入后台管理系统</h1>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -17,5 +17,46 @@
 <div id="wrapper">
     <%@include file="AdminMenu.jsp" %>
 </div>
+<%--主体页面，首先包含搜索栏，然后是信息表格，表格包括日志ID，用户ID，日志内容和操作时间--%>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">日志管理</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    日志列表
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>日志ID</th>
+                                <th>用户ID</th>
+                                <th>日志内容</th>
+                                <th>操作时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% for (int i = 0; i < 3; i++) { %>
+                            <tr>
+                                <td>i</td>
+                                <td>i</td>
+                                <td>i</td>
+                                <td>i</td>
+                            </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
