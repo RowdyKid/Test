@@ -59,9 +59,6 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="AddUser.jsp">添加用户</a>
-                        </li>
-                        <li>
                             <a href="SearchUser.jsp">查询用户</a>
                         </li>
                         <li>
