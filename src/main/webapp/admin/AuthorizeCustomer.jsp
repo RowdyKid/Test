@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>合同管理系统</title>
+    <%--导入相关美化部件--%>
+    <%@include file="AdminCSS.jsp" %>
 </head>
 <body>
-
+<%--整体包裹容器--%>
+<div id="wrapper">
+    <%@include file="AdminMenu.jsp" %>
+</div>
 </body>
 </html>

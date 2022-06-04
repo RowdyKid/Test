@@ -9,23 +9,7 @@
 <html>
 <head>
     <title>错误页面</title>
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <link href="assets/sbadmin2/css/sb-admin-2.css" rel="stylesheet">
-
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <link href="assets/css/style.css" rel="stylesheet">
-
-    <script src="assets/jquery/jquery.min.js"></script>
-
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
-    <script src="assets/metisMenu/metisMenu.min.js"></script>
-
-    <script src="assets/sbadmin2/js/sb-admin-2.js"></script>
+    <%@include file="cssImport.jsp" %>
 </head>
 <body>
 <%--异常异常展示界面，提示用户他的操作导致了一个异常发生，提供按钮供用户返回主页--%>
