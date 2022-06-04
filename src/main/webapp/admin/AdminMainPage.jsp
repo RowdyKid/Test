@@ -62,10 +62,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 合同信息管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../operator/WaittingForCountersignContractList.jsp">新增合同</a>
+                                <a href="AddContract.jsp">新增合同</a>
                             </li>
                             <li>
-                                <a href="../operator/HaveCountersignContractList.jsp">查询合同</a>
+                                <a href="SearchContract.jsp">查询合同</a>
                             </li>
                         </ul>
                     </li>
@@ -73,16 +73,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 客户信息管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../operator/WaittingForCountersignContractList.jsp">新增客户</a>
+                                <a href="AddCustomer.jsp">新增客户</a>
                             </li>
                             <li>
-                                <a href="../operator/HaveCountersignContractList.jsp">查询客户</a>
-                            </li>
-                            <li>
-                                <a href="../operator/HaveCountersignContractList.jsp">修改客户</a>
-                            </li>
-                            <li>
-                                <a href="../operator/HaveCountersignContractList.jsp">删除客户</a>
+                                <a href="SearchCustomer.jsp">查询客户</a>
                             </li>
                         </ul>
                     </li>
@@ -90,19 +84,13 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../operator/WaittingForFinalizedContractList.jsp">添加用户</a>
+                                <a href="AddUser.jsp">添加用户</a>
                             </li>
                             <li>
-                                <a href="../operator/HaveFinalizedContractList.jsp">查询用户</a>
+                                <a href="SearchUser.jsp">查询用户</a>
                             </li>
                             <li>
-                                <a href="../operator/HaveFinalizedContractList.jsp">修改用户</a>
-                            </li>
-                            <li>
-                                <a href="../operator/HaveFinalizedContractList.jsp">删除用户</a>
-                            </li>
-                            <li>
-                                <a href="../operator/HaveFinalizedContractList.jsp">权限修改</a>
+                                <a href="AuthorizeCustomer.jsp">权限修改</a>
                             </li>
                         </ul>
                     </li>
