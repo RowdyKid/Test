@@ -61,9 +61,6 @@
                         <li>
                             <a href="SearchUser.jsp">查询用户</a>
                         </li>
-                        <li>
-                            <a href="AuthorizeCustomer.jsp">权限修改</a>
-                        </li>
                     </ul>
                 </li>
                 <li>
