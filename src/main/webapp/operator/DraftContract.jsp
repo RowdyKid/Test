@@ -60,7 +60,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="ContractDraft.jsp" method="post">
+                            <form role="form" action="DraftContract?type=draftOper" method="post">
                                 <div class="form-group">
                                     <label>合同名称</label>
                                     <input class="form-control" placeholder="请输入合同名称" name="contractName">

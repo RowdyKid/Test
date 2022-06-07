@@ -44,7 +44,7 @@ public class DraftContract extends HttpServlet{
             //截止2022.06.07 15：02 dao与utils文件夹中未整理好client
             request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
             request.getRequestDispatcher("DraftContract.jsp").forward(request, response);
-        } else if (type.equals("draftOper")) {//???
+        } else if (type.equals("draftOper")) {
 
             //获取前台数据
             HttpSession session = request.getSession(true);
