@@ -1,12 +1,9 @@
 package com.cms.contractmanagementsystem.dao;
-
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-        //import com.mysql.jdbc.PreparedStatement;
+
 import com.cms.contractmanagementsystem.utils.IEntity;
 import com.cms.contractmanagementsystem.utils.Status;
 
@@ -34,7 +31,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
                 //stmt.executeUpdate("");
                 String sql="insert into status values(null,?,?,?,0)";
                 preStmt=(PreparedStatement) con.prepareStatement(sql);
-                preStmt.setString(1, status.GetcontractNo());
+                preStmt.setInt(1, status.GetcontractNo());
                 preStmt.setInt(2, status.GetcontractStatus());
                 preStmt.setString(3, status.GetfinishTime());
 
@@ -68,7 +65,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
         boolean succ=true;
         Status status=(Status)entity;
 
-        if(status.GetcontractNo()==null){
+        if(status.GetcontractNo()==0){
             return false;
         }
 
@@ -76,7 +73,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
             String sql="update status set del=1 where del=0 and contractno=?";
             try {
                 preStmt=(PreparedStatement) con.prepareStatement(sql);
-                preStmt.setString(1, status.GetcontractNo());
+                preStmt.setInt(1, status.GetcontractNo());
                 if(preStmt.executeUpdate()==0){
                     succ=false;
                 }
@@ -112,7 +109,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
             try {
 //						preStmt=(PreparedStatement) con.prepareStatement(sql);
 //						preStmt.setInt(1, status.GetId());
-                if(status.GetcontractNo()==null){
+                if(status.GetcontractNo()==0){
                     return false;
                 }
 
@@ -174,7 +171,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
                     ResultSet res=preStmt.executeQuery();
                     if(res.next()){
                         status=new Status(id,
-                                res.getString("contractNo"),
+                                res.getInt("contractNo"),
                                 res.getInt("contractStatus"),
                                 res.getString("finishTime"));
 
@@ -214,7 +211,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
             if(status.GetId()!=0){
                 sql+="id="+status.GetId()+" and ";
             }
-            if(status.GetcontractNo()!=null){
+            if(status.GetcontractNo()!=0){
                 sql+="contractNo='"+status.GetcontractNo()+"' and ";
             }
             if(status.GetcontractStatus()!=0){
@@ -250,7 +247,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
                     res = stmt.executeQuery(sqlGetEntitySet);
                     while(res.next()){
                         status=new Status(res.getInt("id"),
-                                res.getString("contractNo"),
+                                res.getInt("contractNo"),
                                 res.getInt("contractStatus"),
                                 res.getString("finishTime"));
 
@@ -303,7 +300,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
             if(status.GetId()!=0){
                 sql+="id="+status.GetId()+" and ";
             }
-            if(status.GetcontractNo()!=null){
+            if(status.GetcontractNo()!=0){
                 sql+="contractNo='"+status.GetcontractNo()+"' and ";
             }
             if(status.GetcontractStatus()!=0){
@@ -321,7 +318,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
                 res=stmt.executeQuery(sql);
                 if(res.next()){
                     status=new Status(res.getInt("id"),
-                            res.getString("contractNo"),
+                            res.getInt("contractNo"),
                             res.getInt("contractStatus"),
                             res.getString("finishTime"));
                 }

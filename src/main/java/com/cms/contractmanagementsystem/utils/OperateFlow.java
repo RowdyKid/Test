@@ -1,25 +1,20 @@
 package com.cms.contractmanagementsystem.utils;
-/**
- * 文件名：OperateFlow.java
- * 描述：对实体进行操作
- * 创建日期：2022-06-06
- * 创建者：LWJ
- */
+
 public class OperateFlow implements IEntity {
 
 
-    private int id;//合同序号
-    private String contractNo;//合同编号
-    private String operatorNo;//操作着编号
-    private int operateType;//操作类型
-    private int operateStatus;//操作后状态
-    private String content;//合同内容
-    private String operateDate;//操作日期
+    private int id;
+    private int contractNo;
+    private int operatorNo;
+    private int operateType;
+    private int operateStatus;
+    private String content;
+    private String operateDate;
 
     public OperateFlow(){
         this.id=0;
-        this.contractNo=null;
-        this.operatorNo=null;
+        this.contractNo=0;
+        this.operatorNo=0;
         this.operateType=0;
         this.operateStatus=-2;
         this.content=null;
@@ -27,7 +22,7 @@ public class OperateFlow implements IEntity {
 
     }
 
-    public OperateFlow(int id,String contractNo,String operatorNo,int operateType,
+    public OperateFlow(int id,int contractNo,int operatorNo,int operateType,
                        int operateStatus,String content,String operateDate){
         this.id=id;
         this.contractNo=contractNo;
@@ -50,19 +45,19 @@ public class OperateFlow implements IEntity {
         this.id=id;
     }
 
-    public String getContractNo() {
+    public int getContractNo() {
         return contractNo;
     }
 
-    public void setContractNo(String contractNo) {
+    public void setContractNo(int contractNo) {
         this.contractNo = contractNo;
     }
 
-    public String getOperatorNo() {
+    public int getOperatorNo() {
         return operatorNo;
     }
 
-    public void setOperatorNo(String operatorNo) {
+    public void setOperatorNo(int operatorNo) {
         this.operatorNo = operatorNo;
     }
 
@@ -99,4 +94,3 @@ public class OperateFlow implements IEntity {
     }
 
 }
-

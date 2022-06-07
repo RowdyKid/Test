@@ -10,8 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.cms.contractmanagementsystem.utils.*;
-
-
 public class ContractDAO extends MySQLConnection implements IDAO {
 
     private int recordNum=0;	//记录数
@@ -40,10 +38,6 @@ public class ContractDAO extends MySQLConnection implements IDAO {
                 //stmt.executeUpdate("");
                 String sql="insert into contract values(null,?,?,?,?,?,?,null,null,null,0)";
                 preStmt=(PreparedStatement) con.prepareStatement(sql);
-                /**
-                 * 1为客户编号
-                 * 2
-                 */
                 preStmt.setString(1, contract.GetName());
                 preStmt.setInt(2, contract.GetClientNo());
                 preStmt.setString(3, contract.GetStartTime());

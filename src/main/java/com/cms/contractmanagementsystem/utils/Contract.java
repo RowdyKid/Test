@@ -1,15 +1,14 @@
 package com.cms.contractmanagementsystem.utils;
 
+
 public class Contract implements IEntity {
 
-    private int id;//合同序号
-    private String name;//合同名称
-    private int  clientNo;//客户序号
-    //private String clientNum;//客户编号
-    private String clientName;//客户名称
+    private int id;
+    private String name;
+    private int clientNo;
     private String startTime;
     private String finishTime;
-    private String content;//合同内容
+    private String content;
     private int drafterNo;
     private int counterSignerNo;
     private int approverNo;
