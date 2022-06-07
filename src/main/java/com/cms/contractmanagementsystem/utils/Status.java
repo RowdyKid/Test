@@ -9,20 +9,19 @@ import java.util.Date;
  * 创建者：LWJ
  */
 public class Status implements IEntity {
-
-    private int id;//合同序号
-    private String  contractNo;//合同编号
-    private int contractStatus;//合同状态
-    private String finishTime;//留着写日志用
+    private int id;
+    private int contractNo;
+    private int contractStatus;
+    private String finishTime;
 
     public Status(){
         this.id=0;
-        this.contractNo=null;
+        this.contractNo=0;
         this.contractStatus=0;
         this.finishTime=null;
     }
 
-    public Status(int id,String contractNo,int contractStatus,String  finishTime){
+    public Status(int id,int contractNo,int contractStatus,String finishTime){
         this.id=id;
         this.contractNo=contractNo;
         this.contractStatus=contractStatus;
@@ -31,7 +30,7 @@ public class Status implements IEntity {
     public int GetId(){
         return id;
     }
-    public String GetcontractNo(){
+    public int GetcontractNo(){
         return contractNo;
     }
     public int GetcontractStatus(){
@@ -43,7 +42,7 @@ public class Status implements IEntity {
     public void SetId(int id){
         this.id=id;
     }
-    public void SetcontractNo(String  contractNo){
+    public void SetcontractNo(int contractNo){
         this.contractNo=contractNo;
     }
     public void SetcontractStatus(int contractStatus){
@@ -52,4 +51,6 @@ public class Status implements IEntity {
     public void SetfinishTime(String finishTime){
         this.finishTime=finishTime;
     }
+
+
 }

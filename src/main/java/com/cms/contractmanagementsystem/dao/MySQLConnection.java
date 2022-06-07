@@ -15,6 +15,24 @@ public class MySQLConnection {
 
     public boolean ConnectMySQL(){
 
+//		try {
+//			Class.forName("com.mysql.jdbc.Driver");
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			//e.printStackTrace();
+//			return false;
+//		}
+//
+//		try {
+//			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+//			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contractmanager", "root", "");
+//			stmt=con.createStatement();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			//e.printStackTrace();
+//			return false;
+//		}
+
         this.ConnectMySQL("contractmanage", "3306", "root", "");
 
         return true;
@@ -61,4 +79,3 @@ public class MySQLConnection {
     }
 
 }
-
