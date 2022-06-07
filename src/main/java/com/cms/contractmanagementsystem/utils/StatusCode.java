@@ -27,5 +27,10 @@ public class StatusCode {
     static public final int OPERATETYPE_APPROVE=5;		//操作类型：审核
     static public final int OPERATETYPE_SIGN=6;			//操作类型：签订
 
+    static public final int OPERATESTATUS_NO_READY=-1;	//操作状态：分配完成，但是未进行到此阶段
+    static public final int OPERATESTATUS_NO_FINISH=0;	//操作状态：未完成
+    static public final int OPERATESTATUS_HAVE_FINISH=1;//操作状态：已通过
+    static public final int OPERATESTATUS_HAVE_REJECT=2;//操作状态：已否决
+
 
 }
