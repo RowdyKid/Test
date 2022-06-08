@@ -41,8 +41,8 @@ public class DraftContract extends HttpServlet{
 
         String type = request.getParameter("type");
         if(type == null){
-            //截止2022.06.07 15：02 dao与utils文件夹中未整理好client
-            //request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
+
+            request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
             request.getRequestDispatcher("DraftContract.jsp").forward(request, response);
         } else if (type.equals("draftOper")) {
 
@@ -55,31 +55,30 @@ public class DraftContract extends HttpServlet{
             String clientName=request.getParameter("customerName");
             int drafterNo=(Integer)session.getAttribute("id");
 
-            //截止2022.06.07 15：02 dao与utils文件夹中未整理好client
             //根据获得的客户名获取客户ID
-            //Client aClient = new Client();
-            //aClient.SetName(clientName);
-            //Client client=(Client) new ClientDAO().GetOneEntity(aClient);
+            Client aClient = new Client();
+            aClient.SetName(clientName);
+            Client client=(Client) new ClientDAO().GetOneEntity(aClient);
 
             //写入数据库
-            //Contract tempContract=new Contract(0, name, client.GetId(), startTime, finishTime, content, drafterNo);
+            Contract tempContract=new Contract(0, name, client.GetId(), startTime, finishTime, content, drafterNo);
             ContractDAO contractDAO = new ContractDAO();
-            //if(contractDAO.AddEntity(tempContract)){
+            if(contractDAO.AddEntity(tempContract)){
 
                 //获取当前时间
                 SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String timeStr = currTime.format(new Date());
 
                 //写入数据库oprateflow表
-                //Contract aContract = (Contract) contractDAO.GetOneEntity(tempContract);
-                //OperateFlow operateFlow = new OperateFlow(0, aContract.GetId(), drafterNo, StatusCode.OPERATETYPE_DRAFT, StatusCode.OPERATESTATUS_HAVE_FINISH, null, timeStr);
-                //boolean addOperateFlow = new OperateFlowDAO().AddEntity(operateFlow);
-                //OperateFlow bOperateFlow = new OperateFlow(0, aContract.GetId(), drafterNo, StatusCode.OPERATETYPE_FINALIZE, StatusCode.OPERATESTATUS_NO_READY, null, timeStr);
-                //boolean is=new OperateFlowDAO().AddEntity(bOperateFlow);
+                Contract aContract = (Contract) contractDAO.GetOneEntity(tempContract);
+                OperateFlow operateFlow = new OperateFlow(0, aContract.GetId(), drafterNo, StatusCode.OPERATETYPE_DRAFT, StatusCode.OPERATESTATUS_HAVE_FINISH, null, timeStr);
+                boolean addOperateFlow = new OperateFlowDAO().AddEntity(operateFlow);
+                OperateFlow bOperateFlow = new OperateFlow(0, aContract.GetId(), drafterNo, StatusCode.OPERATETYPE_FINALIZE, StatusCode.OPERATESTATUS_NO_READY, null, timeStr);
+                boolean is=new OperateFlowDAO().AddEntity(bOperateFlow);
 
                 //写入数据库status表
                 Status status=new Status();
-                //status.SetcontractNo(aContract.GetId());
+                status.SetcontractNo(aContract.GetId());
                 status.SetcontractStatus(StatusCode.STATUS_FINISH_DRAFT);
                 status.SetfinishTime(timeStr);
                 boolean addStatus=new StatusDAO().AddEntity(status);
@@ -93,20 +92,19 @@ public class DraftContract extends HttpServlet{
                     //上传指定文件
                 }
 
-                //if(addOperateFlow&&addStatus
+                if(addOperateFlow&&addStatus
                         //&&addLog
-                //){
-                //    request.setAttribute("result", "起草成功！");   //合同起草成功
-                //}else{
-                //    request.setAttribute("result", "合同插入成功，但操作、状态、日志信息可能不完整！");
-                //}
-            //} else {
+                ){
+                    request.setAttribute("result", "起草成功！");   //合同起草成功
+                }else{
+                    request.setAttribute("result", "合同插入成功，但操作、状态、日志信息可能不完整！");
+                }
+            } else {
                 //起草失败
-            //    request.setAttribute("result", "起草失败！");
-            //}
+                request.setAttribute("result", "起草失败！");
+            }
 
-            //截止2022.06.07 15：02 dao与utils文件夹中未整理好client
-            //request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
+            request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
             request.getRequestDispatcher("ContractManageDraft.jsp").forward(request, response);
 
         }
