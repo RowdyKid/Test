@@ -50,9 +50,9 @@ public class DraftContract extends HttpServlet{
             HttpSession session = request.getSession(true);
             String name = request.getParameter("contractName");
             String startTime = request.getParameter("startTime");
-            String finishTime = request.getParameter("finishTime");
+            String finishTime = request.getParameter("endTime");
             String content=request.getParameter("contractContent");
-            String clientName=request.getParameter("client");
+            String clientName=request.getParameter("customerName");
             int drafterNo=(Integer)session.getAttribute("id");
 
             //截止2022.06.07 15：02 dao与utils文件夹中未整理好client
