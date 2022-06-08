@@ -1,3 +1,8 @@
+
+
+<%@ page import="com.cms.contractmanagementsystem.utils.*" %>
+<%@ page import="com.cms.contractmanagementsystem.dao.*" %>
+<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: 王宇轩
@@ -11,6 +16,11 @@
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
     <%@include file="OperatorCSS.jsp" %>
+
+    <%
+        ArrayList<Contract> contracts=(ArrayList<Contract>)request.getAttribute("contracts");
+//
+    %>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -47,27 +57,33 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                             <tr>
+
+                                <th>合同编号</th>
                                 <th>合同名称</th>
-                                <th>起草时间</th>
+                                <th>开始时间</th>
+                                <th>结束时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <%-- <%
-                                 for(int i = 0; i < contractList.size(); i++){
-                             %>--%>
+
+                                <% for(int i = 0; i < contracts.size(); i++){   %>
+
                             <tr>
-                                <td><%--<%=contractList.get(i).getContractName()%>--%></td>
-                                <td><%--<%=contractList.get(i).getCreateTime()%>--%></td>
+                                <td><%=((Contract)contracts.get(i)).GetId()%></td>
+                                <td><%=((Contract)contracts.get(i)).GetName()%></td>
+                                <td><%=((Contract)contracts.get(i)).GetStartTime()%></td>
+                                <td><%=((Contract)contracts.get(i)).GetFinishTime()%></td>
+
                                 <td>
                                     <%--等待后续后端功能的实现，目前先直接跳转--%>
                                     <a href="FinalizedContract.jsp">定稿</a>
                                     <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
                                 </td>
                             </tr>
-                            <%-- <%
-                                 }
-                             %>--%>
+
+                               <%  }  %>
+
                             </tbody>
                         </table>
                     </div>

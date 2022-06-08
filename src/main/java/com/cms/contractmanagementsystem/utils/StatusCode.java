@@ -33,4 +33,15 @@ public class StatusCode {
     static public final int OPERATESTATUS_HAVE_REJECT=2;//操作状态：已否决
 
 
+
+    static public final int ERROR_NOUSERNAME=101;			//错误信息：没有用户名
+    static public final int ERROR_WRONGPASSWORD=102;      //错误信息：密码错误
+    static public final int ERROR_WRONGIDFCODE=103;      //错误信息：验证码错误
+    static public final int ERROR_NORIGHT=104;      	//错误信息：没有权限
+    static public final int PROMPT_LOGIN_IN=105;      		//登录状态：已登录
+    static public final int PROMPT_LOGIN_OUT=106;      		//登录状态：已下线
+    static public final int ERROR_LOGIN_OUT=107;      //错误：用户已下线或者登录超时
+    static public final int PROMPT_REGISTER_SUCCESS=108;      //提示：注册成功
+    static public final int ERROR_REGISTER_FAILURE=109; //错误：注册失败
+
 }
