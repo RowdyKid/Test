@@ -179,7 +179,7 @@
         register
     </div>
     <%--输入表单--%>
-    <form action=Login.jsp method="post">
+    <form action="${pageContext.request.contextPath }/registServlet" method="post">
         <div class="input-wrapper">
             <div class="border-wrapper">
                 <input type="text" name="username" placeholder="username" class="border-item" autocomplete="off"
