@@ -14,7 +14,7 @@ import java.util.Calendar;
 /**
  * Servlet implementation class ContractManageFinalize
  */
-@WebServlet("/HaveFinalizedContractList")
+@WebServlet("/InfoOfFinalizedContractList")
 public class InofOfFinalizedContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

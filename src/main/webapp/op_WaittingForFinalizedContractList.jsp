@@ -61,9 +61,9 @@
                             </tr>
                             </thead>
                             <tbody>
-
-                            <% for (Contract contract : contracts) { %>
-
+                            <%--如果返回的合同列表不为空，则遍历列表在table中展示--%>
+                            <%if (contracts != null) {%>
+                            <%for (Contract contract : contracts) {%>
                             <tr>
                                 <td><%=contract.GetId()%>
                                 </td>
@@ -74,23 +74,26 @@
                                 <td><%=contract.GetFinishTime()%>
                                 </td>
                                 <td>
-                                    <%--等待后续后端功能的实现，目前先直接跳转--%>
                                     <a href="op_FinalizedContract.jsp">定稿</a>
-                                    <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
                                 </td>
                             </tr>
-
-                            <% } %>
+                            <%}%>
+                            <%--否则显示没有数据--%>
+                            <%} else {%>
+                            <tr>
+                                <td colspan="5">没有数据</td>
+                            </tr>
+                            <%}%>
 
                             </tbody>
                         </table>
                     </div>
-                    <%--将上述表格实现分页功能--%>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="dataTables_info" id="dataTables-example_info" role="alert"
-                                 aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
-                            </div>
+                        <%--将上述表格实现分页功能--%>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="dataTables_info" id="dataTables-example_info" role="alert"
+                                     aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
+                                </div>
                             <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
                                 <ul class="pagination">
                                     <li class="paginate_button previous disabled" aria-controls="dataTables-example"

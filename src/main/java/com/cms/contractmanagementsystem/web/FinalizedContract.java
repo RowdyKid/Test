@@ -43,7 +43,6 @@ public class FinalizedContract extends HttpServlet {
         // TODO Auto-generated method stub
        // this.doPost(request, response);
 
-
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
@@ -70,7 +69,8 @@ public class FinalizedContract extends HttpServlet {
                     contracts.add(contract);
                 }
             }
-            request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
+            request.setAttribute("contracts", contracts);
+            request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
 
 
         }
@@ -91,7 +91,7 @@ public class FinalizedContract extends HttpServlet {
                     if(id.equals(contract.GetId()))
                     {
                         request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
+                        request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
                     }
                 }
             }

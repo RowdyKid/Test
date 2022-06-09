@@ -33,7 +33,7 @@ public class MySQLConnection {
 //			return false;
 //		}
 
-        this.ConnectMySQL("contractmanager", "3306", "root", "123456");
+        this.ConnectMySQL("cms", "3306", "root", "12345");
 
         return true;
     }
@@ -59,6 +59,7 @@ public class MySQLConnection {
             return false;
         }
 
+        System.out.println("Connect success!!!!!!!!!!!!!!!!!");
         return true;
     }
 
