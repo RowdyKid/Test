@@ -41,27 +41,28 @@ public class DraftContract extends HttpServlet{
 
         String type = request.getParameter("type");
         if(type == null){
-
             request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
-            request.getRequestDispatcher("DraftContract.jsp").forward(request, response);
+            request.getRequestDispatcher("op_DraftContract.jsp").forward(request, response);
         } else if (type.equals("draftOper")) {
-
             //获取前台数据
             HttpSession session = request.getSession(true);
             String name = request.getParameter("contractName");
             String startTime = request.getParameter("startTime");
             String finishTime = request.getParameter("endTime");
-            String content=request.getParameter("contractContent");
-            String clientName=request.getParameter("customerName");
-            int drafterNo=(Integer)session.getAttribute("id");
+            String content = request.getParameter("contractContent");
+            String clientName = request.getParameter("customerName");
+            //控制台输出合同名称
+            System.out.println(name);
+
+            int drafterNo = (Integer) session.getAttribute("id");
 
             //根据获得的客户名获取客户ID
             Client aClient = new Client();
             aClient.SetName(clientName);
-            Client client=(Client) new ClientDAO().GetOneEntity(aClient);
+            Client client = (Client) new ClientDAO().GetOneEntity(aClient);
 
             //写入数据库
-            Contract tempContract=new Contract(0, name, client.GetId(), startTime, finishTime, content, drafterNo);
+            Contract tempContract = new Contract(0, name, client.GetId(), startTime, finishTime, content, drafterNo);
             ContractDAO contractDAO = new ContractDAO();
             if(contractDAO.AddEntity(tempContract)){
 
@@ -105,7 +106,7 @@ public class DraftContract extends HttpServlet{
             }
 
             request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
-            request.getRequestDispatcher("ContractManageDraft.jsp").forward(request, response);
+            request.getRequestDispatcher("op_CountersignContract.jsp").forward(request, response);
 
         }
 
