@@ -10,7 +10,7 @@ public class MySQLConnection {
     protected Statement stmt=null;
 
     public MySQLConnection(){
-        //this.ConnectMySQL("contractmanager", "3306", "root", "");
+        //this.ConnectMySQL("contractm", "3306", "root", "");
     }
 
     public boolean ConnectMySQL(){
@@ -33,7 +33,7 @@ public class MySQLConnection {
 //			return false;
 //		}
 
-        this.ConnectMySQL("contractmanager", "3306", "root", "123456");
+        this.ConnectMySQL("cmd", "3306", "root", "020701czp");
 
         return true;
     }
