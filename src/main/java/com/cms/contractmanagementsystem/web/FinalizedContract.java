@@ -44,88 +44,64 @@ public class FinalizedContract extends HttpServlet {
         this.doPost(request, response);
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected  void waitingFinalize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-
-        String type=request.getParameter("type");
         HttpSession session = request.getSession(true);
-        int clientNo=(Integer)session.getAttribute("id");
+        // int clientNo=(Integer)session.getAttribute("id");
+        int clientNo=1;
+        OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+        OperateFlow operateFlow = new OperateFlow();
+        operateFlow.setOperatorNo(clientNo);
+        operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+        operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
 
-        Integer pageRecordNum=StatusCode.PAGE_RECORDNUM;
-        Integer pageNo=1;
+        ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+        ArrayList<Contract> contracts = new ArrayList<Contract>();
 
-        //显示该用户下所有待定稿合同
-        if(type==null) {
-            //显示待此用户定稿的合同列表
-            if (request.getParameter("pageNo") != null) {
-                pageNo = Integer.parseInt(request.getParameter("pageNo"));
-            }
-            if (request.getParameter("pageRecordNum") != null) {
-                pageRecordNum = Integer.parseInt(request.getParameter("pageRecordNum"));
-            }
-
-
-            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
-            OperateFlow operateFlow = new OperateFlow();
-            operateFlow.setOperatorNo(clientNo);
-            operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
-            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
-
-            ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow, pageNo, pageRecordNum);
-            ArrayList<Contract> contracts = new ArrayList<Contract>();
-
-            if (arr != null) {
-                for (int i = 0; i < arr.size(); i++) {
-                    Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    contracts.add(contract);
-                }
-            }
-            if (request.getParameter("pageNo") != null) {
-                pageNo = Integer.parseInt(request.getParameter("pageNo"));
-            }
-
-            request.setAttribute("contracts", contracts);
-            request.setAttribute("pageNo", pageNo);
-            request.setAttribute("pageRecordNum", pageRecordNum);
-            request.setAttribute("pageNum", operateFlowDAO.GetPageNum());
-            request.setAttribute("totalRecordNum", operateFlowDAO.getRecordNum());
-
-
-            request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
-
-
-        }
-        //查询某个合同
-        else if(type.equals("search")){
-            //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("id"));
-            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
-            OperateFlow operateFlow = new OperateFlow();
-            operateFlow.setOperatorNo(clientNo);
-            operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
-            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
-
-            ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
-
-            if (arr != null) {
-                for (int i = 0; i < arr.size(); i++) {
-                    Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if(id.equals(contract.GetId()))
-                    {
-                        request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
-                    }
-                }
+        if (arr != null) {
+            for (int i = 0; i < arr.size(); i++) {
+                Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                contracts.add(contract);
             }
         }
+        request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
 
 
-        }
 
     }
+
+    protected void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        HttpSession session = request.getSession(true);
+        // int clientNo=(Integer)session.getAttribute("id");
+
+        int clientNo=1;
+
+        //获取合同ID
+        Integer id=Integer.parseInt(request.getParameter("id"));
+        OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+        OperateFlow operateFlow = new OperateFlow();
+        operateFlow.setOperatorNo(clientNo);
+        operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+        operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
+
+        ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+
+        if (arr != null) {
+            for (int i = 0; i < arr.size(); i++) {
+                Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                if(id.equals(contract.GetId()))
+                {
+                    request.setAttribute("contracts", contract);
+                    request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
+                }
+            }
+        }
+        return;
+
+    }}
 
