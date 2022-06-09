@@ -91,7 +91,7 @@ public class FinalizedContract extends HttpServlet {
                     if(id.equals(contract.GetId()))
                     {
                         request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
+                        request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
                     }
                 }
             }
