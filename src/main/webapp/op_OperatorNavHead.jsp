@@ -62,7 +62,7 @@
                             <a href="${pageContext.request.contextPath}/FinalizedContract">待定稿合同</a>
                         </li>
                         <li>
-                            <a href="op_HaveFinalizedContractList.jsp">已定稿合同</a>
+                            <a href="${pageContext.request.contextPath}/HaveFinalizedContract">已定稿合同</a>
                         </li>
 
                     </ul>

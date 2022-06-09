@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.utils.Contract" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/5/26
@@ -11,6 +12,10 @@
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
     <%@include file="op_OperatorCSS.jsp" %>
+    <%
+        ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contracts");
+    %>
+
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -52,18 +57,27 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <%-- <%
-                                 for(int i = 0; i < contractList.size(); i++){
-                             %>--%>
+                            <%if (contracts != null) {%>
+                            <%for (Contract contract : contracts) {%>
                             <tr>
-                                <td><%--<%=contractList.get(i).getContractName()%>--%></td>
-                                <td><%--<%=contractList.get(i).getCreateTime()%>--%></td>
+
+
+                                <td><%=contract.GetName()%>
+                                </td>
+                                <td><%=contract.GetStartTime()%>
+                                </td>
+
                                 <td>
-                                    <%--等待后续后端功能的实现，目前先直接跳转--%>
-                                    <a href="op_InfoOfFinalizedContract.jsp">查看</a>
-                                    <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
+                                    <a href="op_FinalizedContract.jsp">定稿</a>
                                 </td>
                             </tr>
+                            <%}%>
+                            <%--否则显示没有数据--%>
+                            <%} else {%>
+                            <tr>
+                                <td colspan="3">没有数据</td>
+                            </tr>
+                            <%}%>
                             <%-- <%
                                  }
                              %>--%>
