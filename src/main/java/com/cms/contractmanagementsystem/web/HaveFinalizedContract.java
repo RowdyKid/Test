@@ -15,7 +15,7 @@ import java.util.Calendar;
 /**
  * Servlet implementation class ContractManageFinalize
  */
-@WebServlet("/HaveFinalizedContractList")
+@WebServlet("/HaveFinalizedContract")
 public class HaveFinalizedContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -32,37 +32,63 @@ public class HaveFinalizedContract extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        this.doPost(request, response);
-    }
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void showInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+        // this.doPost(request, response);
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession(true);
-        int clientNo=(Integer)session.getAttribute("id");
 
-        OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
-        OperateFlow operateFlow = new OperateFlow();
-        operateFlow.setOperatorNo(clientNo);
-        operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
-        operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
-        ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
-        ArrayList<Contract> contracts = new ArrayList<Contract>();
-        if (arr != null) {
-            for (int i = 0; i < arr.size(); i++) {
-                Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                contracts.add(contract);
+        //int clientNo=(Integer)session.getAttribute("id");
+        String type = request.getParameter("type");
+        int clientNo = 1;
+
+
+        if (type == null) {
+            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+            OperateFlow operateFlow = new OperateFlow();
+            operateFlow.setOperatorNo(clientNo);
+            operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
+            ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+            ArrayList<Contract> contracts = new ArrayList<Contract>();
+            if (arr != null) {
+                for (int i = 0; i < arr.size(); i++) {
+                    Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                    contracts.add(contract);
+                }
             }
-        }
-        request.setAttribute("contractList", contracts);
-        request.getRequestDispatcher("op_HaveFinalizedContractList.jsp").forward(request, response);
+            request.setAttribute("contractList", contracts);
+            request.getRequestDispatcher("op_HaveFinalizedContractList.jsp").forward(request, response);
 
+
+        }
+        else if(type.equals("search")){
+            Integer id=Integer.parseInt(request.getParameter("id"));
+            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+            OperateFlow operateFlow = new OperateFlow();
+            operateFlow.setOperatorNo(clientNo);
+            operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
+
+            ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+
+            if (arr != null) {
+                for (int i = 0; i < arr.size(); i++) {
+                    Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                    if(id.equals(contract.GetId()))
+                    {
+                        request.setAttribute("contracts", contract);
+                        request.getRequestDispatcher("op_HaveFinalizedContractList.jsp").forward(request, response);
+                    }
+                }
+            }
+            return;
+
+        }
 
 
     }
+
+
 
 
 }
