@@ -65,4 +65,4 @@ public class InfoFinalizedContract extends HttpServlet {
     }
 
 
-    }
+}
