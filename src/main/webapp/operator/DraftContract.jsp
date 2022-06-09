@@ -1,10 +1,12 @@
-<%--
+<%@ page import="jdk.nashorn.api.scripting.ScriptObjectMirror" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/5/25
   Time: 14:08
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="com.cms.contractmanagementsystem.utils.*" %>
+<%@ page import="java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -38,6 +40,10 @@
             }
         }
     </script>
+    <%
+        ArrayList<IEntity> clients=(ArrayList<IEntity>)request.getAttribute("clients");
+        String result=(String)request.getAttribute("result");
+    %>
 </head>
 <body>
 <%--整体包裹容器--%>
