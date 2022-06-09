@@ -18,9 +18,6 @@ import java.util.Calendar;
 public class InofOfFinalizedContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public InofOfFinalizedContract() {
         super();
         // TODO Auto-generated constructor stub
