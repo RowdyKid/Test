@@ -15,7 +15,7 @@
     <%--导入相关美化部件--%>
     <%@include file="op_OperatorCSS.jsp" %>
     <%
-        ArrayList<Contract> contracts=(ArrayList<Contract>)request.getAttribute("contracts");
+        ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contracts");
     %>
 </head>
 <body>
@@ -62,14 +62,17 @@
                             </thead>
                             <tbody>
 
-                            <%--                                <% for(int i = 0; i < contracts.size(); i++){   %>--%>
+                            <% for (Contract contract : contracts) { %>
 
                             <tr>
-                                <%--                                <td><%=((Contract)contracts.get(i)).GetId()%></td>--%>
-                                <%--                                <td><%=((Contract)contracts.get(i)).GetName()%></td>--%>
-                                <%--                                <td><%=((Contract)contracts.get(i)).GetStartTime()%></td>--%>
-                                <%--                                <td><%=((Contract)contracts.get(i)).GetFinishTime()%></td>--%>
-
+                                <td><%=contract.GetId()%>
+                                </td>
+                                <td><%=contract.GetName()%>
+                                </td>
+                                <td><%=contract.GetStartTime()%>
+                                </td>
+                                <td><%=contract.GetFinishTime()%>
+                                </td>
                                 <td>
                                     <%--等待后续后端功能的实现，目前先直接跳转--%>
                                     <a href="op_FinalizedContract.jsp">定稿</a>
@@ -77,7 +80,7 @@
                                 </td>
                             </tr>
 
-                            <%--                               <%  }  %>--%>
+                            <% } %>
 
                             </tbody>
                         </table>

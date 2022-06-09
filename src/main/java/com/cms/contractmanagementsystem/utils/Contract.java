@@ -33,7 +33,6 @@ public class Contract implements IEntity {
         this.finishTime = finishTime;
         this.content = content;
         this.drafterNo = drafterNo;
-
     }
 
     public int GetId() {

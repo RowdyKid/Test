@@ -40,8 +40,36 @@ public class FinalizedContract extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        this.doPost(request, response);
+//        // TODO Auto-generated method stub
+//       // this.doPost(request, response);
+//        request.setCharacterEncoding("utf-8");
+//        response.setCharacterEncoding("utf-8");
+//        HttpSession session = request.getSession(true);
+//        // int clientNo=(Integer)session.getAttribute("id");
+//        int clientNo=1;
+//        OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+//        OperateFlow operateFlow = new OperateFlow();
+//        operateFlow.setOperatorNo(clientNo);
+//        operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+//        operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
+//
+//        ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+//        ArrayList<Contract> contracts = new ArrayList<Contract>();
+//
+//        if (arr != null) {
+//            for (int i = 0; i < arr.size(); i++) {
+//                Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+//                contracts.add(contract);
+//            }
+//        }
+        ArrayList<Contract> contracts = new ArrayList<Contract>();
+        for (int i = 0; i < 3; i++) {
+            // Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+            Contract contract = new Contract(i, "wyx", 1, "2030", "2033", "123", 1);
+            contracts.add(contract);
+        }
+        request.setAttribute("contracts", contracts);
+        request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
     }
 
     protected  void waitingFinalize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -62,14 +90,13 @@ public class FinalizedContract extends HttpServlet {
 
         if (arr != null) {
             for (int i = 0; i < arr.size(); i++) {
-                Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                // Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                Contract contract = new Contract(i, "wyx", 1, "2030", "2033", "123", 1);
                 contracts.add(contract);
             }
         }
-        request.getRequestDispatcher("WaittingForFinalizedContractList.jsp").forward(request, response);
-
-
-
+        request.setAttribute("contracts", contracts);
+        request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
     }
 
     protected void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

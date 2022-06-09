@@ -59,7 +59,7 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 定稿合同<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="op_WaittingForFinalizedContractList.jsp">待定稿合同</a>
+                            <a href="${pageContext.request.contextPath}/WaittingForFinalizedContractList">待定稿合同</a>
                         </li>
                         <li>
                             <a href="op_HaveFinalizedContractList.jsp">已定稿合同</a>
