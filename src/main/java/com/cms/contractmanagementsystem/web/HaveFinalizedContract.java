@@ -15,14 +15,14 @@ import java.util.Calendar;
 /**
  * Servlet implementation class ContractManageFinalize
  */
-@WebServlet("/InfoOfFinalizedContract")
-public class InfoFinalizedContract extends HttpServlet {
+@WebServlet("/HaveFinalizedContractList")
+public class HaveFinalizedContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InfoFinalizedContract() {
+    public HaveFinalizedContract() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -58,7 +58,7 @@ public class InfoFinalizedContract extends HttpServlet {
             }
         }
         request.setAttribute("contractList", contracts);
-        request.getRequestDispatcher("InfoOfFinalizedContract.jsp").forward(request, response);
+        request.getRequestDispatcher("HaveFinalizedContractList.jsp").forward(request, response);
 
 
 
