@@ -22,4 +22,12 @@ public interface UserService {
      * @return 返回true表示用户名已存在，返回false表示用户名可用
      */
     public boolean existsUsername(String username);
+
+    /**
+     * 通过id 查询用户名
+     * @param
+     * @return 返回true表示用户名已存在，返回false表示用户名可用
+     */
+    public String queryusernamebyID(int id);
+
 }

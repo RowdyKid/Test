@@ -28,4 +28,7 @@ public interface UserDao {
      */
     public int saveUser(User user);
 
+
+    public String queryUserById(int id);
+
 }

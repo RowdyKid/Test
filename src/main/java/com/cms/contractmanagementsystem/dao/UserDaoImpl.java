@@ -1,6 +1,12 @@
 package com.cms.contractmanagementsystem.dao;
 
 import com.cms.contractmanagementsystem.pojo.User;
+import com.cms.contractmanagementsystem.utils.JdbcUtils;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.QueryRunner;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class UserDaoImpl extends BaseDao implements UserDao {
     @Override
@@ -20,4 +26,12 @@ public class UserDaoImpl extends BaseDao implements UserDao {
         String sql = "insert into system_user(`username`,`password`,`del`) values(?,?,?)";
         return update(sql, user.getUsername(),user.getPassword(),user.getDel());
     }
+
+    @Override
+    public String queryUserById(int id) {
+        String sql="select * from system_user where id = ?";
+        return queryUserById(sql,id);
+    }
+
+
 }
