@@ -36,18 +36,46 @@ public class op_FinalizedContract extends HttpServlet{
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        // this.doPost(request, response);
+        this.doPost(request, response);}
+
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
-        //获取提交的信息，写入数据库
+
         Integer contractNo=Integer.parseInt(request.getParameter("id"));
+
+        String type=request.getParameter("type");
+
+        if(type==null){
+            ContractDAO contractDAO = new ContractDAO();
+            Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
+          int clientNo= oldContract.GetClientNo();
+          ClientDAO clientdao=new ClientDAO();
+          String clientName=((Client) clientdao.GetOneEntity(clientNo)).GetName();
+
+            request.setAttribute("contractName", oldContract.GetName());
+            request.setAttribute("customerName",clientName);
+            request.setAttribute("contractStartTime",oldContract.GetStartTime());
+            request.setAttribute("contractEndTime",oldContract.GetFinishTime());
+            request.setAttribute("contractContent",oldContract.GetContent());
+            request.getRequestDispatcher("op_FinalizedContract.jsp").forward(request, response);
+
+
+
+        }
+        else if (type.equals("submit")){
+        //获取提交的信息，写入数据库
         String htnr = (String)request.getParameter("contractContent");
         ContractDAO contractDAO = new ContractDAO();
         Contract newContract = (Contract) contractDAO.GetOneEntity(contractNo);
+
         newContract.SetContent(htnr);
 
         if(contractDAO.UpdateEntity(newContract)) {
@@ -92,7 +120,6 @@ public class op_FinalizedContract extends HttpServlet{
 
 
 
-
             //操作成功与否的提示
             if(aUpdateOperateFlow&&bUpdateOperateFlow&&UpdateStatus){
                 request.setAttribute("result", "操作成功！");   //操作成功
@@ -106,6 +133,9 @@ public class op_FinalizedContract extends HttpServlet{
             request.setAttribute("result", "操作失败！");
 
         }
+
+
+    }
 
 
     }
