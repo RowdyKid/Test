@@ -18,7 +18,7 @@
     <ul class="nav navbar-top-links navbar-right">
         <%--用户信息--%>
         <%
-            String userName = (String) session.getAttribute("userName");
+            String userName = (String) session.getAttribute("nowUserName");
         %>
         <p class="navbar-brand">管理员,<%=userName%>
         </p>

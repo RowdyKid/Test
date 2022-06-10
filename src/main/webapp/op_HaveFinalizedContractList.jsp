@@ -4,7 +4,7 @@
   User: 王宇轩
   Date: 2022/5/26
   Time: 11:43
-  To change this template use File | Settings | File Templates.
+  已定稿合同列表
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -57,11 +57,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <%if (contracts != null) {%>
+                            <%if (contracts != null&& contracts.size() != 0) {%>
                             <%for (Contract contract : contracts) {%>
                             <tr>
-
-
                                 <td><%=contract.GetName()%>
                                 </td>
                                 <td><%=contract.GetStartTime()%>

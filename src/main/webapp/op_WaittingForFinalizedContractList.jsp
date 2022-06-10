@@ -62,7 +62,7 @@
                             </thead>
                             <tbody>
                             <%--如果返回的合同列表不为空，则遍历列表在table中展示--%>
-                            <%if (contracts != null) {%>
+                            <%if (contracts != null&& contracts.size() != 0) {%>
                             <%for (Contract contract : contracts) {%>
                             <tr>
                                 <td><%=contract.GetId()%>

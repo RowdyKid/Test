@@ -1,7 +1,6 @@
 package com.cms.contractmanagementsystem.web;
 
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,7 +40,7 @@ public class FinalizedContract extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-       // this.doPost(request, response);
+        // this.doPost(request, response);
 
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
@@ -49,11 +48,11 @@ public class FinalizedContract extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         //int clientNo=(Integer)session.getAttribute("id");
-        String type=request.getParameter("type");
-        int clientNo=1;
+        String type = request.getParameter("type");
+        int clientNo = 1;
 
 
-        if(type==null){
+        if (type == null) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -73,10 +72,9 @@ public class FinalizedContract extends HttpServlet {
             request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
 
 
-        }
-        else if(type.equals("search")){
+        } else if (type.equals("search")) {
             //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("id"));
+            Integer id = Integer.parseInt(request.getParameter("id"));
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -88,8 +86,7 @@ public class FinalizedContract extends HttpServlet {
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if(id.equals(contract.GetId()))
-                    {
+                    if (id.equals(contract.GetId())) {
                         request.setAttribute("contracts", contract);
                         request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
                     }
@@ -98,8 +95,5 @@ public class FinalizedContract extends HttpServlet {
             return;
         }
     }
-
-
-
-    }
+}
 

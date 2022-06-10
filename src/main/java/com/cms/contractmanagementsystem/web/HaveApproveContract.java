@@ -71,8 +71,6 @@ public class HaveApproveContract extends HttpServlet {
             }
             request.setAttribute("contracts", contracts);
             request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
-
-
         }
         else if(type.equals("search")){
             //获取合同ID

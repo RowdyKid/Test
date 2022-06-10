@@ -19,7 +19,7 @@
     <ul class="nav navbar-top-links navbar-right">
         <%--用户信息--%>
         <%
-            String userName = (String) session.getAttribute("userName");
+            String userName = (String) session.getAttribute("nowUserName");
         %>
         <p class="navbar-brand">你好,<%=userName%>
         </p>
@@ -71,10 +71,10 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 审批合同<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="op_WaittingForApproveContractList.jsp">待审批合同</a>
+                            <a href="${pageContext.request.contextPath}/WaitingApproveContract">待审批合同</a>
                         </li>
                         <li>
-                            <a href="op_HaveApproveContractList.jsp">已审批合同</a>
+                            <a href="${pageContext.request.contextPath}/HaveApproveContract">已审批合同</a>
                         </li>
 
                     </ul>
@@ -83,10 +83,10 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 签订合同<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="op_WaittingForSignContractList.jsp">待签订合同</a>
+                            <a href="${pageContext.request.contextPath}/WaitingSignContract">待签订合同</a>
                         </li>
                         <li>
-                            <a href="op_HaveSignContractList.jsp">已签订合同</a>
+                            <a href="${pageContext.request.contextPath}/HaveSignContract">已签订合同</a>
                         </li>
                     </ul>
                 </li>

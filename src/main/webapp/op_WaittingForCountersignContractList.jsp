@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.utils.Contract" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/5/25
@@ -11,6 +12,9 @@
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
     <%@include file="op_OperatorCSS.jsp" %>
+    <%
+        ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contracts");
+    %>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -54,26 +58,30 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <%-- <%
-                                 for(int i = 0; i < contractList.size(); i++){
-                             %>--%>
+                            <%--如果返回的合同列表不为空，则遍历列表在table中展示--%>
+                            <%if (contracts != null&& contracts.size() != 0) {%>
+                            <%for (Contract contract : contracts) {%>
                             <tr>
-                                <td><%--<%=contractList.get(i).getContractName()%>--%></td>
-                                <td><%--<%=contractList.get(i).getCreateTime()%>--%></td>
+                                <td><%=contract.GetName()%>
+                                </td>
+                                <td><%=contract.GetStartTime()%>
+                                </td>
                                 <td>
-                                    <%--等待后续后端功能的实现，目前先直接跳转--%>
                                     <a href="op_CountersignContract.jsp">会签</a>
-                                    <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
                                 </td>
                             </tr>
-                            <%-- <%
-                                 }
-                             %>--%>
+                            <%}%>
+                            <%--否则显示没有数据--%>
+                            <%} else {%>
+                            <tr>
+                                <td colspan="3">没有数据</td>
+                            </tr>
+                            <%}%>
                             </tbody>
                         </table>
                     </div>
-                        <%--将上述表格实现分页功能--%>
-                        <div class="row">
+                    <%--将上述表格实现分页功能--%>
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="dataTables_info" id="dataTables-example_info" role="alert"
                                  aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项

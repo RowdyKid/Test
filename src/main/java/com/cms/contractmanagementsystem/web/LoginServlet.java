@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 public class LoginServlet extends HttpServlet {
 
@@ -25,21 +26,21 @@ public class LoginServlet extends HttpServlet {
         // 如果等于null,说明登录 失败!
         if (loginUser == null) {
             // 把错误信息，和回显的表单项信息，保存到Request域中
-            req.setAttribute("msg","用户或密码错误！");
+            req.setAttribute("msg", "用户或密码错误！");
             req.setAttribute("username", username);
             //   跳回登录页面
             req.getRequestDispatcher("Login.jsp").forward(req, resp);
         } else {
             // 登录 成功
+            // 保存用户信息到 Session 域中
+            req.getSession().setAttribute("nowUserName", username);
 
-            if(username=="admin")
-            {
+            if (Objects.equals(username, "newUser")) {
                 req.getRequestDispatcher("NewUserPage.jsp").forward(req, resp);
-
-            }
-            else
-            {
+            } else if (Objects.equals(username, "admin")) {
                 req.getRequestDispatcher("ad_AdminMainPage.jsp").forward(req, resp);
+            } else {
+                req.getRequestDispatcher("op_OperatorMainPage.jsp").forward(req, resp);
             }
         }
     }
