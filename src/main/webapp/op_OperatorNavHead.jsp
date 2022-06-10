@@ -47,7 +47,7 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 会签合同<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="op_WaittingForCountersignContractList.jsp">待会签合同</a>
+                            <a href="${pageContext.request.contextPath}/WaitingCountersignContract">待会签合同</a>
                         </li>
                         <li>
                             <a href="op_HaveCountersignContractList.jsp">已会签合同</a>
