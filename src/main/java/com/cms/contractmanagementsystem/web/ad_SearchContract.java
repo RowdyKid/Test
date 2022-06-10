@@ -32,7 +32,9 @@ public class ad_SearchContract extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-      //  this.doPost(request, response);
+        this.doPost(request, response);}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
@@ -52,15 +54,17 @@ public class ad_SearchContract extends HttpServlet {
 
 
             ArrayList<IEntity> contracts=contractdao.GetEntitySet(contract);
-//            ArrayList<Integer> statusCode=new ArrayList<Integer>();
-//            for(int i=0;i<contracts.size();i++){
-//                Status temp=new Status();
-//                temp.SetcontractNo(contracts.get(i).GetId());
-//                statusCode.add(((Status)new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
-//            }
+            ArrayList<Integer> statusCode=new ArrayList<Integer>();
+            for(int i=0;i<contracts.size();i++){
+                Status temp=new Status();
+                temp.SetcontractNo(contracts.get(i).GetId());
+                statusCode.add(((Status)new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
+            }
 
 
             request.setAttribute("contracts", contracts);
+            request.setAttribute("status",statusCode);
+
 
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
 
