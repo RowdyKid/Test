@@ -32,4 +32,10 @@ public class UserDaoTest {
     public void saveUser() {
         System.out.println( userDao.saveUser(new User(null,"wzg168", "123456",null)));
     }
+
+
+    @Test
+    public void queryUserByid(){
+        System.out.println(userDao.queryUserById(33));
+    }
 }

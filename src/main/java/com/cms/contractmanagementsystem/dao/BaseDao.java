@@ -1,5 +1,6 @@
 package com.cms.contractmanagementsystem.dao;
 
+import com.cms.contractmanagementsystem.pojo.User;
 import com.cms.contractmanagementsystem.utils.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -52,6 +53,24 @@ public abstract class BaseDao {
         }
         return null;
     }
+
+    public String queryUserById(String sql,int id) {
+        Connection con = JdbcUtils.getConnection();
+        QueryRunner queryRunner = new QueryRunner();
+        //2.编写sql  这个SQL 有条件，下面query 需要传参
+        User user = null;
+        try {
+            user = queryRunner.query(con,sql, new BeanHandler<User>(User.class), id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        JdbcUtils.close(con);
+        String username=user.getUsername();
+        return username;
+
+    }
+
 
     /**
      * 查询返回多个javaBean的sql语句

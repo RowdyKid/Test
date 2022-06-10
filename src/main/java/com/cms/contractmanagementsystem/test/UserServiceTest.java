@@ -28,4 +28,9 @@ public class UserServiceTest {
             System.out.println("用户名可用！");
         }
     }
+
+    @Test
+    public  void queryusernamebyID(){
+        System.out.println(userService.queryusernamebyID(33));
+    }
 }
