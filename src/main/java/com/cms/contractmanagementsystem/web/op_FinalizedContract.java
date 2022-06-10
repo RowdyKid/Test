@@ -36,7 +36,12 @@ public class op_FinalizedContract extends HttpServlet{
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        // this.doPost(request, response);
+        this.doPost(request, response);}
+
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
@@ -112,7 +117,6 @@ public class op_FinalizedContract extends HttpServlet{
             status.SetfinishTime(currentTime);
             statusDAO.UpdateEntity(status);
             boolean UpdateStatus = statusDAO.UpdateEntity(status);
-
 
 
 
