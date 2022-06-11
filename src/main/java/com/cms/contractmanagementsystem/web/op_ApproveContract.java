@@ -95,13 +95,18 @@ public class op_ApproveContract extends HttpServlet {
                     status.SetcontractStatus(StatusCode.STATUS_FINISH_APPROVE);
                     status.SetfinishTime(currTime);
                     boolean updateStatus = statusDAO.UpdateEntity(status);
-                    //把操作信息写入日志
-                    request.setAttribute("result", "操作成功！");
-                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
-
+                    if (aUpdateOperateFlow && bUpdateOperateFlow && updateStatus) {
+                        request.setAttribute("result", "操作成功！");   //操作成功
+                        request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("result", "操作成功，但操作、状态、日志信息可能不完整！");
+                        request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
+                    }
                 } else {
                     //修改contract表状态不成功，即操作失败
                     request.setAttribute("result", "操作失败！");
+                    request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+
                 }
             } else {
                 //审批不通过
@@ -139,10 +144,13 @@ public class op_ApproveContract extends HttpServlet {
                     status.SetcontractStatus(StatusCode.STATUS_FINISH_COUNTERSIGN);
                     status.SetfinishTime(currTime);
                     boolean updateStatus = statusDAO.UpdateEntity(status);
+                    request.setAttribute("result", "审核未通过");
                     request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
                 } else {
                     //修改contract表状态不成功，即操作失败
                     request.setAttribute("result", "操作失败！");
+                    request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+
                 }
             }
         }
