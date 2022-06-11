@@ -17,6 +17,8 @@ import com.cms.contractmanagementsystem.utils.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @WebServlet("/WaitingSignContract")
 public class WaitingSignContract extends HttpServlet {
@@ -77,16 +79,31 @@ public class WaitingSignContract extends HttpServlet {
             operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
 
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+            ArrayList<Contract> contracts = new ArrayList<Contract>();
+            ArrayList<Contract> contractSearch = new ArrayList<Contract>();
+            String conName = request.getParameter("conName");
+            System.out.println(conName);
+
+            Pattern pattern = Pattern.compile(conName, Pattern.CASE_INSENSITIVE);
 
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if(id.equals(contract.GetId()))
-                    {
-                        request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("op_WaittingForSignContractList.jsp").forward(request, response);
+                    // Matcher matcher = pattern.matcher(((OperateFlow) arr.get(i)).getContent());
+                    contracts.add(contract);
+                }
+                for (int i = 0; i < contracts.size(); i++) {
+                    Matcher matcher = pattern.matcher(contracts.get(i).GetName());
+                    if (matcher.find()) {
+                        //把找到的图书放入arraySearch集合
+                        contractSearch.add(contracts.get(i));
                     }
                 }
+                request.setAttribute("contracts", contractSearch);
+
+                request.getRequestDispatcher("op_WaittingForSignContractList.jsp").forward(request, response);
+
+
             }
             return;
         }
