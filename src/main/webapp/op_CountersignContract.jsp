@@ -36,11 +36,11 @@
                             <form role="form">
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" placeholder="等后端写好后自动填写">
+                                    <input class="form-control" name="contractName" value="xx合同" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>会签意见</label>
-                                    <textarea class="form-control" rows="4"></textarea>
+                                    <textarea class="form-control" rows="4" name="countersignOpinion"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-default">提交</button>
                                 <button type="reset" class="btn btn-default">重置</button>
