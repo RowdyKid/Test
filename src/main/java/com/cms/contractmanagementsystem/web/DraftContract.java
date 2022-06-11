@@ -53,8 +53,13 @@ public class DraftContract extends HttpServlet{
             String clientName = request.getParameter("customerName");
             //控制台输出合同名称
             System.out.println(name);
+            System.out.println(startTime);
+            System.out.println(finishTime);
+            System.out.println(content);
+            System.out.println(clientName);
 
-            int drafterNo = (Integer) session.getAttribute("id");
+            int drafterNo = 19;
+            //int drafterNo = (Integer) session.getAttribute("id");
 
             //根据获得的客户名获取客户ID
             Client aClient = new Client();
@@ -62,6 +67,7 @@ public class DraftContract extends HttpServlet{
             Client client = (Client) new ClientDAO().GetOneEntity(aClient);
 
             //写入数据库
+            //Contract tempContract = new Contract(0, name, 6, startTime, finishTime, content, drafterNo);
             Contract tempContract = new Contract(0, name, client.GetId(), startTime, finishTime, content, drafterNo);
             ContractDAO contractDAO = new ContractDAO();
             if(contractDAO.AddEntity(tempContract)){
