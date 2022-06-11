@@ -50,8 +50,14 @@ public class op_SignContract extends HttpServlet{
         if (type==null){
             ContractDAO contractDAO = new ContractDAO();
             Contract contract = (Contract) contractDAO.GetOneEntity(contractNo);
-            request.setAttribute("contractId",contract.GetId());
+            int clientNo = contract.GetClientNo();
+            ClientDAO clientdao = new ClientDAO();
+            Client client=(Client)clientdao.GetOneEntity(clientNo);
+
+            request.setAttribute("customerName",client.GetName());
+
             request.setAttribute("contractName",contract.GetName());
+
             request.getRequestDispatcher("op_SignContract.jsp").forward(request, response);
         }
         else if(type.equals("Sign")) {
