@@ -5,6 +5,8 @@ package com.cms.contractmanagementsystem.web;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  * 文件名：ContractManageFinalize.java
  * 描述：查看已审批合同
@@ -72,25 +74,39 @@ public class HaveApproveContract extends HttpServlet {
             request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
         }
         else if(type.equals("search")){
-            //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("id"));
-            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
             operateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
             operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
 
+
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+            ArrayList<Contract> contracts = new ArrayList<Contract>();
+            ArrayList<Contract> contractSearch = new ArrayList<Contract>();
+            String conName = request.getParameter("conName");
+            System.out.println(conName);
+
+            Pattern pattern = Pattern.compile(conName, Pattern.CASE_INSENSITIVE);
 
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if(id.equals(contract.GetId()))
-                    {
-                        request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
+                    // Matcher matcher = pattern.matcher(((OperateFlow) arr.get(i)).getContent());
+                    contracts.add(contract);
+                }
+                for (int i = 0; i < contracts.size(); i++) {
+                    Matcher matcher = pattern.matcher(contracts.get(i).GetName());
+                    if (matcher.find()) {
+                        //把找到的图书放入arraySearch集合
+                        contractSearch.add(contracts.get(i));
                     }
                 }
+                request.setAttribute("contracts", contractSearch);
+
+                request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
+            }
+
             }
             return;
         }
@@ -98,5 +114,4 @@ public class HaveApproveContract extends HttpServlet {
 
 
 
-}
 
