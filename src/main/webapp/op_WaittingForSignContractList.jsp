@@ -68,7 +68,7 @@
                                 <td><%=contract.GetStartTime()%>
                                 </td>
                                 <td>
-                                    <a href="op_SignContract.jsp">签订</a>
+                                    <a href="${pageContext.request.contextPath}/op_SignContract?contractid=<%=contract.GetId()%>">签订</a>
                                 </td>
                             </tr>
                             <%}%>

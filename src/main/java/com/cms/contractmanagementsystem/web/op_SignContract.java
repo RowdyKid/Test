@@ -50,13 +50,12 @@ public class op_SignContract extends HttpServlet{
         if (type==null){
             ContractDAO contractDAO = new ContractDAO();
             Contract contract = (Contract) contractDAO.GetOneEntity(contractNo);
+            request.setAttribute("contractId",contract.GetId());
             request.setAttribute("contractName",contract.GetName());
             request.getRequestDispatcher("op_SignContract.jsp").forward(request, response);
-
         }
         else if(type.equals("Sign")) {
             //获取提交的信息，写入数据库
-
             String qdxx = request.getParameter("contractContent");
             //修改contract信息
             Contract aContract = new Contract();
