@@ -81,24 +81,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <%--将上述表格实现分页功能--%>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="dataTables_info" id="dataTables-example_info" role="alert"
-                                 aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
-                            </div>
-                            <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-                                <ul class="pagination">
-                                    <li class="paginate_button previous disabled" aria-controls="dataTables-example"
-                                        tabindex="0" id="dataTables-example_previous"><a href="#">上一页</a></li>
-                                    <li class="paginate_button next" aria-controls
-                                        is="dataTables-example" tabindex="0" id="dataTables-example_next"><a
-                                            href="#">下一页</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

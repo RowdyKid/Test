@@ -39,7 +39,7 @@
                     <%--添加搜索栏，可通过搜索栏输入合同名称搜素待会签合同，并在下方表格中展示--%>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
+                                <form role="form" action="<%=request.getContextPath()%>/WaitingCountersignContract?type=search"
                                       method="get">
                                     <input type="hidden" name="type" value="search">
                                     <label>
@@ -70,7 +70,7 @@
                                 <td><%=contract.GetStartTime()%>
                                 </td>
                                 <td>
-                                    <a href="op_CountersignContract.jsp">会签</a>
+                                    <a href="${pageContext.request.contextPath}/op_CountersignContract?contractid=<%=contract.GetId()%>">会签</a>
                                 </td>
                             </tr>
                             <%}%>
@@ -82,24 +82,6 @@
                             <%}%>
                             </tbody>
                         </table>
-                    </div>
-                    <%--将上述表格实现分页功能--%>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="dataTables_info" id="dataTables-example_info" role="alert"
-                                 aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
-                            </div>
-                            <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-                                <ul class="pagination">
-                                    <li class="paginate_button previous disabled" aria-controls="dataTables-example"
-                                        tabindex="0" id="dataTables-example_previous"><a href="#">上一页</a></li>
-                                    <li class="paginate_button next" aria-controls
-                                        is="dataTables-example" tabindex="0" id="dataTables-example_next"><a
-                                            href="#">下一页</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

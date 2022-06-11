@@ -33,7 +33,7 @@ public class MySQLConnection {
 //			return false;
 //		}
 
-        this.ConnectMySQL("cmd", "3306", "root", "1571@163.com");
+        this.ConnectMySQL("cms", "3306", "root", "12345");
 
         return true;
     }
