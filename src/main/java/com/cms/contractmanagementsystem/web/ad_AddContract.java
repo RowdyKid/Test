@@ -16,15 +16,15 @@ import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
 
 /**
- * Servlet implementation class DraftContract
+ * Servlet implementation class ad_AddContract
  */
 
-@WebServlet("/DraftContract")
+@WebServlet("/ad_AddContract")
 
-public class DraftContract extends HttpServlet{
+public class ad_AddContract extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
-    public DraftContract(){
+    public ad_AddContract(){
         super();
         //TODO
     }
@@ -42,8 +42,8 @@ public class DraftContract extends HttpServlet{
         String type = request.getParameter("type");
         if(type == null){
             request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
-            request.getRequestDispatcher("op_DraftContract.jsp").forward(request, response);
-        } else if (type.equals("draftOper")) {
+            request.getRequestDispatcher("ad_AddContract.jsp").forward(request, response);
+        } else if (type.equals("addOper")) {
             //获取前台数据
             HttpSession session = request.getSession(true);
             String name = request.getParameter("contractName");
@@ -58,10 +58,10 @@ public class DraftContract extends HttpServlet{
             System.out.println(content);
             System.out.println(clientName);
 
-            //int drafterNo = 19;
             int drafterNo = (Integer) session.getAttribute("userid");
 
             //根据获得的客户名获取客户ID
+
             Client aClient = new Client();
             aClient.SetName(clientName);
             Client client = (Client) new ClientDAO().GetOneEntity(aClient);
@@ -100,7 +100,7 @@ public class DraftContract extends HttpServlet{
                 }
 
                 if(addOperateFlow&&addStatus
-                        //&&addLog
+                    //&&addLog
                 ){
                     request.setAttribute("result", "起草成功！");   //合同起草成功
                 }else{
@@ -119,3 +119,4 @@ public class DraftContract extends HttpServlet{
     }
 
 }
+
