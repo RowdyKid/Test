@@ -59,6 +59,7 @@ public class op_ApproveContract extends HttpServlet {
             request.getRequestDispatcher("op_ApproveContract.jsp").forward(request, response);
         } else if (type.equals("approve")) {
             if (option.equals("1")) {
+                System.out.println("审批通过");
                 //审批通过
                 //修改contract表状态
                 Contract aContract = new Contract();

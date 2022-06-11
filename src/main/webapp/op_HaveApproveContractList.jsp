@@ -68,7 +68,7 @@
                                 <td><%=contract.GetStartTime()%>
                                 </td>
                                 <td>
-                                    <a href="op_InfoOfApproveContract.jsp">查看</a>
+                                    <a href="${pageContext.request.contextPath}/HaveApproveContract">查看</a>
                                 </td>
                             </tr>
                             <%}%>

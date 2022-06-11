@@ -16,6 +16,11 @@
 <%--整体包裹容器--%>
 <div id="wrapper">
     <%@include file="op_OperatorNavHead.jsp" %>
+    <%
+        int contractId = (int) request.getAttribute("contractId");
+        String contractName = (String) request.getAttribute("contractName");
+        String customerName = (String)request.getAttribute("customerName");
+    %>
 </div>
 <%--页面剩余部分展示签订合同表单，包括合同名称，客户名称,不可修改，签订信息，可修改，提交和重置按钮--%>
 <div id="page-wrapper">
@@ -33,17 +38,19 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form role="form" action="op_SignContract.jsp" method="post">
+                            <form role="form" action="${pageContext.request.contextPath}/op_SignContract" method="post">
+                                <input type="hidden" name="type" value="submit">
+                                <input type="hidden" name="id" value="<%=contractId%>">
                                 <div class="form-group">
                                     <label>合同名称</label>
                                     <label>
-                                        <input class="form-control" name="contractName" value="xx合同" readonly>
+                                        <input class="form-control" name="contractName" value=<%=contractName%> readonly>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label>客户名称</label>
                                     <label>
-                                        <input class="form-control" name="customerName" value="张三" readonly>
+                                        <input class="form-control" name="customerName" value=<%=customerName%> readonly>
                                     </label>
                                 </div>
                                 <div class="form-group">

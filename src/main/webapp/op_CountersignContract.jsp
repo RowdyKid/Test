@@ -16,6 +16,10 @@
 <%--整体包裹容器--%>
 <div id="wrapper">
     <%@include file="op_OperatorNavHead.jsp" %>
+    <%
+        int contractId = (int) request.getAttribute("contractId");
+        String contractName = (String) request.getAttribute("contractName");
+    %>
 </div>
 <%--在该页面剩余部分创建会签同表单，内容包括合同名称，会签意见，提交和重置按钮--%>
 <div id="page-wrapper">
@@ -33,10 +37,13 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form role="form">
+                            <form role="form" action="${pageContext.request.contextPath}/op_CountersignContract"
+                                  method="post">
+                                <input type="hidden" name="type" value="countersign">
+                                <input type="hidden" name="contractid" value="<%=contractId%>">
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" name="contractName" value="xx合同" readonly>
+                                    <input class="form-control" name="contractName" value=<%=contractName%> readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>会签意见</label>

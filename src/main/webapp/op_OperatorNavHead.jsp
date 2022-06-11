@@ -50,7 +50,7 @@
                             <a href="${pageContext.request.contextPath}/WaitingCountersignContract">待会签合同</a>
                         </li>
                         <li>
-                            <a href="op_HaveCountersignContractList.jsp">已会签合同</a>
+                            <a href="${pageContext.request.contextPath}/HaveCountersignContract">已会签合同</a>
                         </li>
 
                     </ul>

@@ -1,4 +1,5 @@
 package com.cms.contractmanagementsystem.web;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,9 +39,8 @@ public class HaveFinalizedContract extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession(true);
 
-        //int clientNo=(Integer)session.getAttribute("id");
+        int clientNo = (Integer) session.getAttribute("userid");
         String type = request.getParameter("type");
-        int clientNo = 1;
 
 
         if (type == null) {
@@ -60,9 +61,8 @@ public class HaveFinalizedContract extends HttpServlet {
             request.getRequestDispatcher("op_HaveFinalizedContractList.jsp").forward(request, response);
 
 
-        }
-        else if(type.equals("search")){
-            Integer id=Integer.parseInt(request.getParameter("id"));
+        } else if (type.equals("search")) {
+            Integer id = Integer.parseInt(request.getParameter("id"));
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -74,21 +74,12 @@ public class HaveFinalizedContract extends HttpServlet {
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if(id.equals(contract.GetId()))
-                    {
+                    if (id.equals(contract.GetId())) {
                         request.setAttribute("contracts", contract);
                         request.getRequestDispatcher("op_HaveFinalizedContractList.jsp").forward(request, response);
                     }
                 }
             }
-            return;
-
         }
-
-
     }
-
-
-
-
 }
