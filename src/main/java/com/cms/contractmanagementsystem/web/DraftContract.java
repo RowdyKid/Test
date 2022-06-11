@@ -58,8 +58,8 @@ public class DraftContract extends HttpServlet{
             System.out.println(content);
             System.out.println(clientName);
 
-            int drafterNo = 19;
-            //int drafterNo = (Integer) session.getAttribute("id");
+            //int drafterNo = 19;
+            int drafterNo = (Integer) session.getAttribute("userid");
 
             //根据获得的客户名获取客户ID
             Client aClient = new Client();
