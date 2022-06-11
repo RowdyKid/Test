@@ -39,9 +39,8 @@ public class WaitingCountersignContract extends HttpServlet{
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
-        //int clientNo=(Integer)session.getAttribute("id");
+        int clientNo = (Integer) session.getAttribute("userid");
         String type=request.getParameter("type");
-        int clientNo=1;
 
 
         if(type==null){

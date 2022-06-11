@@ -33,8 +33,6 @@ public class op_CountersignContract extends HttpServlet{
         //获取提交的信息，写入数据库
         HttpSession session = request.getSession(true);
         int userNo = (Integer)request.getSession().getAttribute("userid");
-
-
         int contractNo = Integer.parseInt(request.getParameter("contractid"));
 
         //会签意见

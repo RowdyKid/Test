@@ -42,9 +42,8 @@ public class WaitingSignContract extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
-        //int clientNo=(Integer)session.getAttribute("id");
+        int clientNo = (Integer) session.getAttribute("userid");
         String type=request.getParameter("type");
-        int clientNo=1;
 
 
         if(type==null){
@@ -70,7 +69,7 @@ public class WaitingSignContract extends HttpServlet {
         }
         else if(type.equals("search")){
             //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("id"));
+            Integer id=Integer.parseInt(request.getParameter("contractid"));
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
