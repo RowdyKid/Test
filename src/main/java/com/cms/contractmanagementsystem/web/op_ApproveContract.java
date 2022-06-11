@@ -1,7 +1,6 @@
 package com.cms.contractmanagementsystem.web;
 
 
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,43 +21,44 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
-@WebServlet("/op_ApproveContract")
-public class op_ApproveContract extends HttpServlet{
 
-        public op_ApproveContract() {
-            super();
-            // TODO Auto-generated constructor stub
-        }
+@WebServlet("/op_ApproveContract")
+public class op_ApproveContract extends HttpServlet {
+
+    public op_ApproveContract() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        this.doPost(request, response);}
+        this.doPost(request, response);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
 
-       //获取提交的信息，写入数据库
+        //获取提交的信息，写入数据库
         HttpSession session = request.getSession(true);
-        int userNo = (Integer)request.getSession().getAttribute("userid");
-
-
+        int userNo = (Integer) request.getSession().getAttribute("userid");
         int contractNo = Integer.parseInt(request.getParameter("contractid"));
 
         //审批意见
         String spyj = request.getParameter("approvalOpinion");
-        String option = request.getParameter("isPass");
-        String type=request.getParameter("type");
-        if (type==null){
+        String option = request.getParameter("approveResult");
+        String type = request.getParameter("type");
+        if (type == null) {
 
             ContractDAO contractDao = new ContractDAO();
             Contract contract = (Contract) contractDao.GetOneEntity(contractNo);
 
-            request.setAttribute("contractName",contract.GetName());
-
+            request.setAttribute("contractId", contract.GetId());
+            request.setAttribute("contractName", contract.GetName());
             request.getRequestDispatcher("op_ApproveContract.jsp").forward(request, response);
-        }
-       else if(type.equals("approve")) {
-            if (option.equals("pass")) {
+        } else if (type.equals("approve")) {
+            if (option.equals("1")) {
                 //审批通过
                 //修改contract表状态
                 Contract aContract = new Contract();
@@ -96,13 +96,12 @@ public class op_ApproveContract extends HttpServlet{
                     boolean updateStatus = statusDAO.UpdateEntity(status);
                     //把操作信息写入日志
                     request.setAttribute("result", "操作成功！");
+                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
 
                 } else {
                     //修改contract表状态不成功，即操作失败
                     request.setAttribute("result", "操作失败！");
                 }
-
-
             } else {
                 //审批不通过
                 //修改contract表状态
@@ -139,17 +138,13 @@ public class op_ApproveContract extends HttpServlet{
                     status.SetcontractStatus(StatusCode.STATUS_FINISH_COUNTERSIGN);
                     status.SetfinishTime(currTime);
                     boolean updateStatus = statusDAO.UpdateEntity(status);
-
+                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
                 } else {
                     //修改contract表状态不成功，即操作失败
-
                     request.setAttribute("result", "操作失败！");
                 }
             }
-
-
-
         }
     }
-    }
+}
 

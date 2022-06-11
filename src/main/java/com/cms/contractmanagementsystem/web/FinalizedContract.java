@@ -49,10 +49,9 @@ public class FinalizedContract extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
-        int clientNo = (Integer) session.getAttribute("nowUserId");
+        int clientNo = (Integer) session.getAttribute("userid");
         System.out.println("clientNo:" + clientNo);
         String type = request.getParameter("type");
-
 
         if (type == null) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
@@ -75,8 +74,6 @@ public class FinalizedContract extends HttpServlet {
 
 
         } else if (type.equals("search")) {
-            //获取合同ID
-            /*Integer id = Integer.parseInt(request.getParameter("id"));*/
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);

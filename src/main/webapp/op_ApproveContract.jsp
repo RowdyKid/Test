@@ -11,6 +11,10 @@
     <title>Title</title>
     <%--导入相关美化部件--%>
     <%@include file="op_OperatorCSS.jsp" %>
+    <%
+        int contractId = (int) request.getAttribute("contractId");
+        String contractName = (String) request.getAttribute("contractName");
+    %>
 </head>
 <body>
 <div id="wrapper">
@@ -34,10 +38,12 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="op_ApproveContract.jsp" method="post">
+                            <form role="form" action="${pageContext.request.contextPath}/op_ApproveContract" method="post">
+                                <input type="hidden" name="type" value="approve">
+                                <input type="hidden" name="contractid" value="<%=contractId%>">
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" name="contractName" value="xx合同" readonly>
+                                    <input class="form-control" name="contractName" value=<%=contractName%> readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>审批意见</label>

@@ -1,7 +1,6 @@
 package com.cms.contractmanagementsystem.web;
 
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -47,12 +46,12 @@ public class WaitingApproveContract extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
-        //int clientNo=(Integer)session.getAttribute("id");
-        String type=request.getParameter("type");
-        int clientNo=1;
+        int clientNo = (Integer) session.getAttribute("userid");
+        System.out.println("clientNo:" + clientNo);
+        String type = request.getParameter("type");
 
 
-        if(type==null){
+        if (type == null) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -72,10 +71,9 @@ public class WaitingApproveContract extends HttpServlet {
             request.getRequestDispatcher("op_WaittingForApproveContractList.jsp").forward(request, response);
 
 
-        }
-        else if(type.equals("search")){
+        } else if (type.equals("search")) {
             //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("id"));
+            Integer id = Integer.parseInt(request.getParameter("id"));
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -87,8 +85,7 @@ public class WaitingApproveContract extends HttpServlet {
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if(id.equals(contract.GetId()))
-                    {
+                    if (id.equals(contract.GetId())) {
                         request.setAttribute("contracts", contract);
                         request.getRequestDispatcher("op_WaittingForApproveContractList.jsp").forward(request, response);
                     }
@@ -97,7 +94,6 @@ public class WaitingApproveContract extends HttpServlet {
             return;
         }
     }
-
 
 
 }

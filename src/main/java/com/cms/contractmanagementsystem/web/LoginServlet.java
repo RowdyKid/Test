@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             // 登录 成功
             // 保存用户信息到 Session 域中
             req.getSession().setAttribute("nowUserName", username);
-            req.getSession().setAttribute("nowUserId", loginUser.getId());
+            req.getSession().setAttribute("userid", loginUser.getId());
             System.out.println(loginUser.getId());
             System.out.println(username);
 
