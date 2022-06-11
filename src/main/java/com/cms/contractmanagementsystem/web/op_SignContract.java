@@ -84,13 +84,18 @@ public class op_SignContract extends HttpServlet{
                 status.SetcontractStatus(StatusCode.STATUS_FINISH_SIGN);
                 status.SetfinishTime(currTime);
                 boolean updateStatus = statusDAO.UpdateEntity(status);
-
-                 //操作成功与否的提示
-                request.setAttribute("result", "操作成功！");
-
+                if (updateOperateFlow && updateOperateFlow && updateStatus) {
+                    request.setAttribute("result", "操作成功！");   //操作成功
+                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("result", "操作成功，但操作、状态、日志信息可能不完整！");
+                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
+                }
             } else {
                 //操作失败
                 request.setAttribute("result", "操作失败！");
+                request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+
             }
       }
         }
