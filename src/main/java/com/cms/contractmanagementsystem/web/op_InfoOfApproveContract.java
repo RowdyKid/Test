@@ -44,19 +44,18 @@ public class op_InfoOfApproveContract extends HttpServlet {
         Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
         int clientNo = oldContract.GetClientNo();
         ClientDAO clientdao = new ClientDAO();
-        request.setAttribute("contract",oldContract);
+       //查看经过审核的合同（不代表审核通过）
         OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
         OperateFlow operateFlow = new OperateFlow();
-        operateFlow.setOperatorNo(clientNo);
+        operateFlow.setContractNo(contractNo);
         operateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
-        operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
 
 
         ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
         if (arr != null) {
             for (int i = 0; i < arr.size(); i++) {
                 Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-               if(contractNo==contract.GetId()){
+
                    request.setAttribute("contractName",contract.GetName());
                    request.setAttribute("approvalOpinion", ((OperateFlow) arr.get(i)).getContent());
                    String result ;
@@ -68,10 +67,11 @@ public class op_InfoOfApproveContract extends HttpServlet {
                            result="YES";
                            request.setAttribute("isPass",result);
                        }
-                       request.getRequestDispatcher("op_InfoOfApproveContract.jsp").forward(request, response);
-                   }
+
                }
             }
-        }
+        request.getRequestDispatcher("op_InfoOfApproveContract.jsp").forward(request, response);
+
+    }
 }
 
