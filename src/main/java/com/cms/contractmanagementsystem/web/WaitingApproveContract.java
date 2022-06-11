@@ -74,9 +74,7 @@ public class WaitingApproveContract extends HttpServlet {
 
 
         } else if (type.equals("search")) {
-            //获取合同ID
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+           OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
             operateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
