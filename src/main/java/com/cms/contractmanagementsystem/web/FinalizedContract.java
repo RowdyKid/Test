@@ -49,9 +49,9 @@ public class FinalizedContract extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
-        //int clientNo=(Integer)session.getAttribute("id");
+        int clientNo = (Integer) session.getAttribute("nowUserId");
+        System.out.println("clientNo:" + clientNo);
         String type = request.getParameter("type");
-        int clientNo = 1;
 
 
         if (type == null) {
@@ -76,7 +76,7 @@ public class FinalizedContract extends HttpServlet {
 
         } else if (type.equals("search")) {
             //获取合同ID
-            Integer id = Integer.parseInt(request.getParameter("id"));
+            /*Integer id = Integer.parseInt(request.getParameter("id"));*/
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -86,30 +86,29 @@ public class FinalizedContract extends HttpServlet {
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
             ArrayList<Contract> contracts = new ArrayList<Contract>();
             ArrayList<Contract> contractSearch = new ArrayList<Contract>();
-            String conName=request.getParameter("conName");
+            String conName = request.getParameter("conName");
+            System.out.println(conName);
 
-            Pattern pattern = Pattern.compile(conName,Pattern.CASE_INSENSITIVE);
+            Pattern pattern = Pattern.compile(conName, Pattern.CASE_INSENSITIVE);
 
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                   // Matcher matcher = pattern.matcher(((OperateFlow) arr.get(i)).getContent());
+                    // Matcher matcher = pattern.matcher(((OperateFlow) arr.get(i)).getContent());
                     contracts.add(contract);
                 }
-                for(int i=0;i< contracts.size();i++){
-                     Matcher matcher = pattern.matcher(contracts.get(i).GetName());
-                    if(matcher.find()){
+                for (int i = 0; i < contracts.size(); i++) {
+                    Matcher matcher = pattern.matcher(contracts.get(i).GetName());
+                    if (matcher.find()) {
                         //把找到的图书放入arraySearch集合
                         contractSearch.add(contracts.get(i));
                     }
                 }
-                request.setAttribute("contracts",  contractSearch);
+                request.setAttribute("contracts", contractSearch);
+                System.out.println(contractSearch.size());
                 request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
 
             }
-
-
-            return;
         }
     }
 }

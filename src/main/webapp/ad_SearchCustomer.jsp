@@ -31,16 +31,19 @@
                 </div>
                 <div class="panel-body">
                     <%--添加搜索栏，可通过搜索栏输入合同名称搜素合同信息，并在下方表格中展示--%>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入合同名称">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">搜索</button>
-                                </span>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
+                                      method="get">
+                                    <input type="hidden" name="type" value="search">
+                                    <label>
+                                        <input class="form-control" name="contractName" placeholder="请输入客户名称">
+                                    </label>
+                                    <input type="submit" class="btn btn-default" value="搜索">
+
+                                </form>
                             </div>
                         </div>
-                    </div>
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                         <tr>

@@ -1,7 +1,6 @@
 package com.cms.contractmanagementsystem.web;
 
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,8 +19,9 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
+
 @WebServlet("/op_FinalizedContract")
-public class op_FinalizedContract extends HttpServlet{
+public class op_FinalizedContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -31,115 +31,103 @@ public class op_FinalizedContract extends HttpServlet{
         super();
         // TODO Auto-generated constructor stub
     }
+
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        this.doPost(request, response);}
-
+        this.doPost(request, response);
+    }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
 
-        Integer contractNo=Integer.parseInt(request.getParameter("id"));
+        Integer contractNo = Integer.parseInt(request.getParameter("id"));
+        System.out.println("contractNo:" + contractNo);
+        String type = request.getParameter("type");
 
-        String type=request.getParameter("type");
-
-        if(type==null){
+        if (type == null) {
             ContractDAO contractDAO = new ContractDAO();
             Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
-          int clientNo= oldContract.GetClientNo();
-          ClientDAO clientdao=new ClientDAO();
-          String clientName=((Client) clientdao.GetOneEntity(clientNo)).GetName();
+            int clientNo = oldContract.GetClientNo();
+            ClientDAO clientdao = new ClientDAO();
+            String clientName = ((Client) clientdao.GetOneEntity(clientNo)).GetName();
 
+            request.setAttribute("contractId",oldContract.GetId());
             request.setAttribute("contractName", oldContract.GetName());
-            request.setAttribute("customerName",clientName);
-            request.setAttribute("contractStartTime",oldContract.GetStartTime());
-            request.setAttribute("contractEndTime",oldContract.GetFinishTime());
-            request.setAttribute("contractContent",oldContract.GetContent());
+            request.setAttribute("customerName", clientName);
+            request.setAttribute("contractStartTime", oldContract.GetStartTime());
+            request.setAttribute("contractEndTime", oldContract.GetFinishTime());
+            request.setAttribute("contractContent", oldContract.GetContent());
             request.getRequestDispatcher("op_FinalizedContract.jsp").forward(request, response);
+        } else if (type.equals("submit")) {
+            //获取提交的信息，写入数据库
+            String htnr = (String) request.getParameter("contractContent");
+            ContractDAO contractDAO = new ContractDAO();
+            Contract newContract = (Contract) contractDAO.GetOneEntity(contractNo);
 
+            newContract.SetContent(htnr);
 
+            if (contractDAO.UpdateEntity(newContract)) {
+                //更新合同内容成功
+                //获取当前时间
+                Calendar date = Calendar.getInstance();
+                int day = date.get(Calendar.DAY_OF_MONTH);
+                int month = date.get(Calendar.MONTH) + 1;
+                int year = date.get(Calendar.YEAR);
+                int hour = date.get(Calendar.HOUR_OF_DAY);
+                int minute = date.get(Calendar.MINUTE);
+                int second = date.get(Calendar.SECOND);
+                String currentTime = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+                //更改operateflow表中数据
+                OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+                //将合同定稿的状态从OPERATESTATUS_NO_FINISH改为OPERATESTATUS_HAVE_FINISH
+                OperateFlow aOperateFlow = new OperateFlow();
+                aOperateFlow.setContractNo(contractNo);
+                aOperateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+                aOperateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
+                OperateFlow aNewOperateFlow = (OperateFlow) operateFlowDAO.GetOneEntity(aOperateFlow);
+                aNewOperateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
+                aNewOperateFlow.setOperateDate(currentTime);
+                boolean aUpdateOperateFlow = operateFlowDAO.UpdateEntity(aNewOperateFlow);
+                //将合同审批的状态从OPERATESTATUS_NO_REDY改为OPERATESTATUS_NO_FINISH
+                OperateFlow bOperateFlow = new OperateFlow();
+                bOperateFlow.setContractNo(contractNo);
+                bOperateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
+                OperateFlow bNewOperateFlow = (OperateFlow) operateFlowDAO.GetOneEntity(bOperateFlow);
+                bNewOperateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
+                boolean bUpdateOperateFlow = operateFlowDAO.UpdateEntity(bNewOperateFlow);
 
-        }
-        else if (type.equals("submit")){
-        //获取提交的信息，写入数据库
-        String htnr = (String)request.getParameter("contractContent");
-        ContractDAO contractDAO = new ContractDAO();
-        Contract newContract = (Contract) contractDAO.GetOneEntity(contractNo);
+                //更改status表数据
+                StatusDAO statusDAO = new StatusDAO();
+                Status aStatus = new Status();
+                aStatus.SetcontractNo(contractNo);
+                Status status = (Status) statusDAO.GetOneEntity(aStatus);
+                status.SetcontractStatus(StatusCode.STATUS_FINISH_FINALIZE);
+                status.SetfinishTime(currentTime);
+                statusDAO.UpdateEntity(status);
+                boolean UpdateStatus = statusDAO.UpdateEntity(status);
 
-        newContract.SetContent(htnr);
+                //操作成功与否的提示
+                if (aUpdateOperateFlow && bUpdateOperateFlow && UpdateStatus) {
+                    request.setAttribute("result", "操作成功！");   //操作成功
+                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("result", "操作成功，但操作、状态、日志信息可能不完整！");
+                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
+                }
 
-        if(contractDAO.UpdateEntity(newContract)) {
-            //更新合同内容成功
-            //获取当前时间
-            Calendar date = Calendar.getInstance();
-            int day = date.get(Calendar.DAY_OF_MONTH);
-            int month = date.get(Calendar.MONTH) + 1;
-            int year = date.get(Calendar.YEAR);
-            int hour = date.get(Calendar.HOUR_OF_DAY);
-            int minute = date.get(Calendar.MINUTE);
-            int second = date.get(Calendar.SECOND);
-            String currentTime = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
-            //更改operateflow表中数据
-            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
-            //将合同定稿的状态从OPERATESTATUS_NO_FINISH改为OPERATESTATUS_HAVE_FINISH
-            OperateFlow aOperateFlow = new OperateFlow();
-            aOperateFlow.setContractNo(contractNo);
-            aOperateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
-            aOperateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
-            OperateFlow aNewOperateFlow = (OperateFlow) operateFlowDAO.GetOneEntity(aOperateFlow);
-            aNewOperateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
-            aNewOperateFlow.setOperateDate(currentTime);
-            boolean aUpdateOperateFlow=operateFlowDAO.UpdateEntity(aNewOperateFlow);
-            //将合同审批的状态从OPERATESTATUS_NO_REDY改为OPERATESTATUS_NO_FINISH
-            OperateFlow bOperateFlow = new OperateFlow();
-            bOperateFlow.setContractNo(contractNo);
-            bOperateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
-            OperateFlow bNewOperateFlow = (OperateFlow) operateFlowDAO.GetOneEntity(bOperateFlow);
-            bNewOperateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
-            boolean bUpdateOperateFlow = operateFlowDAO.UpdateEntity(bNewOperateFlow);
-
-            //更改status表数据
-            StatusDAO statusDAO = new StatusDAO();
-            Status aStatus = new Status();
-            aStatus.SetcontractNo(contractNo);
-            Status status = (Status) statusDAO.GetOneEntity(aStatus);
-            status.SetcontractStatus(StatusCode.STATUS_FINISH_FINALIZE);
-            status.SetfinishTime(currentTime);
-            statusDAO.UpdateEntity(status);
-            boolean UpdateStatus = statusDAO.UpdateEntity(status);
-
-
-
-            //操作成功与否的提示
-            if(aUpdateOperateFlow&&bUpdateOperateFlow&&UpdateStatus){
-                request.setAttribute("result", "操作成功！");   //操作成功
-            }else{
-                request.setAttribute("result", "操作成功，但操作、状态、日志信息可能不完整！");
+            } else {
+                //定稿失败
+                request.setAttribute("result", "操作失败！");
+                request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
             }
-
-        } else {
-            //定稿失败
-
-            request.setAttribute("result", "操作失败！");
-
         }
-
-
     }
-
-
-    }
-
-
-
 }

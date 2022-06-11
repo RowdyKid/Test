@@ -56,7 +56,7 @@ public class HaveFinalizedContract extends HttpServlet {
                     contracts.add(contract);
                 }
             }
-            request.setAttribute("contractList", contracts);
+            request.setAttribute("contracts", contracts);
             request.getRequestDispatcher("op_HaveFinalizedContractList.jsp").forward(request, response);
 
 

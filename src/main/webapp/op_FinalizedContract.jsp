@@ -11,6 +11,15 @@
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
     <%@include file="op_OperatorCSS.jsp" %>
+
+    <%
+        int contractId = (int) request.getAttribute("contractId");
+        String contractName = (String) request.getAttribute("contractName");
+        String customerName = (String)request.getAttribute("customerName");
+        String contractStartTime =(String) request.getAttribute("contractStartTime");
+        String contractEndTime =(String) request.getAttribute("contractEndTime");
+        String contractContent = (String)request.getAttribute("contractContent");
+    %>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -33,29 +42,32 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="op_FinalizedContract.jsp" method="post">
+                            <form role="form" action="${pageContext.request.contextPath}/op_FinalizedContract"
+                                  method="post">
+                                <input type="hidden" name="type" value="submit">
+                                <input type="hidden" name="id" value="<%=contractId%>">
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" name="contractName" value="xx合同" readonly>
+                                    <input class="form-control" name="contractName" value=<%=contractName%> readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>客户名称</label>
-                                    <input class="form-control" name="customerName" value="张三" readonly>
+                                    <input class="form-control" name="customerName" value=<%=customerName%> readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>合同开始时间</label>
-                                    <input class="form-control" name="contractStartTime" value="2022-05-26"
-                                           readonly>
+                                    <input class="form-control" name="contractStartTime" value=<%=contractStartTime%>
+                                            readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>合同结束时间</label>
-                                    <input class="form-control" name="contractEndTime" value="2022-05-27"
-                                           readonly>
+                                    <input class="form-control" name="contractEndTime" value=<%=contractEndTime%>
+                                            readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>合同内容</label>
                                     <textarea class="form-control"
-                                              name="contractContent" rows="3">这里是合同内容</textarea>
+                                              name="contractContent" rows="3"><%=contractContent%></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-default">提交</button>
                                 <button type="reset" class="btn btn-default">重置</button>
