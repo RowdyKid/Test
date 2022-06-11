@@ -13,17 +13,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 /**
  * 文件名：ContractManageFinalize.java
- * 描述：已审批合同信息展示
- * 创建日期：2022-06-08
+ * 描述：已签订合同信息展示
+ * 创建日期：2022-06-11
  * 创建者：LWJ
  */
-
-
-@WebServlet("/op_InfoOfApproveContract")
-public class op_InfoOfApproveContract extends HttpServlet {
+@WebServlet("/op_InfoOfSignContract")
+public class op_InfoOfSignContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public  op_InfoOfApproveContract() {
+    public  op_InfoOfSignContract() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,6 +35,7 @@ public class op_InfoOfApproveContract extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         Integer contractNo = Integer.parseInt(request.getParameter("id"));
         System.out.println("contractNo:" + contractNo);
 
@@ -44,34 +43,29 @@ public class op_InfoOfApproveContract extends HttpServlet {
         Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
         int clientNo = oldContract.GetClientNo();
         ClientDAO clientdao = new ClientDAO();
-       //查看经过审核的合同（不代表审核通过）
+        Client client=(Client)clientdao.GetOneEntity(clientNo);
+
+        request.setAttribute("customerName",client.GetName());
+        request.setAttribute("contractName",oldContract.GetName());
         OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
         OperateFlow operateFlow = new OperateFlow();
         operateFlow.setContractNo(contractNo);
-        operateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
-
-
+        operateFlow.setOperateType(StatusCode.OPERATETYPE_SIGN);
+        operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
         ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
         if (arr != null) {
             for (int i = 0; i < arr.size(); i++) {
                 Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
 
-                   request.setAttribute("contractName",contract.GetName());
-                   request.setAttribute("approvalOpinion", ((OperateFlow) arr.get(i)).getContent());
-                   String result ;
 
-                   if(((OperateFlow) arr.get(i)).getOperateStatus()==StatusCode.OPERATESTATUS_HAVE_REJECT){
-                       result="NO";
-                       request.setAttribute("isPass",result);}
-                       else{
-                           result="YES";
-                           request.setAttribute("isPass",result);
-                       }
+                    request.setAttribute("contractText",((OperateFlow) arr.get(i)).getContent());}
 
-               }
+
             }
-        request.getRequestDispatcher("op_InfoOfApproveContract.jsp").forward(request, response);
+        }
+
+
+
 
     }
-}
 
