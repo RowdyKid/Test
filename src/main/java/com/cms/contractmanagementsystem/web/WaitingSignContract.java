@@ -81,7 +81,7 @@ public class WaitingSignContract extends HttpServlet {
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
             ArrayList<Contract> contracts = new ArrayList<Contract>();
             ArrayList<Contract> contractSearch = new ArrayList<Contract>();
-            String conName = request.getParameter("conName");
+            String conName = request.getParameter("contractName");
             System.out.println(conName);
 
             Pattern pattern = Pattern.compile(conName, Pattern.CASE_INSENSITIVE);
