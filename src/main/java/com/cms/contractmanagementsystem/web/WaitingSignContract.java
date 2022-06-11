@@ -95,21 +95,13 @@ public class WaitingSignContract extends HttpServlet {
                 for (int i = 0; i < contracts.size(); i++) {
                     Matcher matcher = pattern.matcher(contracts.get(i).GetName());
                     if (matcher.find()) {
-                        //把找到的图书放入arraySearch集合
                         contractSearch.add(contracts.get(i));
                     }
                 }
                 request.setAttribute("contracts", contractSearch);
 
                 request.getRequestDispatcher("op_WaittingForSignContractList.jsp").forward(request, response);
-
-
             }
-            return;
         }
     }
-
-
-
 }
-
