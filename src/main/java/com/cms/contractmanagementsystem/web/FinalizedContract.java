@@ -4,6 +4,8 @@ package com.cms.contractmanagementsystem.web;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  * 文件名：ContractManageFinalize.java
  * 描述：合同定稿
@@ -47,9 +49,9 @@ public class FinalizedContract extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         HttpSession session = request.getSession(true);
-        //int clientNo=(Integer)session.getAttribute("id");
+        int clientNo=(Integer)session.getAttribute("id");
         String type = request.getParameter("type");
-        int clientNo = 1;
+       // int clientNo = 1;
 
 
         if (type == null) {
@@ -82,16 +84,31 @@ public class FinalizedContract extends HttpServlet {
             operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
 
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+            ArrayList<Contract> contracts = new ArrayList<Contract>();
+            ArrayList<Contract> contractSearch = new ArrayList<Contract>();
+            String conName=request.getParameter("conName");
+
+            Pattern pattern = Pattern.compile(conName,Pattern.CASE_INSENSITIVE);
 
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if (id.equals(contract.GetId())) {
-                        request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
+                   // Matcher matcher = pattern.matcher(((OperateFlow) arr.get(i)).getContent());
+                    contracts.add(contract);
+                }
+                for(int i=0;i< contracts.size();i++){
+                     Matcher matcher = pattern.matcher(contracts.get(i).GetName());
+                    if(matcher.find()){
+                        //把找到的图书放入arraySearch集合
+                        contractSearch.add(contracts.get(i));
                     }
                 }
+                request.setAttribute("contracts",  contractSearch);
+                request.getRequestDispatcher("op_WaittingForFinalizedContractList.jsp").forward(request, response);
+
             }
+
+
             return;
         }
     }
