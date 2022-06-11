@@ -20,7 +20,6 @@ public class LoginServlet extends HttpServlet {
         //  1、获取请求的参数
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        System.out.println(username);
         // 调用 userService.login()登录处理业务
         User loginUser = userService.login(new User(null, username, password, null));
         // 如果等于null,说明登录 失败!
@@ -35,6 +34,8 @@ public class LoginServlet extends HttpServlet {
             // 保存用户信息到 Session 域中
             req.getSession().setAttribute("nowUserName", username);
             req.getSession().setAttribute("nowUserId", loginUser.getId());
+            System.out.println(loginUser.getId());
+            System.out.println(username);
 
             if (Objects.equals(username, "newUser")) {
                 req.getRequestDispatcher("NewUserPage.jsp").forward(req, resp);
