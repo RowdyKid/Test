@@ -12,6 +12,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 /**
+ * 文件名：ContractManageFinalize.java
+ * 描述：已定稿合同信息展示
+ * 创建日期：2022-06-08
+ * 创建者：LWJ
+ */
+/**
  * Servlet implementation class ContractManageFinalize
  */
 @WebServlet("/InfoOfFinalizedContractList")
@@ -31,14 +37,23 @@ public class InofOfFinalizedContract extends HttpServlet {
         this.doPost(request, response);
     }
 
-    protected void showdetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //显示合同详细信息
         //获取合同ID
-        Integer id=Integer.parseInt(request.getParameter("id"));
 
 
-    }
+        Integer contractNo = Integer.parseInt(request.getParameter("id"));
+        System.out.println("contractNo:" + contractNo);
+
+            ContractDAO contractDAO = new ContractDAO();
+            Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
+            int clientNo = oldContract.GetClientNo();
+            ClientDAO clientdao = new ClientDAO();
+           request.setAttribute("contract",oldContract);
+            request.getRequestDispatcher("op_InfoOfFinalizedContract.jsp").forward(request, response);
+
+
+        }
 
 
 
