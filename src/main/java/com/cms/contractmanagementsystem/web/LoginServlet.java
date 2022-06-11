@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
             // 登录 成功
             // 保存用户信息到 Session 域中
             req.getSession().setAttribute("nowUserName", username);
+            req.getSession().setAttribute("nowUserId", loginUser.getId());
 
             if (Objects.equals(username, "newUser")) {
                 req.getRequestDispatcher("NewUserPage.jsp").forward(req, resp);

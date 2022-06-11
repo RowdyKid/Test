@@ -44,7 +44,7 @@
                                   method="get">
                                 <input type="hidden" name="type" value="search">
                                 <label>
-                                    <input class="form-control" name="contractName" placeholder="请输入合同名称">
+                                    <input class="form-control" name="conName" placeholder="请输入合同名称">
                                 </label>
                                 <input type="submit" class="btn btn-default" value="搜索">
 
