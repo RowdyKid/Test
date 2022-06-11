@@ -49,7 +49,7 @@ public class ad_SearchContract extends HttpServlet {
 
                 contract.SetName(new String(request.getParameter("contractName").getBytes("iso-8859-1"),"UTF-8"));
                 //contract.SetName(request.getParameter("contractName"));
-                request.setAttribute("contractName", contract.GetName());
+
             }
 
 
