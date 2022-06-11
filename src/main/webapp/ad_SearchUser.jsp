@@ -33,12 +33,15 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入客户名称">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">搜索</button>
-                                </span>
-                            </div>
+                            <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
+                                  method="get">
+                                <input type="hidden" name="type" value="search">
+                                <label>
+                                    <input class="form-control" name="contractName" placeholder="请输入用户名字">
+                                </label>
+                                <input type="submit" class="btn btn-default" value="搜索">
+
+                            </form>
                         </div>
                     </div>
                     <div class="table-responsive">

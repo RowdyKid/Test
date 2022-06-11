@@ -37,15 +37,18 @@
                     待定稿合同列表
                 </div>
                 <div class="panel-body">
-                    <%--添加搜索栏，可通过搜索栏输入合同名称搜素待会签合同，并在下方表格中展示--%>
+                    <%--添加搜索表单，可通过搜索栏输入合同名称搜素待会签合同，并在下方表格中展示--%>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入合同名称">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">搜索</button>
-                                </span>
-                            </div>
+                            <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
+                                  method="get">
+                                <input type="hidden" name="type" value="search">
+                                <label>
+                                    <input class="form-control" name="contractName" placeholder="请输入合同名称">
+                                </label>
+                                <input type="submit" class="btn btn-default" value="搜索">
+
+                            </form>
                         </div>
                     </div>
                     <%--表格主体--%>
@@ -62,7 +65,7 @@
                             </thead>
                             <tbody>
                             <%--如果返回的合同列表不为空，则遍历列表在table中展示--%>
-                            <%if (contracts != null&& contracts.size() != 0) {%>
+                            <%if (contracts != null && contracts.size() != 0) {%>
                             <%for (Contract contract : contracts) {%>
                             <tr>
                                 <td><%=contract.GetId()%>
@@ -74,7 +77,7 @@
                                 <td><%=contract.GetFinishTime()%>
                                 </td>
                                 <td>
-                                    <a href="op_FinalizedContract.jsp">定稿</a>
+                                    <a href="${pageContext.request.contextPath}/op_FinalizedContract?id=<%=contract.GetId()%>">定稿</a>
                                 </td>
                             </tr>
                             <%}%>
@@ -88,12 +91,12 @@
                             </tbody>
                         </table>
                     </div>
-                        <%--将上述表格实现分页功能--%>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="dataTables_info" id="dataTables-example_info" role="alert"
-                                     aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
-                                </div>
+                    <%--将上述表格实现分页功能--%>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="dataTables_info" id="dataTables-example_info" role="alert"
+                                 aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
+                            </div>
                             <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
                                 <ul class="pagination">
                                     <li class="paginate_button previous disabled" aria-controls="dataTables-example"

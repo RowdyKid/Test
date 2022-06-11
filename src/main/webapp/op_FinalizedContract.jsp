@@ -33,7 +33,8 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="op_FinalizedContract.jsp" method="post">
+                            <form role="form" action="${pageContext.request.contextPath}/op_FinalizedContract" method="post">
+                                <input type="hidden" name="type" value="submit">
                                 <div class="form-group">
                                     <label>合同名称</label>
                                     <input class="form-control" name="contractName" value="xx合同" readonly>

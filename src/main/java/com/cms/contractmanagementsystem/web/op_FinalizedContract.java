@@ -50,7 +50,8 @@ public class op_FinalizedContract extends HttpServlet{
         HttpSession session = request.getSession(true);
 
         Integer contractNo=Integer.parseInt(request.getParameter("id"));
-
+        System.out.println("contractNo:"+contractNo);
+        // int contractNo=1;
         String type=request.getParameter("type");
 
         if(type==null){
@@ -66,9 +67,6 @@ public class op_FinalizedContract extends HttpServlet{
             request.setAttribute("contractEndTime",oldContract.GetFinishTime());
             request.setAttribute("contractContent",oldContract.GetContent());
             request.getRequestDispatcher("op_FinalizedContract.jsp").forward(request, response);
-
-
-
         }
         else if (type.equals("submit")){
         //获取提交的信息，写入数据库
@@ -123,8 +121,10 @@ public class op_FinalizedContract extends HttpServlet{
             //操作成功与否的提示
             if(aUpdateOperateFlow&&bUpdateOperateFlow&&UpdateStatus){
                 request.setAttribute("result", "操作成功！");   //操作成功
+                request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
             }else{
                 request.setAttribute("result", "操作成功，但操作、状态、日志信息可能不完整！");
+                request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
             }
 
         } else {
