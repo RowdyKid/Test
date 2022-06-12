@@ -100,7 +100,7 @@ public class DraftContract extends HttpServlet{
                 }
 
                 if(addOperateFlow&&addStatus
-                        //&&addLog
+                    //&&addLog
                 ){
                     request.setAttribute("result", "起草成功！");   //合同起草成功
                 }else{
