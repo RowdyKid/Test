@@ -133,7 +133,7 @@ public class ClientDAO extends MySQLConnection implements IDAO {
         return succ;
     }
 
-    //@Override
+    @Override
     public ArrayList<IEntity> GETEntity() {
         return null;
     }

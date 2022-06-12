@@ -56,7 +56,15 @@ public class ad_SearchContract extends HttpServlet {
                     contracts.add(contract);
                 }
             }
+            ArrayList<Integer> statusCode = new ArrayList<Integer>();
+            for (int i = 0; i < contracts.size(); i++) {
+                Status temp = new Status();
+                temp.SetcontractNo(contracts.get(i).GetId());
+                statusCode.add(((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
+            }
+
             request.setAttribute("contracts", contracts);
+            request.setAttribute("status", statusCode);
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
 
         }
