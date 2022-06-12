@@ -18,6 +18,7 @@
     <%@include file="op_OperatorNavHead.jsp" %>
     <%
         Contract contract = (Contract)request.getAttribute("contract");
+        String customerName = (String)request.getAttribute("customerName");
     %>
 </div>
 <%--在剩余页面放置定稿合同表格，展示合同名称，客户名称，合同开始时间，结束时间，以上内容不可编辑，返回按钮--%>
@@ -49,7 +50,7 @@
                             <tr>
                                 <td><%=contract.GetName()%>
                                 </td>
-                                <td><%=contract.GetClientNo()%>
+                                <td><%=customerName%>
                                 </td>
                                 <td><%=contract.GetStartTime()%>
                                 </td>

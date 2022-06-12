@@ -40,7 +40,7 @@
                             <a href="ad_AddContract.jsp">新增合同</a>
                         </li>
                         <li>
-                            <a href="ad_SearchContract.jsp">查询合同</a>
+                            <a href="${pageContext.request.contextPath}/ad_SearchContract">查询合同</a>
                         </li>
                     </ul>
                 </li>

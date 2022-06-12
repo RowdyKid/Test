@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
+
 @WebServlet("/ad_ViewContractDetail")
 public class ad_ViewContractDetail extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -28,24 +29,28 @@ public class ad_ViewContractDetail extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Integer contractNo=Integer.parseInt(request.getParameter("id"));
+        Integer contractNo = Integer.parseInt(request.getParameter("id"));
+        String type= request.getParameter("type");
         ContractDAO contractDAO = new ContractDAO();
         Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
 
-        int clientNo= oldContract.GetClientNo();
-        ClientDAO clientdao=new ClientDAO();
-        String clientName=((Client) clientdao.GetOneEntity(clientNo)).GetName();
+        int clientNo = oldContract.GetClientNo();
+        ClientDAO clientdao = new ClientDAO();
+        String clientName = ((Client) clientdao.GetOneEntity(clientNo)).GetName();
 
         request.setAttribute("contractName", oldContract.GetName());
-        request.setAttribute("customerName",clientName);
-        request.setAttribute("contractStartTime",oldContract.GetStartTime());
-        request.setAttribute("contractEndTime",oldContract.GetFinishTime());
-        request.setAttribute("contractContent",oldContract.GetContent());
-        request.getRequestDispatcher("op_ViewContractDetail.jsp").forward(request, response);
-
+        request.setAttribute("customerName", clientName);
+        request.setAttribute("contractStartTime", oldContract.GetStartTime());
+        request.setAttribute("contractEndTime", oldContract.GetFinishTime());
+        request.setAttribute("contractContent", oldContract.GetContent());
+        request.setAttribute("id", contractNo);
+        if(type.equals("view")){
+            request.getRequestDispatcher("ad_ViewContractDetail.jsp").forward(request, response);
+        }else if(type.equals("revise")){
+            request.getRequestDispatcher("ad_ReviseContract.jsp").forward(request, response);
+        }else {
+            request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+        }
 
     }
-
-
-
-    }
+}
