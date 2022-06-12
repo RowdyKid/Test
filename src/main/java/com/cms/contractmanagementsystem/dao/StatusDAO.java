@@ -150,7 +150,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
         return succ;
     }
 
-    @Override
+    //@Override
     public ArrayList<IEntity> GETEntity() {
         return null;
     }
