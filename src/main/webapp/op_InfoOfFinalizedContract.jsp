@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.utils.Contract" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/5/30
@@ -16,6 +16,9 @@
 <%--整体包裹容器--%>
 <div id="wrapper">
     <%@include file="op_OperatorNavHead.jsp" %>
+    <%
+        Contract contract = (Contract)request.getAttribute("contract");
+    %>
 </div>
 <%--在剩余页面放置定稿合同表格，展示合同名称，客户名称，合同开始时间，结束时间，以上内容不可编辑，返回按钮--%>
 <div id="page-wrapper">
@@ -28,7 +31,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    定稿合同列表
+                    定稿合同信息
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -43,32 +46,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <%--  <%
-                                  List<Contract> contractList = (List<Contract>) session.getAttribute("contractList");
-                                  for (Contract contract : contractList) {
-                              %>--%>
                             <tr>
-                                <%--  <td><%=contract.getContractName()%>
-                                  </td>
-                                  <td><%=contract.getCustomerName()%>
-                                  </td>
-                                  <td><%=contract.getStartTime()%>
-                                  </td>
-                                  <td><%=contract.getEndTime()%>
-                                  </td>--%>
-                                <td>
+                                <td><%=contract.GetName()%>
                                 </td>
-                                <td>
+                                <td><%=contract.GetClientNo()%>
                                 </td>
-                                <td>
+                                <td><%=contract.GetStartTime()%>
                                 </td>
-                                <td>
+                                <td><%=contract.GetFinishTime()%>
                                 </td>
                                 <td><a href="op_OperatorMainPage.jsp">返回</a></td>
                             </tr>
-                            <%--  <%
-                                  }
-                              %>--%>
                             </tbody>
                         </table>
                     </div>

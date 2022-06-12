@@ -68,7 +68,7 @@
                                 <td><%=contract.GetStartTime()%>
                                 </td>
                                 <td>
-                                    <a href="op_InfoOfFinalizedContract.jsp">查看</a>
+                                    <a href="${pageContext.request.contextPath}/InfoOfFinalizedContractList?id=<%=contract.GetId()%>">查看</a>
                                 </td>
                             </tr>
                             <%}%>

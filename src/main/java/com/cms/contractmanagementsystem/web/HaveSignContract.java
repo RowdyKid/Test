@@ -64,9 +64,7 @@ public class HaveSignContract extends HttpServlet {
                 }
             }
             request.setAttribute("contracts", contracts);
-            request.getRequestDispatcher("op_HaveCountersignContractList.jsp").forward(request, response);
-
-
+            request.getRequestDispatcher("op_HaveSignContractList.jsp").forward(request, response);
         }
         else if(type.equals("search")){
             //获取合同ID
@@ -85,11 +83,10 @@ public class HaveSignContract extends HttpServlet {
                     if(id.equals(contract.GetId()))
                     {
                         request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("op_HaveCountersignContractList.jsp").forward(request, response);
+                        request.getRequestDispatcher("op_HaveSignContractList.jsp").forward(request, response);
                     }
                 }
             }
-            return;
         }
     }
 

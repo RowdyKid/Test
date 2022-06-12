@@ -1,7 +1,6 @@
 package com.cms.contractmanagementsystem.web;
 
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -51,10 +50,10 @@ public class HaveApproveContract extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         int clientNo = (Integer) session.getAttribute("userid");
-        String type=request.getParameter("type");
+        String type = request.getParameter("type");
 
 
-        if(type==null){
+        if (type == null) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -72,9 +71,8 @@ public class HaveApproveContract extends HttpServlet {
             }
             request.setAttribute("contracts", contracts);
             request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
-        }
-        else if(type.equals("search")){
-             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+        } else if (type.equals("search")) {
+            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
             operateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
@@ -107,10 +105,9 @@ public class HaveApproveContract extends HttpServlet {
                 request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
             }
 
-            }
-            return;
         }
     }
+}
 
 
 
