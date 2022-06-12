@@ -70,8 +70,6 @@ public class WaitingSignContract extends HttpServlet {
 
         }
         else if(type.equals("search")){
-            //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("contractid"));
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);

@@ -37,7 +37,7 @@
                     <%--添加搜索栏，可通过搜索栏输入合同名称搜素已审批合同，并在下方表格中展示--%>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
+                                <form role="form" action="<%=request.getContextPath()%>/HaveApproveContract?type=search"
                                       method="get">
                                     <input type="hidden" name="type" value="search">
                                     <label>

@@ -13,7 +13,7 @@
     <%--导入相关美化部件--%>
     <%@include file="op_OperatorCSS.jsp" %>
     <%
-        ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contracts");
+        ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contractList");
     %>
 </head>
 <body>

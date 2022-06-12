@@ -5,6 +5,7 @@ package com.cms.contractmanagementsystem.web;
  * 创建日期：2022-06-08
  * 创建者：LWJ
  */
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,10 +47,10 @@ public class HaveSignContract extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         int clientNo = (Integer) session.getAttribute("userid");
-        String type=request.getParameter("type");
+        String type = request.getParameter("type");
 
 
-        if(type==null){
+        if (type == null) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -66,11 +67,8 @@ public class HaveSignContract extends HttpServlet {
                 }
             }
             request.setAttribute("contracts", contracts);
-            request.getRequestDispatcher("op_HaveCountersignContractList.jsp").forward(request, response);
-
-
-        }
-        else if(type.equals("search")){
+            request.getRequestDispatcher("op_HaveSignContractList.jsp").forward(request, response);
+        } else if (type.equals("search")) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -101,13 +99,12 @@ public class HaveSignContract extends HttpServlet {
                 }
                 request.setAttribute("contracts", contractSearch);
 
-                request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
+                request.getRequestDispatcher("op_HaveSignContractList.jsp").forward(request, response);
             }
 
             return;
         }
     }
-
 
 
 }
