@@ -56,11 +56,25 @@ public class ad_SearchContract extends HttpServlet {
                     contracts.add(contract);
                 }
             }
-            ArrayList<Integer> statusCode = new ArrayList<Integer>();
+            ArrayList<String> statusCode = new ArrayList<String>();
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                statusCode.add(((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
+                int temp01=((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01){
+                    case 11:
+                        statusCode.add("起草");
+                    case 31:
+                        statusCode.add("会签");
+                    case 41:
+                        statusCode.add("定稿");
+                    case 51:
+                        statusCode.add("审核");
+                    case 61:
+                        statusCode.add("签订");
+
+                }
+
             }
 
             request.setAttribute("contracts", contracts);
@@ -85,11 +99,24 @@ public class ad_SearchContract extends HttpServlet {
 
 
             ArrayList<IEntity> contracts = contractdao.GetEntitySet(contract);
-            ArrayList<Integer> statusCode = new ArrayList<Integer>();
+            ArrayList<String> statusCode = new ArrayList<String>();
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                statusCode.add(((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
+                int temp01=((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01){
+                    case 11:
+                        statusCode.add("起草");
+                    case 31:
+                        statusCode.add("会签");
+                    case 41:
+                        statusCode.add("定稿");
+                    case 51:
+                        statusCode.add("审核");
+                    case 61:
+                        statusCode.add("签订");
+
+                }
             }
 
 
