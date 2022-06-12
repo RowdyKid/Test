@@ -21,26 +21,26 @@ import com.cms.contractmanagementsystem.utils.*;
 
 @WebServlet("/ad_AddContract")
 
-public class ad_AddContract extends HttpServlet{
+public class ad_AddContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public ad_AddContract(){
+    public ad_AddContract() {
         super();
         //TODO
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO
-        this.doPost(request,response);
+        this.doPost(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //TODO
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
 
         String type = request.getParameter("type");
-        if(type == null){
+        if (type == null) {
             request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
             request.getRequestDispatcher("ad_AddContract.jsp").forward(request, response);
         } else if (type.equals("addOper")) {
@@ -68,9 +68,17 @@ public class ad_AddContract extends HttpServlet{
 
             //写入数据库
             //Contract tempContract = new Contract(0, name, 6, startTime, finishTime, content, drafterNo);
+            try {
+                client.GetId();
+            } catch (NullPointerException e) {
+                request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+                return;
+            }
             Contract tempContract = new Contract(0, name, client.GetId(), startTime, finishTime, content, drafterNo);
+
+
             ContractDAO contractDAO = new ContractDAO();
-            if(contractDAO.AddEntity(tempContract)){
+            if (contractDAO.AddEntity(tempContract)) {
 
                 //获取当前时间
                 SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -81,29 +89,29 @@ public class ad_AddContract extends HttpServlet{
                 OperateFlow operateFlow = new OperateFlow(0, aContract.GetId(), drafterNo, StatusCode.OPERATETYPE_DRAFT, StatusCode.OPERATESTATUS_HAVE_FINISH, null, timeStr);
                 boolean addOperateFlow = new OperateFlowDAO().AddEntity(operateFlow);
                 OperateFlow bOperateFlow = new OperateFlow(0, aContract.GetId(), drafterNo, StatusCode.OPERATETYPE_FINALIZE, StatusCode.OPERATESTATUS_NO_READY, null, timeStr);
-                boolean is=new OperateFlowDAO().AddEntity(bOperateFlow);
+                boolean is = new OperateFlowDAO().AddEntity(bOperateFlow);
 
                 //写入数据库status表
-                Status status=new Status();
+                Status status = new Status();
                 status.SetcontractNo(aContract.GetId());
                 status.SetcontractStatus(StatusCode.STATUS_FINISH_DRAFT);
                 status.SetfinishTime(timeStr);
-                boolean addStatus=new StatusDAO().AddEntity(status);
+                boolean addStatus = new StatusDAO().AddEntity(status);
 
                 //把操作信息写入日志
                 //boolean addLog=new LogDAO().AddEntity(new Log(0,drafterNo,"起草了一份合同，合同编号："+aContract.GetId(),currTime.format(new Date())));
 
                 //上传附件
-                String filename=request.getParameter("textfield");
-                if(filename!=null){
+                String filename = request.getParameter("textfield");
+                if (filename != null) {
                     //上传指定文件
                 }
 
-                if(addOperateFlow&&addStatus
+                if (addOperateFlow && addStatus
                     //&&addLog
-                ){
+                ) {
                     request.setAttribute("result", "起草成功！");   //合同起草成功
-                }else{
+                } else {
                     request.setAttribute("result", "合同插入成功，但操作、状态、日志信息可能不完整！");
                 }
             } else {
@@ -115,8 +123,6 @@ public class ad_AddContract extends HttpServlet{
             request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
 
         }
-
     }
-
 }
 

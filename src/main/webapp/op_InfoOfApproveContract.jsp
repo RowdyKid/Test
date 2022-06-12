@@ -43,9 +43,9 @@
                             </thead>
                             <tbody>
                             <%
-                                String contractName = (String) session.getAttribute("contractName");
-                                String approvalOpinion = (String) session.getAttribute("approvalOpinion");
-                                String isPass = (String) session.getAttribute("isPass");
+                                String contractName = (String)request.getAttribute("contractName");
+                                String approvalOpinion = (String) request.getAttribute("approvalOpinion");
+                                String isPass = (String) request.getAttribute("isPass");
                             %>
                             <tr>
                                 <td><%=contractName%>

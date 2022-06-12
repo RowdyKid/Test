@@ -10,6 +10,13 @@
 <head>
     <title>合同管理系统</title>
     <%@include file="ad_AdminCSS.jsp" %>
+    <%
+        String contractName = (String) request.getAttribute("contractName");
+        String customerName = (String) request.getAttribute("customerName");
+        String contractStartTime = (String) request.getAttribute("contractStartTime");
+        String contractEndTime = (String) request.getAttribute("contractEndTime");
+        String contractContent = (String) request.getAttribute("contractContent");
+    %>
 </head>
 <body>
 <%@include file="ad_AdminMenu.jsp" %>
@@ -33,31 +40,31 @@
                             <form role="form" action="#" method="post">
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" name="contractName" value="xx合同" readonly>
+                                    <input class="form-control" name="contractName" value=<%=contractName%> readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>客户名称</label>
-                                    <input class="form-control" name="customerName" value="张三" readonly>
+                                    <input class="form-control" name="customerName" value=<%=customerName%> readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>合同开始时间</label>
-                                    <input class="form-control" name="contractStartTime" value="2022-05-26"
+                                    <input class="form-control" name="contractStartTime" value=<%=contractStartTime%>
                                            readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>合同结束时间</label>
-                                    <input class="form-control" name="contractEndTime" value="2022-05-27"
+                                    <input class="form-control" name="contractEndTime" value=<%=contractEndTime%>
                                            readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>合同内容</label>
                                     <textarea class="form-control"
-                                              name="contractContent" rows="3" readonly>这里是合同内容</textarea>
+                                              name="contractContent" rows="3" readonly><%=contractContent%></textarea>
                                 </div>
                                 <%--返回按钮--%>
                                 <div class="form-group">
                                     <label>
-                                        <a href="ad_SearchContract.jsp">
+                                        <a href="ad_AdminMainPage.jsp">
                                             <button type="button" class="btn btn-primary">返回</button>
                                         </a>
                                     </label>

@@ -60,6 +60,7 @@ public class op_ApproveContract extends HttpServlet {
         } else if (type.equals("approve")) {
             if (option.equals("1")) {
                 System.out.println("审批通过");
+                System.out.println(spyj);
                 //审批通过
                 //修改contract表状态
                 Contract aContract = new Contract();
@@ -111,6 +112,7 @@ public class op_ApproveContract extends HttpServlet {
             } else {
                 //审批不通过
                 //修改contract表状态
+                System.out.println("审批不通过");
                 Contract aContract = new Contract();
                 aContract.SetId(contractNo);
                 ContractDAO contractDAO = new ContractDAO();
