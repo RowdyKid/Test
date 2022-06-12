@@ -1,11 +1,10 @@
 package com.cms.contractmanagementsystem.web;
 
-import com.cms.contractmanagementsystem.dao.ContractDAO;
-import com.cms.contractmanagementsystem.dao.OperateFlowDAO;
-import com.cms.contractmanagementsystem.utils.Contract;
-import com.cms.contractmanagementsystem.utils.IEntity;
-import com.cms.contractmanagementsystem.utils.OperateFlow;
-import com.cms.contractmanagementsystem.utils.StatusCode;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.ArrayList;
+
+import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.utils.*;
+
+/**
+ * Servlet implementation class ContractManageFinalize
+ */
 @WebServlet("/WaitingCountersignContract")
-public class WaitingCountersignContract extends HttpServlet{
+public class WaitingCountersignContract extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -32,7 +36,6 @@ public class WaitingCountersignContract extends HttpServlet{
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        // this.doPost(request, response);
 
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
@@ -40,10 +43,11 @@ public class WaitingCountersignContract extends HttpServlet{
 
         HttpSession session = request.getSession(true);
         int clientNo = (Integer) session.getAttribute("userid");
-        String type=request.getParameter("type");
+        System.out.println("clientNo:" + clientNo);
+        String type = request.getParameter("type");
 
 
-        if(type==null){
+        if (type == null) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -63,10 +67,7 @@ public class WaitingCountersignContract extends HttpServlet{
             request.getRequestDispatcher("op_WaittingForCountersignContractList.jsp").forward(request, response);
 
 
-        }
-        else if(type.equals("search")){
-            //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("id"));
+        } else if (type.equals("search")) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -74,18 +75,33 @@ public class WaitingCountersignContract extends HttpServlet{
             operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
 
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
+            ArrayList<Contract> contracts = new ArrayList<Contract>();
+            ArrayList<Contract> contractSearch = new ArrayList<Contract>();
+            String conName = request.getParameter("contractName");
+            System.out.println(conName);
+
+            Pattern pattern = Pattern.compile(conName, Pattern.CASE_INSENSITIVE);
 
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
                     Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    if(id.equals(contract.GetId()))
-                    {
-                        request.setAttribute("contracts", contract);
-                        request.getRequestDispatcher("op_WaittingForCountersignContractList.jsp").forward(request, response);
+                    // Matcher matcher = pattern.matcher(((OperateFlow) arr.get(i)).getContent());
+                    contracts.add(contract);
+                }
+                for (int i = 0; i < contracts.size(); i++) {
+                    Matcher matcher = pattern.matcher(contracts.get(i).GetName());
+                    if (matcher.find()) {
+                        //把找到的图书放入arraySearch集合
+                        contractSearch.add(contracts.get(i));
                     }
                 }
+                request.setAttribute("contracts", contractSearch);
+
+                request.getRequestDispatcher("op_WaittingForCountersignContractList.jsp").forward(request, response);
+
             }
-            return;
         }
+
+        return;
     }
 }
