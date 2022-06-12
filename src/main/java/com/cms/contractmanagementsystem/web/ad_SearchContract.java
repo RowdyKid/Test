@@ -38,35 +38,53 @@ public class ad_SearchContract extends HttpServlet {
 
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        String type = request.getParameter("type");
 
-
-
-            //从数据库读取所有合同,默认显示第一页
+        if (type == null) {
             ContractDAO contractdao=new ContractDAO();
-            Contract contract=new Contract();
-            //查找
-            if(request.getParameter("contractName")!=null){
 
-                contract.SetName(new String(request.getParameter("contractName").getBytes("iso-8859-1"),"UTF-8"));
-                //contract.SetName(request.getParameter("contractName"));
+            ArrayList<IEntity> arr = contractdao.GETEntity();
+            ArrayList<Contract> contracts = new ArrayList<Contract>();
+
+            if (arr != null) {
+                for (int i = 0; i < arr.size(); i++) {
+                    Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                    contracts.add(contract);
+                }
+            }
+            request.setAttribute("contracts", contracts);
+            request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
+
+        }
+
+
+        else if(type.equals("search")) {
+
+            ContractDAO contractdao = new ContractDAO();
+            Contract contract = new Contract();
+            //查找
+            if (request.getParameter("contractName") != null) {
+
+                contract.SetName(new String(request.getParameter("contractName").getBytes("iso-8859-1"), "UTF-8"));
+
 
             }
 
 
-            ArrayList<IEntity> contracts=contractdao.GetEntitySet(contract);
-            ArrayList<Integer> statusCode=new ArrayList<Integer>();
-            for(int i=0;i<contracts.size();i++){
-                Status temp=new Status();
+            ArrayList<IEntity> contracts = contractdao.GetEntitySet(contract);
+            ArrayList<Integer> statusCode = new ArrayList<Integer>();
+            for (int i = 0; i < contracts.size(); i++) {
+                Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                statusCode.add(((Status)new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
+                statusCode.add(((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
             }
 
 
             request.setAttribute("contracts", contracts);
-            request.setAttribute("status",statusCode);
+            request.setAttribute("status", statusCode);
 
 
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
-
+        }
 
     }}
