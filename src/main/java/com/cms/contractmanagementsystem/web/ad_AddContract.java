@@ -112,7 +112,7 @@ public class ad_AddContract extends HttpServlet{
             }
 
             request.setAttribute("clients", new ClientDAO().GetEntitySet(new Client()));
-            request.getRequestDispatcher("op_CountersignContract.jsp").forward(request, response);
+            request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
 
         }
 
