@@ -40,9 +40,6 @@ public class ad_DeleteContractDetail extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        PrintWriter out = response.getWriter();
-
-
         //注意：此处应删除多个表中的数据：contract,attachment,operateFlow,status
 
         Integer id = Integer.parseInt(request.getParameter("id"));
@@ -75,9 +72,11 @@ public class ad_DeleteContractDetail extends HttpServlet {
             res03 = statusDao.DeleteEntity(status);
 
             if (res01 && res02 && res03) {
-                out.write("删除成功！");
+                request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
+
             } else {
-                out.write("删除失败！");
+                request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+
             }
         }
     }

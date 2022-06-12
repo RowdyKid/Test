@@ -19,7 +19,7 @@
     <%@include file="ad_AdminMenu.jsp" %>
     <%
         ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contracts");
-        String status = (String) request.getAttribute("status");
+        ArrayList<String> status = (ArrayList<String>) request.getAttribute("status");
     %>
 </div>
 <%--在剩余页面添加合同搜索栏，和对应的合同信息显示表格，要求显示合同名称，客户，开始时间，结束实现，当前状态和查看、修改、删除操作按钮--%>
@@ -66,7 +66,9 @@
                                     <tbody>
                                     <%if (contracts != null && contracts.size() != 0) {%>
                                     <%
-                                        for (Contract contract : contracts) {
+                                        for (int i=0;i<contracts.size();i++) {
+                                            Contract contract = contracts.get(i);
+                                            String nowStatus = status.get(i);
                                     %>
                                     <tr>
                                         <td><%=contract.GetName()%>
@@ -77,11 +79,11 @@
                                         </td>
                                         <td><%=contract.GetFinishTime()%>
                                         </td>
-                                        <td><%=status%>
+                                        <td><%=nowStatus%>
                                         </td>
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/ad_ViewContractDetail?id=<%=contract.GetId()%>?type=view">查看</a>
-                                            <a href="${pageContext.request.contextPath}/ad_ViewContractDetail?id=<%=contract.GetId()%>?type=revise">修改</a>
+                                            <a href="${pageContext.request.contextPath}/ad_ViewContractDetail?id=<%=contract.GetId()%>&type=view">查看</a>
+                                            <a href="${pageContext.request.contextPath}/ad_ViewContractDetail?id=<%=contract.GetId()%>&type=revise">修改</a>
                                             <a href="${pageContext.request.contextPath}/ad_DeleteContractDetail?id=<%=contract.GetId()%>">删除</a>
                                         </td>
                                     </tr>

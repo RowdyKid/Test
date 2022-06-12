@@ -42,7 +42,6 @@ public class ad_ReviseContract extends HttpServlet {
 // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        PrintWriter out = response.getWriter();
         // Integer operatorNo=(Integer)request.getSession().getAttribute("id");
 
         Integer id = Integer.parseInt(request.getParameter("id"));
@@ -69,9 +68,9 @@ public class ad_ReviseContract extends HttpServlet {
                 contract.SetStartTime(new String(StartTime.getBytes("iso-8859-1"), "UTF-8"));
                 contract.SetFinishTime(new String(FinishTime.getBytes("iso-8859-1"), "UTF-8"));
                 contract.SetContent(new String(contractContent.getBytes("iso-8859-1"), "UTF-8"));
-                out.write("修改合同成功");
+                request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
             } else {
-                out.write("该合同名称已存在!");
+                request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
             }
         }
     }

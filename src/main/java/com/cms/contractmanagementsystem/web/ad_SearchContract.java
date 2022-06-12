@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
+
 /**
  * Servlet implementation class ContractInfoQuery
  */
@@ -32,7 +33,9 @@ public class ad_SearchContract extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        this.doPost(request, response);}
+        this.doPost(request, response);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
@@ -41,10 +44,8 @@ public class ad_SearchContract extends HttpServlet {
         String type = request.getParameter("type");
 
         if (type == null) {
-            ContractDAO contractdao=new ContractDAO();
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
-            operateFlow.setOperateType(StatusCode.OPERATETYPE_DRAFT);
             operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
 
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
@@ -52,52 +53,67 @@ public class ad_SearchContract extends HttpServlet {
 
             if (arr != null) {
                 for (int i = 0; i < arr.size(); i++) {
-                    Contract contract = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
-                    contracts.add(contract);
+                    Contract contract01 = (Contract) (new ContractDAO().GetOneEntity(((OperateFlow) arr.get(i)).getContractNo()));
+                    contracts.add(contract01);
                 }
             }
-            ArrayList<Integer> statusCode = new ArrayList<Integer>();
+            ArrayList<String> statusCode = new ArrayList<String>();
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                statusCode.add(((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
+                int temp01 = ((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01) {
+                    case 11:
+                        statusCode.add("起草");
+                    case 31:
+                        statusCode.add("会签");
+                    case 41:
+                        statusCode.add("定稿");
+                    case 51:
+                        statusCode.add("审核");
+                    case 61:
+                        statusCode.add("签订");
+                }
             }
-
+            System.out.println("大小！！！！！！！！：" + contracts.size());
             request.setAttribute("contracts", contracts);
             request.setAttribute("status", statusCode);
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
 
-        }
-
-
-        else if(type.equals("search")) {
+        } else if (type.equals("search")) {
 
 
             ContractDAO contractdao = new ContractDAO();
             Contract contract = new Contract();
             //查找
             if (request.getParameter("contractName") != null) {
-
+                System.out.println("合同名称：" + request.getParameter("contractName"));
                 contract.SetName(new String(request.getParameter("contractName").getBytes("iso-8859-1"), "UTF-8"));
-
-
             }
 
-
             ArrayList<IEntity> contracts = contractdao.GetEntitySet(contract);
-            ArrayList<Integer> statusCode = new ArrayList<Integer>();
+            ArrayList<String> statusCode = new ArrayList<String>();
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                statusCode.add(((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus());
+                int temp01 = ((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01) {
+                    case 11:
+                        statusCode.add("起草");
+                    case 31:
+                        statusCode.add("会签");
+                    case 41:
+                        statusCode.add("定稿");
+                    case 51:
+                        statusCode.add("审核");
+                    case 61:
+                        statusCode.add("签订");
+                }
             }
-
-
             request.setAttribute("contracts", contracts);
             request.setAttribute("status", statusCode);
-
-
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
         }
 
-    }}
+    }
+}
