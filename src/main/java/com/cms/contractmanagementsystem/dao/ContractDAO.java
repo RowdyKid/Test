@@ -206,7 +206,6 @@ public class ContractDAO extends MySQLConnection implements IDAO {
             }
 
 
-
         }
 
         return arr;
