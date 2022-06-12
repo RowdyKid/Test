@@ -40,6 +40,7 @@ public interface IDAO {
      * @return	ArrayList<IEntity>如果找到，返回指定的对象，若没有，返回null
      */
     public ArrayList<IEntity> GETEntity();
+
     /**
      * 查找一个实体对象
      * @param id int 被查找的对象的id
