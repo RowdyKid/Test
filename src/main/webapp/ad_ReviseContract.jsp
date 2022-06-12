@@ -41,10 +41,11 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="${pageContext.request.contextPath}/ad_ReviseContract?id=<%=id%>" method="post">
+                            <form role="form" action="${pageContext.request.contextPath}/ad_ReviseContract" method="post">
+                                <input type="hidden" name="id" value=<%=id%>>
                                 <div class="form-group">
                                     <label>合同名称</label>
-                                    <input class="form-control" name="contractName" value=<%=contractName%> readonly>
+                                    <input class="form-control" name="NewContractName" value=<%=contractName%> readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>客户名称</label>
