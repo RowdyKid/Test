@@ -1,18 +1,12 @@
 package com.cms.contractmanagementsystem.web;
 
-
-
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
+import java.io.PrintWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/**
- * 文件名：ContractManageFinalize.java
- * 描述：查看已审批合同
- * 创建日期：2022-06-08
- * 创建者：LWJ
- */
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,21 +14,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
 
 /**
- * Servlet implementation class ContractManageFinalize
+ * 文件名：ContractManageFinalize.java
+ * 描述：管理员查看待定稿合同
+ * 创建日期：2022-06-11
+ * 创建者：LWJ
  */
-@WebServlet("/HaveApproveContract")
-public class HaveApproveContract extends HttpServlet {
+@WebServlet("/ad_WaittingForReviseContract")
+public class ad_WaittingForReviseContract  extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HaveApproveContract() {
+    public ad_WaittingForReviseContract() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,23 +39,16 @@ public class HaveApproveContract extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
 
-        // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        String type = request.getParameter("type");
 
-        HttpSession session = request.getSession(true);
-        int clientNo = (Integer) session.getAttribute("userid");
-        String type=request.getParameter("type");
-
-
-        if(type==null){
+        if (type == null) {
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
-            operateFlow.setOperatorNo(clientNo);
-            operateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
-            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
+            operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
 
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
             ArrayList<Contract> contracts = new ArrayList<Contract>();
@@ -71,15 +60,14 @@ public class HaveApproveContract extends HttpServlet {
                 }
             }
             request.setAttribute("contracts", contracts);
-            request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
-        }
-        else if(type.equals("search")){
-             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
-            OperateFlow operateFlow = new OperateFlow();
-            operateFlow.setOperatorNo(clientNo);
-            operateFlow.setOperateType(StatusCode.OPERATETYPE_APPROVE);
-            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
+            request.getRequestDispatcher("ad_WaittingForReviseContract.jsp").forward(request, response);
 
+
+        } else if (type.equals("search")) {
+            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+            OperateFlow operateFlow = new OperateFlow();
+            operateFlow.setOperateType(StatusCode.OPERATETYPE_FINALIZE);
+            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_NO_FINISH);
 
             ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
             ArrayList<Contract> contracts = new ArrayList<Contract>();
@@ -103,17 +91,11 @@ public class HaveApproveContract extends HttpServlet {
                     }
                 }
                 request.setAttribute("contracts", contractSearch);
-
-                request.getRequestDispatcher("op_HaveApproveContractList.jsp").forward(request, response);
+                System.out.println(contractSearch.size());
+                request.getRequestDispatcher("ad_WaittingForReviseContract.jsp").forward(request, response);
             }
 
             }
 
-
-            return;
-        }
     }
-
-
-
-
+}
