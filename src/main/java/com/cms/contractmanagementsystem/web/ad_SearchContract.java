@@ -60,6 +60,7 @@ public class ad_SearchContract extends HttpServlet {
 
         else if(type.equals("search")) {
 
+
             ContractDAO contractdao = new ContractDAO();
             Contract contract = new Contract();
             //查找
