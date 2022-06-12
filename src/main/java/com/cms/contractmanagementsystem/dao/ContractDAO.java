@@ -175,42 +175,7 @@ public class ContractDAO extends MySQLConnection implements IDAO {
 
         return succ;
     }
-    public  ArrayList<IEntity> GETEntity (){
-        ArrayList<IEntity> arr=null;
-        Contract contract;
-        if(super.ConnectMySQL()){
-            String sql="select *from contract where del=0";
-            try {
-                preStmt=(PreparedStatement) con.prepareStatement(sql);
 
-                ResultSet res=preStmt.executeQuery();
-                if(res.next()){
-                    contract=new Contract(res.getInt("id"),
-                            res.getString("name"),
-                            res.getInt("client"),
-                            res.getString("startTime"),
-                            res.getString("finishTime"),
-                            res.getString("content"),
-                            res.getInt("drafter"));
-
-                    contract.SetCounterSignerNo(res.getInt("countersigner"));
-                    contract.SetApproverNo(res.getInt("approver"));
-                    contract.SetSignerNo(res.getInt("signer"));
-                   arr.add(contract);
-                }
-
-            } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } finally {
-                super.CloseMySQL();
-            }
-
-
-        }
-
-        return arr;
-    }
 
     /**
      * 查找一条合同信息

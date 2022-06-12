@@ -39,7 +39,7 @@ public interface IDAO {
      * 从数据库查找一个实体
      * @return	ArrayList<IEntity>如果找到，返回指定的对象，若没有，返回null
      */
-    public ArrayList<IEntity> GETEntity();
+  //  public ArrayList<IEntity> GETEntity();
 
     /**
      * 查找一个实体对象
