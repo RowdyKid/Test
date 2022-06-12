@@ -37,7 +37,7 @@
                     <%--添加搜索栏，可通过搜索栏输入合同名称搜素已签订合同，并在下方表格中展示--%>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
+                                <form role="form" action="<%=request.getContextPath()%>/HaveSignContract?type=search"
                                       method="get">
                                     <input type="hidden" name="type" value="search">
                                     <label>
@@ -68,7 +68,7 @@
                                 <td><%=contract.GetStartTime()%>
                                 </td>
                                 <td>
-                                    <a href="op_InfoOfSignContract.jsp">查看</a>
+                                    <a href="${pageContext.request.contextPath}/op_InfoOfSignContract?id=<%=contract.GetId()%>">查看</a>
                                 </td>
                             </tr>
                             <%}%>

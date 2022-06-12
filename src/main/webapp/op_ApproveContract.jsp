@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>审批意见</label>
-                                    <textarea class="form-control" rows="3" name="approveOpinion"></textarea>
+                                    <textarea class="form-control" rows="3" name="approvalOpinion"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>审批结果</label>

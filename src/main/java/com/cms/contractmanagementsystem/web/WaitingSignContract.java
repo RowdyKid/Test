@@ -70,8 +70,6 @@ public class WaitingSignContract extends HttpServlet {
 
         }
         else if(type.equals("search")){
-            //获取合同ID
-            Integer id=Integer.parseInt(request.getParameter("contractid"));
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperatorNo(clientNo);
@@ -95,21 +93,13 @@ public class WaitingSignContract extends HttpServlet {
                 for (int i = 0; i < contracts.size(); i++) {
                     Matcher matcher = pattern.matcher(contracts.get(i).GetName());
                     if (matcher.find()) {
-                        //把找到的图书放入arraySearch集合
                         contractSearch.add(contracts.get(i));
                     }
                 }
                 request.setAttribute("contracts", contractSearch);
 
                 request.getRequestDispatcher("op_WaittingForSignContractList.jsp").forward(request, response);
-
-
             }
-            return;
         }
     }
-
-
-
 }
-

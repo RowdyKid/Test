@@ -16,6 +16,11 @@
 <%--整体包裹容器--%>
 <div id="wrapper">
     <%@include file="op_OperatorNavHead.jsp" %>
+    <%
+      String contractName = (String) request.getAttribute("contractName");
+      String customerName = (String)request.getAttribute("customerName");
+      String contractText = (String)request.getAttribute("contractText");
+    %>
 </div>
 <%--页面剩余部分展示合同签订信息表格，包括合同名称，客户名称,签订文本信息，以上都不可修改以及返回主页按钮--%>
 <div id="page-wrapper">
@@ -42,11 +47,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <%
-                                String contractName = (String) session.getAttribute("contractName");
-                                String customerName = (String) session.getAttribute("customerName");
-                                String contractText = (String) session.getAttribute("contractText");
-                            %>
                             <tr>
                                 <td><%=contractName%>
                                 </td>

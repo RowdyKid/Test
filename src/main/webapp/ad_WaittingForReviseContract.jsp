@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.utils.Contract" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/6/3
@@ -11,6 +12,9 @@
   <title>合同管理系统</title>
   <%--导入相关美化部件--%>
   <%@include file="ad_AdminCSS.jsp" %>
+  <%
+    ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contracts");
+  %>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -34,7 +38,7 @@
           <%--添加搜索栏，可通过搜索栏输入合同名称搜素待会签合同，并在下方表格中展示--%>
             <div class="row">
               <div class="col-lg-12">
-                <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
+                <form role="form" action="<%=request.getContextPath()%>/ad_WaittingForReviseContract?type=search"
                       method="get">
                   <input type="hidden" name="type" value="search">
                   <label>
@@ -50,47 +54,39 @@
             <table class="table table-striped table-bordered table-hover">
               <thead>
               <tr>
+                <th>合同编号</th>
                 <th>合同名称</th>
-                <th>起草时间</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
                 <th>操作</th>
               </tr>
               </thead>
               <tbody>
-              <%-- <%
-                   for(int i = 0; i < contractList.size(); i++){
-               %>--%>
+              <%--如果返回的合同列表不为空，则遍历列表在table中展示--%>
+              <%if (contracts != null && contracts.size() != 0) {%>
+              <%for (Contract contract : contracts) {%>
               <tr>
-                <td><%--<%=contractList.get(i).getContractName()%>--%></td>
-                <td><%--<%=contractList.get(i).getCreateTime()%>--%></td>
+                <td><%=contract.GetId()%>
+                </td>
+                <td><%=contract.GetName()%>
+                </td>
+                <td><%=contract.GetStartTime()%>
+                </td>
+                <td><%=contract.GetFinishTime()%>
+                </td>
                 <td>
-                  <%--等待后续后端功能的实现，目前先直接跳转--%>
-                  <a href="FinalizedContract.jsp">定稿</a>
-                  <%--<a href="&lt;%&ndash;OperatorSignContract.jsp?contractId=<%=contractList.get(i).getContractId()%>&ndash;%&gt;">会签</a>--%>
+                  <a href="${pageContext.request.contextPath}/ad_ReviseContract?id=<%=contract.GetId()%>">定稿</a>
                 </td>
               </tr>
-              <%-- <%
-                   }
-               %>--%>
+              <%}%>
+              <%--否则显示没有数据--%>
+              <%} else {%>
+              <tr>
+                <td colspan="5">没有数据</td>
+              </tr>
+              <%}%>
               </tbody>
             </table>
-          </div>
-          <%--将上述表格实现分页功能--%>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="dataTables_info" id="dataTables-example_info" role="alert"
-                   aria-live="polite" aria-relevant="all" id="pageInfo">显示 1 到 10 项，共 57 项
-              </div>
-              <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-                <ul class="pagination">
-                  <li class="paginate_button previous disabled" aria-controls="dataTables-example"
-                      tabindex="0" id="dataTables-example_previous"><a href="#">上一页</a></li>
-                  <li class="paginate_button next" aria-controls
-                      is="dataTables-example" tabindex="0" id="dataTables-example_next"><a
-                          href="#">下一页</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>

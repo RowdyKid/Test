@@ -16,7 +16,6 @@ import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
 
 
-
 /**
  *
  */
@@ -28,7 +27,7 @@ public class ad_ReviseContract extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public  ad_ReviseContract() {
+    public ad_ReviseContract() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,13 +35,15 @@ public class ad_ReviseContract extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        this.doPost(request, response);}
+        this.doPost(request, response);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        PrintWriter out=response.getWriter();
-       // Integer operatorNo=(Integer)request.getSession().getAttribute("id");
+        PrintWriter out = response.getWriter();
+        // Integer operatorNo=(Integer)request.getSession().getAttribute("id");
 
         Integer id = Integer.parseInt(request.getParameter("id"));
         String NewContractName = request.getParameter("NewContractName");
@@ -68,9 +69,8 @@ public class ad_ReviseContract extends HttpServlet {
                 contract.SetStartTime(new String(StartTime.getBytes("iso-8859-1"), "UTF-8"));
                 contract.SetFinishTime(new String(FinishTime.getBytes("iso-8859-1"), "UTF-8"));
                 contract.SetContent(new String(contractContent.getBytes("iso-8859-1"), "UTF-8"));
-             out.write("修改合同成功");
-            }
-            else{
+                out.write("修改合同成功");
+            } else {
                 out.write("该合同名称已存在!");
             }
         }

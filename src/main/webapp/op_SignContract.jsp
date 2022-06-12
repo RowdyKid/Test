@@ -39,8 +39,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <form role="form" action="${pageContext.request.contextPath}/op_SignContract" method="post">
-                                <input type="hidden" name="type" value="submit">
-                                <input type="hidden" name="id" value="<%=contractId%>">
+                                <input type="hidden" name="type" value="Sign">
+                                <input type="hidden" name="contractid" value="<%=contractId%>">
                                 <div class="form-group">
                                     <label>合同名称</label>
                                     <label>
