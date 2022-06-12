@@ -42,8 +42,12 @@ public class ad_SearchContract extends HttpServlet {
 
         if (type == null) {
             ContractDAO contractdao=new ContractDAO();
+            OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
+            OperateFlow operateFlow = new OperateFlow();
+            operateFlow.setOperateType(StatusCode.OPERATETYPE_DRAFT);
+            operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
 
-            ArrayList<IEntity> arr = contractdao.GETEntity();
+            ArrayList<IEntity> arr = operateFlowDAO.GetEntitySet(operateFlow);
             ArrayList<Contract> contracts = new ArrayList<Contract>();
 
             if (arr != null) {
