@@ -1,5 +1,4 @@
 package com.cms.contractmanagementsystem.web;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,7 +17,6 @@ import java.util.Calendar;
  * 创建日期：2022-06-08
  * 创建者：LWJ
  */
-
 /**
  * Servlet implementation class ContractManageFinalize
  */
@@ -43,15 +40,28 @@ public class InofOfFinalizedContract extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //显示合同详细信息
         //获取合同ID
+
+
         Integer contractNo = Integer.parseInt(request.getParameter("id"));
         System.out.println("contractNo:" + contractNo);
 
-        ContractDAO contractDAO = new ContractDAO();
-        Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
+            ContractDAO contractDAO = new ContractDAO();
+            Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
+
         int clientNo = oldContract.GetClientNo();
         ClientDAO clientdao = new ClientDAO();
-        request.setAttribute("contract", oldContract);
-        request.getRequestDispatcher("op_InfoOfFinalizedContract.jsp").forward(request, response);
+        Client client=(Client)clientdao.GetOneEntity(clientNo);
+
+        request.setAttribute("customerName",client.GetName());
+           request.setAttribute("contract",oldContract);
+            request.getRequestDispatcher("op_InfoOfFinalizedContract.jsp").forward(request, response);
+
+
+        }
+
+
+
+
+
 
     }
-}
