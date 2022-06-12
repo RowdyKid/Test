@@ -47,8 +47,12 @@ public class InofOfFinalizedContract extends HttpServlet {
 
             ContractDAO contractDAO = new ContractDAO();
             Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);
-            int clientNo = oldContract.GetClientNo();
-            ClientDAO clientdao = new ClientDAO();
+
+        int clientNo = oldContract.GetClientNo();
+        ClientDAO clientdao = new ClientDAO();
+        Client client=(Client)clientdao.GetOneEntity(clientNo);
+
+        request.setAttribute("customerName",client.GetName());
            request.setAttribute("contract",oldContract);
             request.getRequestDispatcher("op_InfoOfFinalizedContract.jsp").forward(request, response);
 
