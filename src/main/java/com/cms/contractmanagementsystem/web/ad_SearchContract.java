@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
-
 /**
  * Servlet implementation class ContractInfoQuery
  */
@@ -33,9 +32,7 @@ public class ad_SearchContract extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        this.doPost(request, response);
-    }
-
+        this.doPost(request, response);}
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
@@ -44,6 +41,7 @@ public class ad_SearchContract extends HttpServlet {
         String type = request.getParameter("type");
 
         if (type == null) {
+
             OperateFlowDAO operateFlowDAO = new OperateFlowDAO();
             OperateFlow operateFlow = new OperateFlow();
             operateFlow.setOperateStatus(StatusCode.OPERATESTATUS_HAVE_FINISH);
@@ -61,8 +59,8 @@ public class ad_SearchContract extends HttpServlet {
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                int temp01 = ((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
-                switch (temp01) {
+                int temp01=((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01){
                     case 11:
                         statusCode.add("起草");
                     case 31:
@@ -73,31 +71,39 @@ public class ad_SearchContract extends HttpServlet {
                         statusCode.add("审核");
                     case 61:
                         statusCode.add("签订");
+
                 }
+
             }
-            System.out.println("大小！！！！！！！！：" + contracts.size());
+
             request.setAttribute("contracts", contracts);
             request.setAttribute("status", statusCode);
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
 
-        } else if (type.equals("search")) {
+        }
+
+
+        else if(type.equals("search")) {
 
 
             ContractDAO contractdao = new ContractDAO();
             Contract contract = new Contract();
             //查找
             if (request.getParameter("contractName") != null) {
-                System.out.println("合同名称：" + request.getParameter("contractName"));
-                contract.SetName(new String(request.getParameter("contractName").getBytes("iso-8859-1"), "UTF-8"));
+
+
+                contract.SetName(request.getParameter("contractName"));
             }
+
+
 
             ArrayList<IEntity> contracts = contractdao.GetEntitySet(contract);
             ArrayList<String> statusCode = new ArrayList<String>();
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                int temp01 = ((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
-                switch (temp01) {
+                int temp01=((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01){
                     case 11:
                         statusCode.add("起草");
                     case 31:
@@ -108,12 +114,16 @@ public class ad_SearchContract extends HttpServlet {
                         statusCode.add("审核");
                     case 61:
                         statusCode.add("签订");
+
                 }
             }
+
+
             request.setAttribute("contracts", contracts);
             request.setAttribute("status", statusCode);
+
+
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
         }
 
-    }
-}
+    }}

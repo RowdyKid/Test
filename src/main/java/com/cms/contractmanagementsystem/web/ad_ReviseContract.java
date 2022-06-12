@@ -42,19 +42,18 @@ public class ad_ReviseContract extends HttpServlet {
 // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        PrintWriter out = response.getWriter();
         // Integer operatorNo=(Integer)request.getSession().getAttribute("id");
 
         Integer id = Integer.parseInt(request.getParameter("id"));
-        String NewContractName = request.getParameter("NewContractName");
-        String StartTime = request.getParameter("StartTime");
-        String FinishTime = request.getParameter("FinishTime");
+
         String contractContent = request.getParameter("contractContent");
         if (id != null) {
             ContractDAO contractDao = new ContractDAO();
             Contract contract = (Contract) contractDao.GetOneEntity(id);
             Contract s = new Contract();
 
-            s.SetName(new String(NewContractName.getBytes("iso-8859-1"), "UTF-8"));
+
             Contract tt = (Contract) contractDao.GetOneEntity(s);
             boolean canModify = false;
             if (tt == null) {
@@ -64,13 +63,10 @@ public class ad_ReviseContract extends HttpServlet {
             }
             //修改合同信息，名字，内容，时间
             if (canModify) {
-                contract.SetName(new String(NewContractName.getBytes("iso-8859-1"), "UTF-8"));
-                contract.SetStartTime(new String(StartTime.getBytes("iso-8859-1"), "UTF-8"));
-                contract.SetFinishTime(new String(FinishTime.getBytes("iso-8859-1"), "UTF-8"));
-                contract.SetContent(new String(contractContent.getBytes("iso-8859-1"), "UTF-8"));
-                request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
+                contract.SetContent(contractContent);
+                out.write("修改合同成功");
             } else {
-                request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);
+                out.write("该合同名称已存在!");
             }
         }
     }
