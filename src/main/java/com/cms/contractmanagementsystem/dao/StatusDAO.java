@@ -54,6 +54,9 @@ public class StatusDAO extends MySQLConnection implements IDAO {
         return succ;
     }
 
+    public ArrayList<IEntity> GetEntitySet(IEntity entity){
+        return null;
+    }
     /**
      * 删除一个实体对象
      * @param entity IEntity
@@ -150,10 +153,6 @@ public class StatusDAO extends MySQLConnection implements IDAO {
         return succ;
     }
 
-    @Override
-    public ArrayList<IEntity> GETEntity() {
-        return null;
-    }
 
     /**
      * 获得一个实体对象
@@ -291,11 +290,7 @@ public class StatusDAO extends MySQLConnection implements IDAO {
         // TODO Auto-generated method stub
         return this.pageNum;
     }
-    @Override
-    public ArrayList<IEntity> GetEntitySet(IEntity entity) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+
     @Override
     public IEntity GetOneEntity(IEntity entity) {
         // TODO Auto-generated method stub
