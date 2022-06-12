@@ -134,6 +134,11 @@ public class ClientDAO extends MySQLConnection implements IDAO {
     }
 
     @Override
+    public ArrayList<IEntity> GETEntity() {
+        return null;
+    }
+
+    @Override
     public IEntity GetOneEntity(int id) {
         // TODO Auto-generated method stub
         Client client = null;

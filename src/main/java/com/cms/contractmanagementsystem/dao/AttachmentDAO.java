@@ -137,6 +137,11 @@ public class AttachmentDAO extends MySQLConnection implements IDAO {
     }
 
     @Override
+    public ArrayList<IEntity> GETEntity() {
+        return null;
+    }
+
+    @Override
     public IEntity GetOneEntity(int id) {
         // TODO Auto-generated method stub
         Attachment attachment = null;

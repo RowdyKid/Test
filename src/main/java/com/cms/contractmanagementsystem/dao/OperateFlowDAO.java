@@ -152,6 +152,11 @@ public class OperateFlowDAO extends MySQLConnection implements IDAO {
         return succ;
     }
 
+    @Override
+    public ArrayList<IEntity> GETEntity() {
+        return null;
+    }
+
 
     @Override
     public IEntity GetOneEntity(int id) {

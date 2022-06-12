@@ -150,6 +150,11 @@ public class StatusDAO extends MySQLConnection implements IDAO {
         return succ;
     }
 
+    @Override
+    public ArrayList<IEntity> GETEntity() {
+        return null;
+    }
+
     /**
      * 获得一个实体对象
      * @param id int

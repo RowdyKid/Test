@@ -23,6 +23,7 @@ public class ContractDAO extends MySQLConnection implements IDAO {
         pageNum=0;
     }
 
+
     /**
      * 插入一条合同信息到数据库
      * @param entity IEntity 被插入的合同对象
