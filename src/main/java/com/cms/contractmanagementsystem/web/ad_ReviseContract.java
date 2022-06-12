@@ -42,8 +42,6 @@ public class ad_ReviseContract extends HttpServlet {
 // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        PrintWriter out = response.getWriter();
-        // Integer operatorNo=(Integer)request.getSession().getAttribute("id");
 
         Integer id = Integer.parseInt(request.getParameter("id"));
 
@@ -51,23 +49,12 @@ public class ad_ReviseContract extends HttpServlet {
         if (id != null) {
             ContractDAO contractDao = new ContractDAO();
             Contract contract = (Contract) contractDao.GetOneEntity(id);
-            Contract s = new Contract();
 
+            contract.SetContent(contractContent);
+            contractDao.UpdateEntity(contract);
 
-            Contract tt = (Contract) contractDao.GetOneEntity(s);
-            boolean canModify = false;
-            if (tt == null) {
-                canModify = true;
-            } else if (tt.GetId() == id) {
-                canModify = true;
-            }
-            //修改合同信息，名字，内容，时间
-            if (canModify) {
-                contract.SetContent(contractContent);
-                out.write("修改合同成功");
-            } else {
-                out.write("该合同名称已存在!");
-            }
+            request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
+
         }
     }
 }
