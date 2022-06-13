@@ -11,6 +11,39 @@
     <title>合同管理系统</title>
     <%--导入相关美化部件--%>
     <%@include file="ad_AdminCSS.jsp" %>
+
+    <script type="text/javascript">
+        /*将si列表中选中的元素移除并转移到s2列表中*/
+        function moveSigner(s1, s2) {
+            // 存储选项列表的value和text
+            var arrSelValue = [];
+            var arrSelText = [];
+            // 存储以选择的value
+            var arrValueTextRelation = [];
+            var index = 0;
+
+            // 将选择列表中的元素进行存储
+            for (var i = 0; i < s1.options.length; i++) {
+                if (s1.options[i].selected) {
+                    arrSelValue[index] = s1.options[i].value;
+                    arrSelText[index] = s1.options[i].text;
+                    //建立匹配关系
+                    arrValueTextRelation[arrSelValue[index]] = s1.options[i];
+                    index++;
+                }
+            }
+
+            // 将选择的元素移除并添加到目标列表中
+            for (var i = 0; i < arrSelText.length; i++) {
+                var oOption = document.createElement("option");
+                oOption.text = arrSelText[i];
+                oOption.value = arrSelValue[i];
+                s2.add(oOption);
+                s2.options[i].selected = true;
+                s1.removeChild(arrValueTextRelation[arrSelValue[i]]);
+            }
+        }
+    </script>
 </head>
 <body>
 <%--整体包裹容器--%>
@@ -40,7 +73,7 @@
                             <div class="col-lg-6">
                                 <%--以下为分配合同表单，表单包括分配会签人，分配审批人，分配签订人三张表格，，每个表格有三列，
                                 分别为待分配人员列表，分配按钮和已分配人员列表--%>
-                                <form role="form" action=""
+                                <form role="form" name="assignOpFrom" action="#"
                                       method="post">
                                     <%--分配会签人h3标题--%>
                                     <h3>分配会签人</h3>
@@ -56,7 +89,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <select class="form-control" name="signer" size="10">
+                                                <select class="form-control" name="dfphqSigner" size="10">
                                                     <%
                                                         for (int i = 0; i < 3; i++) {
                                                     %>
@@ -67,15 +100,17 @@
                                             </td>
                                             <td style="text-align: center;vertical-align: middle">
                                                 <button type="button" class="btn btn-default"
-                                                        onclick="signer()">>>
+                                                        onclick="moveSigner(document.assignOpFrom.dfphqSigner,document.assignOpFrom.yfphqSigner)">
+                                                    >>
                                                 </button>
                                                 <br><br>
                                                 <button type="button" class="btn btn-default"
-                                                        onclick="signer()"><<
+                                                        onclick="moveSigner(document.assignOpFrom.yfphqSigner,document.assignOpFrom.dfphqSigner)">
+                                                    <<
                                                 </button>
                                             </td>
                                             <td>
-                                                <select class="form-control" name="signer" size="10">
+                                                <select class="form-control" name="yfphqSigner" size="10">
                                                 </select>
                                             </td>
                                         </tr>
@@ -94,7 +129,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <select class="form-control" name="signer" size="10">
+                                                <select class="form-control" name="dfpspSigner" size="10">
                                                     <%
                                                         for (int i = 0; i < 3; i++) {
                                                     %>
@@ -105,15 +140,17 @@
                                             </td>
                                             <td style="text-align: center;vertical-align: middle">
                                                 <button type="button" class="btn btn-default"
-                                                        onclick="signer()">>>
+                                                        onclick="moveSigner(document.assignOpFrom.dfpspSigner,document.assignOpFrom.yfpspSigner)">
+                                                    >>
                                                 </button>
                                                 <br><br>
                                                 <button type="button" class="btn btn-default"
-                                                        onclick="signer()"><<
+                                                        onclick="moveSigner(document.assignOpFrom.yfpspSigner,document.assignOpFrom.dfpspSigner)">
+                                                    <<
                                                 </button>
                                             </td>
                                             <td>
-                                                <select class="form-control" name="signer" size="10">
+                                                <select class="form-control" name="yfpspSigner" size="10">
                                                 </select>
                                             </td>
                                         </tr>
@@ -132,7 +169,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <select class="form-control" name="signer" size="10">
+                                                <select class="form-control" name="dfpqdSigner" size="10">
                                                     <%
                                                         for (int i = 0; i < 3; i++) {
                                                     %>
@@ -143,29 +180,31 @@
                                             </td>
                                             <td style="text-align: center;vertical-align: middle">
                                                 <button type="button" class="btn btn-default"
-                                                        onclick="signer()">>>
+                                                        onclick="moveSigner(document.assignOpFrom.dfpqdSigner,document.assignOpFrom.yfpqdSigner)">
+                                                    >>
                                                 </button>
                                                 <br><br>
                                                 <button type="button" class="btn btn-default"
-                                                        onclick="signer()"><<
+                                                        onclick="moveSigner(document.assignOpFrom.yfpqdSigner,document.assignOpFrom.dfpqdSigner)">
+                                                    <<
                                                 </button>
                                             </td>
                                             <td>
-                                                <select class="form-control" name="signer" size="10">
+                                                <select class="form-control" name="yfpqdSigner" size="10">
                                                 </select>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
-                                        <table>
-                                            <tr>
-                                                <td colspan="4" style="text-align:center;">
-                                                    <button type="submit" class="btn btn-default">确定</button>
-                                                    <a href="ad_WaittingForDistributeContract.jsp"
-                                                       class="btn btn-default">取消</a>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <table>
+                                        <tr>
+                                            <td colspan="4" style="text-align:center;">
+                                                <button type="submit" class="btn btn-default">确定</button>
+                                                <a href="ad_WaittingForDistributeContract.jsp"
+                                                   class="btn btn-default">取消</a>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </form>
                             </div>
                         </div>

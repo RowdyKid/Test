@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
 import com.cms.contractmanagementsystem.utils.*;
+
 /**
  * Servlet implementation class ContractInfoQuery
  */
@@ -32,7 +33,9 @@ public class ad_SearchContract extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        this.doPost(request, response);}
+        this.doPost(request, response);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
@@ -59,8 +62,8 @@ public class ad_SearchContract extends HttpServlet {
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                int temp01=((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
-                switch (temp01){
+                int temp01 = ((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01) {
                     case 11:
                         statusCode.add("起草");
                     case 31:
@@ -80,41 +83,39 @@ public class ad_SearchContract extends HttpServlet {
             request.setAttribute("status", statusCode);
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
 
-        }
-
-
-        else if(type.equals("search")) {
-
-
+        } else if (type.equals("search")) {
             ContractDAO contractdao = new ContractDAO();
             Contract contract = new Contract();
             //查找
             if (request.getParameter("contractName") != null) {
-
-
                 contract.SetName(request.getParameter("contractName"));
             }
-
-
 
             ArrayList<IEntity> contracts = contractdao.GetEntitySet(contract);
             ArrayList<String> statusCode = new ArrayList<String>();
             for (int i = 0; i < contracts.size(); i++) {
                 Status temp = new Status();
                 temp.SetcontractNo(contracts.get(i).GetId());
-                int temp01=((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
-                switch (temp01){
+                int temp01 = ((Status) new StatusDAO().GetOneEntity(temp)).GetcontractStatus();
+                switch (temp01) {
                     case 11:
                         statusCode.add("起草");
+                        break;
                     case 31:
                         statusCode.add("会签");
+                        break;
                     case 41:
                         statusCode.add("定稿");
+                        break;
                     case 51:
                         statusCode.add("审核");
+                        break;
                     case 61:
                         statusCode.add("签订");
-
+                        break;
+                    default:
+                        statusCode.add("未知");
+                        break;
                 }
             }
 
@@ -126,4 +127,5 @@ public class ad_SearchContract extends HttpServlet {
             request.getRequestDispatcher("ad_SearchContract.jsp").forward(request, response);
         }
 
-    }}
+    }
+}
