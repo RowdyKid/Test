@@ -97,6 +97,9 @@ public class DraftContract extends HttpServlet{
                 String filename=request.getParameter("textfield");
                 if(filename!=null){
                     //上传指定文件
+                    Attachment attachment = new Attachment(0,aContract.GetId(),filename,filename,null,timeStr);
+                    AttachmentDAO attachmentDAO = new AttachmentDAO();
+                    attachmentDAO.AddEntity(attachment);
                 }
 
                 if(addOperateFlow&&addStatus
