@@ -13,7 +13,7 @@
     <%--导入相关美化部件--%>
     <%@include file="op_OperatorCSS.jsp" %>
     <%
-        ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contractList");
+        ArrayList<Contract> contracts = (ArrayList<Contract>) request.getAttribute("contracts");
     %>
 </head>
 <body>
@@ -68,7 +68,7 @@
                                 <td><%=contract.GetStartTime()%>
                                 </td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/InfoOfCountersignContract?id=<%=contract.GetId()%>">查看</a>
+                                    <a href="${pageContext.request.contextPath}/op_InfoOfCountersignContract?id=<%=contract.GetId()%>">查看</a>
                                 </td>
                             </tr>
                             <%}%>

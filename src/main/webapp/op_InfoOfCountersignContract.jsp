@@ -37,19 +37,23 @@
                             <tr>
                                 <th>合同名称</th>
                                 <th>会签意见</th>
+                                <th>是否通过</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <%
-                                String contractName = (String) session.getAttribute("contractName");
-                                String contractId = (String) session.getAttribute("contractId");
-                                String contractSignOpinion = (String) session.getAttribute("contractSignOpinion");
+                                String contractName = (String) request.getAttribute("contractName");
+                                String isPass = (String) request.getAttribute("isPass");
+                                String contractSignOpinion = (String) request.getAttribute("countersignOpinion");
                             %>
                             <tr>
                                 <td><%=contractName%>
                                 </td>
                                 <td><%=contractSignOpinion%>
+                                </td>
+                                <td>
+                                    <%=isPass%>
                                 </td>
                                 <td>
                                     <a href="op_OperatorMainPage.jsp">返回</a>
@@ -63,6 +67,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
