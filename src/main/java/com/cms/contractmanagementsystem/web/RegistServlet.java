@@ -5,12 +5,12 @@ import com.cms.contractmanagementsystem.service.UserService;
 import com.cms.contractmanagementsystem.service.UserServiceImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//@WebServlet("/Register")
 public class RegistServlet extends HttpServlet {
 
     private UserService userService = new UserServiceImpl();
@@ -41,7 +41,7 @@ public class RegistServlet extends HttpServlet {
             } else {
                 //      可用
 //                调用Sservice保存到数据库
-                userService.registUser(new User(null, username, password, null));
+                userService.registUser(new User(null, username, password, "0"));
 //
 //        跳到注册成功页面 regist_success.jsp
                 req.getRequestDispatcher("Login.jsp").forward(req, resp);

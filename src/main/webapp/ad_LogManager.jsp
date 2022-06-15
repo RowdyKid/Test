@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.pojo.Log" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/6/3
@@ -42,12 +43,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <% for (int i = 0; i < 3; i++) { %>
+
+                            <%
+                                List<Log> logs = (List<Log>) request.getAttribute("logs");
+                            %>
+                            <% for (int i = 0; i < logs.size(); i++) { %>
                             <tr>
-                                <td>i</td>
-                                <td>i</td>
-                                <td>i</td>
-                                <td>i</td>
+                                <td><%=logs.get(i).getId()%></td>
+                                <td><%=logs.get(i).getOperator()%></td>
+                                <td><%=logs.get(i).getContent()%></td>
+                                <td><%=logs.get(i).getTime()%></td>
                             </tr>
                             <% } %>
                             </tbody>

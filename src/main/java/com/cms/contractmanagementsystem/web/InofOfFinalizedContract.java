@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.utils.*;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 /**
  * 文件名：ContractManageFinalize.java
  * 描述：已定稿合同信息展示
@@ -41,6 +44,11 @@ public class InofOfFinalizedContract extends HttpServlet {
         //显示合同详细信息
         //获取合同ID
 
+        Log log = new Log();
+        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setContent("InfoOfFinalizedContractList");
+        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        new LogDaoImpl().saveLogInfo(log);
 
         Integer contractNo = Integer.parseInt(request.getParameter("id"));
         System.out.println("contractNo:" + contractNo);

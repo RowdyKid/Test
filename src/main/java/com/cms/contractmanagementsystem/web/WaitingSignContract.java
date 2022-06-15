@@ -13,10 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.utils.*;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,7 +39,11 @@ public class WaitingSignContract extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+        Log log = new Log();
+        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setContent("WaitingSignContract");
+        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        new LogDaoImpl().saveLogInfo(log);
         // this.doPost(request, response);
 
         // TODO Auto-generated method stub

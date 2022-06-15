@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.utils.*;
 @WebServlet("/op_SignContract")
 public class op_SignContract extends HttpServlet{
@@ -38,6 +39,11 @@ public class op_SignContract extends HttpServlet{
         this.doPost(request, response);}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Log log = new Log();
+        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setContent("op_SignContract");
+        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        new LogDaoImpl().saveLogInfo(log);
 
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");

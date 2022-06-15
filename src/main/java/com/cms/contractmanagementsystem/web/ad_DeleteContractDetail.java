@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.utils.*;
 
 
@@ -40,6 +41,13 @@ public class ad_DeleteContractDetail extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+
+        Log log = new Log();
+        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setContent("ad_DeleteContractDetail");
+        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        new LogDaoImpl().saveLogInfo(log);
+
         //注意：此处应删除多个表中的数据：contract,attachment,operateFlow,status
 
         Integer id = Integer.parseInt(request.getParameter("id"));

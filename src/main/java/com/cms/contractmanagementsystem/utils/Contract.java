@@ -115,4 +115,83 @@ public class Contract implements IEntity {
         this.signerNo = signerNo;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getClientNo() {
+        return clientNo;
+    }
+
+    public void setClientNo(int clientNo) {
+        this.clientNo = clientNo;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(String finishTime) {
+        this.finishTime = finishTime;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getDrafterNo() {
+        return drafterNo;
+    }
+
+    public void setDrafterNo(int drafterNo) {
+        this.drafterNo = drafterNo;
+    }
+
+    public int getCounterSignerNo() {
+        return counterSignerNo;
+    }
+
+    public void setCounterSignerNo(int counterSignerNo) {
+        this.counterSignerNo = counterSignerNo;
+    }
+
+    public int getApproverNo() {
+        return approverNo;
+    }
+
+    public void setApproverNo(int approverNo) {
+        this.approverNo = approverNo;
+    }
+
+    public int getSignerNo() {
+        return signerNo;
+    }
+
+    public void setSignerNo(int signerNo) {
+        this.signerNo = signerNo;
+    }
 }

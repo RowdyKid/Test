@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.pojo.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/6/3
@@ -17,6 +18,9 @@
 <div id="wrapper">
     <%@include file="ad_AdminMenu.jsp" %>
 </div>
+
+
+
 <%--用户表格，显示用户名称，对应的角色名称和操作--%>
 <div id="page-wrapper">
     <div class="row">
@@ -48,20 +52,48 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                             <tr>
+                                <th>编号</th>
                                 <th>用户名</th>
+                                <th>密码</th>
                                 <th>角色</th>
+                                <th>状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <% for (int i = 0; i < 3; i++) { %>
+
+                            <%
+                                List<User> users = (List<User>) request.getAttribute("users");
+                                for (int i = 0; i < users.size(); i++) { %>
                             <tr>
-                                <td>用户名</td>
-                                <td>角色</td>
+                                <td><%=users.get(i).getId()%></td>
+                                <td><%=users.get(i).getUsername()%></td>
+                                <td><%=users.get(i).getPassword()%></td>
+                                <td><%
+                                    Integer id = users.get(i).getRid();
+                                    if(id == 1){
+                                        out.print("新用户");
+                                    }else if (id == 2){
+                                        out.print("系统管理员");
+                                    }else{
+                                        out.print("合同管理员");
+                                    }
+                                %></td>
+                                <td><%=users.get(i).getDel().equals("1")?"已删除":"正常"%></td>
                                 <td>
-                                    <a href="ad_ModifyUserInfo.jsp">修改</a>
-                                    <a href="ad_AuthorizeCustomer.jsp">授权</a>
-                                    <a href="">删除</a>
+                                    <a href="/updateUser_userInfo?id=<%=users.get(i).getId()%>">修改</a>
+                                    <a href="/ad_AuthorizeCustomer?id=<%=users.get(i).getId()%>">授权</a>
+                                    <% if(users.get(i).getDel().equals("1")){
+                                    %>
+                                        <a style="color: red!important;" href="/delete_userInfo?id=<%=users.get(i).getId()%>">恢复</a>
+                                    <%
+                                    }else{%>
+                                        <a href="/delete_userInfo?id=<%=users.get(i).getId()%>">删除</a>
+                                    <%
+                                        }
+                                    %>
+
+
                                 </td>
                             </tr>
                             <% } %>

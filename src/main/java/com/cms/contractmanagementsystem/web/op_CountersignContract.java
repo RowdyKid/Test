@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.utils.*;
 
 @WebServlet("/op_CountersignContract")
@@ -30,6 +31,11 @@ public class op_CountersignContract extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Log log = new Log();
+        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setContent("op_CountersignContract");
+        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        new LogDaoImpl().saveLogInfo(log);
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");

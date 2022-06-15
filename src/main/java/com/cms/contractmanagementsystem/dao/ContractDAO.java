@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.cms.contractmanagementsystem.pojo.User;
 import com.cms.contractmanagementsystem.utils.*;
 public class ContractDAO extends MySQLConnection implements IDAO {
 
@@ -351,11 +354,11 @@ public class ContractDAO extends MySQLConnection implements IDAO {
             }
 
             //去掉最后的“and”
-            sql=sql.substring(0, sql.length()-4);
+            sql= sql.substring(0, sql.length()-4);
 
             ResultSet res;
             try {
-                sqlGetNum+=sql;
+                sqlGetNum = sqlGetEntitySet + sql;
                 res = stmt.executeQuery(sqlGetNum);
                 if(res.next()){
                     this.recordNum=res.getInt(1);
@@ -426,5 +429,7 @@ public class ContractDAO extends MySQLConnection implements IDAO {
         // TODO Auto-generated method stub
         return null;
     }
+
+
 
 }

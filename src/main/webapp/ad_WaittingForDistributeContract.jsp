@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.utils.Contract" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/6/4
@@ -43,7 +44,9 @@
                                         <tr>
                                             <th>合同编号</th>
                                             <th>合同名称</th>
-                                            <th>合同状态</th>
+                                            <th>会签人编号</th>
+                                            <th>审批人编号</th>
+                                            <th>签订人编号</th>
                                             <th>合同开始时间</th>
                                             <th>合同结束时间</th>
                                             <th>操作</th>
@@ -51,28 +54,26 @@
                                         </thead>
                                         <tbody>
                                         <%--遍历合同列表--%>
-                                        <%--<%for(int i=0;i<contractList.size();i++){%>--%>
+
+                                        <%
+                                            List<Contract> contractList = (List<Contract>) request.getAttribute("contracts");
+                                        for(int i=0;i<contractList.size();i++)
+                                        {
+
+                                        %>
                                         <tr>
-                                            <%-- <td><%=contractList.get(i).getContractId()%></td>
-                                             <td><%=contractList.get(i).getContractName()%></td>
-                                             <td><%=contractList.get(i).getContractStatus()%></td>
-                                             <td><%=contractList.get(i).getContractCreateTime()%></td>
-                                             <td><%=contractList.get(i).getContractEndTime()%></td>--%>
-                                            <td>111
-                                            </td>
-                                            <td>111
-                                            </td>
-                                            <td>111
-                                            </td>
-                                            <td>111
-                                            </td>
-                                            <td>111
-                                            </td>
+                                            <td><%=contractList.get(i).getId()%></td>
+                                             <td><%=contractList.get(i).getName()%></td>
+                                             <td><%=contractList.get(i).getCounterSignerNo()!=0?contractList.get(i).getCounterSignerNo():""%></td>
+                                            <td><%=contractList.get(i).getApproverNo()!=0?contractList.get(i).getApproverNo():""%></td>
+                                            <td><%=contractList.get(i).getSignerNo()!=0?contractList.get(i).getSignerNo():""%></td>
+                                             <td><%=contractList.get(i).getStartTime()%></td>
+                                             <td><%=contractList.get(i).getFinishTime()%></td>
                                             <td>
-                                                <a href="ad_AllocateContract.jsp">分配</a>
+                                                <a href="/AdContactSplit?id=<%=contractList.get(i).getId()%>">分配</a>
                                             </td>
                                         </tr>
-                                        <%--<%}%>--%>
+                                        <%}%>
                                         </tbody>
                                     </table>
                                 </div>

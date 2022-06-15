@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.pojo.User" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/6/3
@@ -36,16 +36,27 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form" action="" method="post">
+                                <form role="form" action="/add_AuthorizeCustomer" method="post">
+                                    <div class="form-group">
+                                        <label>编号</label>
+                                        <input class="form-control" name="id" value="<%
+                                        User users = (User) request.getAttribute("userInfo");
+                                        out.print(users.getId());
+                                        %>" readonly>
+                                    </div>
                                     <div class="form-group">
                                         <label>用户名</label>
-                                        <input class="form-control" name="username" value="张三" readonly>
+                                        <input class="form-control" name="username" value="<%
+                                        User user = (User) request.getAttribute("userInfo");
+                                        out.print(user.getUsername());
+                                        %>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>权限配置</label>
                                         <select class="form-control" name="role">
-                                            <option value="0">操作员</option>
-                                            <option value="1">管理员</option>
+                                            <option value="1" <%= user.getRid() == 1 ? "selected" : ""%> name="role">新用户</option>
+                                            <option value="2" <%= user.getRid() == 2 ? "selected" : ""%>  name="role">系统管理员</option>
+                                            <option value="3" <%= user.getRid() == 3 ? "selected" : ""%> name="role">合同操作员</option>
                                         </select>
                                     </div>
                                     <button type="submit" class="btn btn-default">提交</button>

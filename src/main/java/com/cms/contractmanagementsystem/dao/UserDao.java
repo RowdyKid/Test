@@ -2,6 +2,8 @@ package com.cms.contractmanagementsystem.dao;
 
 import com.cms.contractmanagementsystem.pojo.User;
 
+import java.util.List;
+
 public interface UserDao {
 
 
@@ -12,6 +14,9 @@ public interface UserDao {
      * @return 如果返回null,说明没有这个用户。反之亦然
      */
     public User queryUserByUsername(String username);
+
+
+    public List<User> queryAllUserInfo();
 
     /**
      * 根据 用户名和密码查询用户信息
@@ -30,5 +35,15 @@ public interface UserDao {
 
 
     public String queryUserById(int id);
+
+    public User queryUserInfoById(int id);
+
+    public void updateUserInfo(User user);
+
+    public void deleteUserInfoById(User user);
+
+    public void updateUserPasswordInfo(User user);
+
+
 
 }

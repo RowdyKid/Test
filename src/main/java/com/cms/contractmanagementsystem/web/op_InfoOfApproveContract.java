@@ -7,10 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.utils.*;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+
 /**
  * 文件名：ContractManageFinalize.java
  * 描述：已审批合同信息展示
@@ -39,6 +43,12 @@ public class op_InfoOfApproveContract extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer contractNo = Integer.parseInt(request.getParameter("id"));
         System.out.println("contractNo:" + contractNo);
+
+        Log log = new Log();
+        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setContent("op_InfoOfApproveContract");
+        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        new LogDaoImpl().saveLogInfo(log);
 
         ContractDAO contractDAO = new ContractDAO();
         Contract oldContract = (Contract) contractDAO.GetOneEntity(contractNo);

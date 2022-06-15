@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cms.contractmanagementsystem.dao.*;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.utils.*;
 /**
  * Servlet implementation class ContractInfoQuery
@@ -34,7 +35,11 @@ public class ad_SearchContract extends HttpServlet {
         // TODO Auto-generated method stub
         this.doPost(request, response);}
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        Log log = new Log();
+        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setContent("ad_SearchContract");
+        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        new LogDaoImpl().saveLogInfo(log);
 
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
@@ -90,8 +95,6 @@ public class ad_SearchContract extends HttpServlet {
             Contract contract = new Contract();
             //查找
             if (request.getParameter("contractName") != null) {
-
-
                 contract.SetName(request.getParameter("contractName"));
             }
 

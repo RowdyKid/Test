@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.cms.contractmanagementsystem.pojo.User" %><%--
   Created by IntelliJ IDEA.
   User: 王宇轩
   Date: 2022/6/5
@@ -31,23 +31,26 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form" action="" method="post">
+                                <%
+                                    User user = (User) request.getAttribute("userInfo");
+                                %>
+                                <form role="form" action="<%=request.getContextPath()%>/update_add_userInfo" method="post">
+                                    <div class="form-group">
+                                        <label>用户编号</label>
+                                        <input class="form-control" readonly name="id" value="<%=user.getId()%>">
+                                    </div>
+
                                     <div class="form-group">
                                         <label>用户名称</label>
-                                        <input class="form-control" name="customerName"
-                                               value="张三">
+                                        <input class="form-control" readonly name="username" value="<%=user.getUsername()%>">
                                     </div>
                                     <div class="form-group">
-                                        <label>密码</label>
-                                        <input class="form-control" name="phone" value="122222">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>确认密码</label>
-                                        <input class="form-control" name="address" placeholder="请确认密码">
+                                        <label>新的密码</label>
+                                        <input class="form-control" name="password" value="<%=user.getPassword()%>">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">修改</button>
-                                        <a href="ad_SearchUser.jsp">
+                                        <a href="<%=request.getContextPath()%>/search_userInfo">
                                             <button type="button" class="btn btn-primary">返回</button>
                                         </a>
                                     </div>

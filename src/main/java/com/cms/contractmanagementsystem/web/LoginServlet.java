@@ -1,5 +1,7 @@
 package com.cms.contractmanagementsystem.web;
 
+import com.cms.contractmanagementsystem.dao.LogDaoImpl;
+import com.cms.contractmanagementsystem.pojo.Log;
 import com.cms.contractmanagementsystem.pojo.User;
 import com.cms.contractmanagementsystem.service.UserService;
 import com.cms.contractmanagementsystem.service.UserServiceImpl;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class LoginServlet extends HttpServlet {
@@ -17,6 +21,9 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
+
         //  1、获取请求的参数
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -37,11 +44,17 @@ public class LoginServlet extends HttpServlet {
             System.out.println(loginUser.getId());
             System.out.println(username);
 
-            if (Objects.equals(username, "newUser")) {
+            Log log = new Log();
+            log.setOperator((Integer) req.getSession().getAttribute("userid"));
+            log.setContent("LoginServlet");
+            log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            new LogDaoImpl().saveLogInfo(log);
+
+            if (Objects.equals(loginUser.getRid(), 1)) {    //1新注册
                 req.getRequestDispatcher("NewUserPage.jsp").forward(req, resp);
-            } else if (Objects.equals(username, "admin")) {
+            } else if (Objects.equals(loginUser.getRid(), 2)) { //2系统管理员
                 req.getRequestDispatcher("ad_AdminMainPage.jsp").forward(req, resp);
-            } else {
+            } else {        //3合同操作员
                 req.getRequestDispatcher("op_OperatorMainPage.jsp").forward(req, resp);
             }
         }

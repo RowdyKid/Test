@@ -42,6 +42,8 @@ public class Client implements IEntity{
         return name;
     }
 
+
+
     public String GetAddress() {
         return address;
     }

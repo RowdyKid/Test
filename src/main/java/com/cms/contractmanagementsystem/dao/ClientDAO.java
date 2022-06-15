@@ -214,8 +214,8 @@ public class ClientDAO extends MySQLConnection implements IDAO {
             ResultSet res;
 
             try {
-                sqlGetNum+=sql;
-                res = stmt.executeQuery(sqlGetNum);
+                sqlGetEntitySet = sqlGetEntitySet + sql;
+                res = stmt.executeQuery(sqlGetEntitySet);
                 if(res.next()){
                     this.recordNum=res.getInt(1);
                 }
@@ -228,8 +228,12 @@ public class ClientDAO extends MySQLConnection implements IDAO {
 
                 if(pageNo<=pageNum){
                     //设置limit值
+                    if(pageNo == 0){
+                        pageNo =2 ;
+                    }
+
                     int startNo=(pageNo-1)*pageRecordNum;
-                    sqlGetEntitySet+=sql+" limit "+startNo+","+pageRecordNum;
+                    sqlGetEntitySet+=" limit "+startNo+","+pageRecordNum;
 
                     arr=new ArrayList<IEntity>();
                     res = stmt.executeQuery(sqlGetEntitySet);

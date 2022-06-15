@@ -5,6 +5,15 @@ public class User {
     private String username;
     private String password;
     private String del;
+    private Integer rid;
+
+    public Integer getRid() {
+        return rid;
+    }
+
+    public void setRid(Integer rid) {
+        this.rid = rid;
+    }
 
     public Integer getId() {
         return id;
@@ -49,6 +58,14 @@ public class User {
     }
 
     public User() {
+    }
+
+    public User(Integer id, String username, String password, String del, Integer rid) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.del = del;
+        this.rid = rid;
     }
 
     public User(Integer id, String username, String password, String del) {
