@@ -50,42 +50,37 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form" action="ad_AddCustomer.jsp" method="post">
+                                <form role="form" action="${pageContext.request.contextPath}/ClientManage?type=add" method="post">
                                     <div class="form-group">
                                         <label>客户名称</label>
-                                        <input class="form-control" name="customerName" id="customerName"
+                                        <input class="form-control" name="NewClientName" id="customerName"
                                                placeholder="请输入客户名称">
                                     </div>
                                     <div class="form-group">
                                         <label>客户电话</label>
-                                        <input class="form-control" name="customerPhone" id="customerPhone"
+                                        <input class="form-control" name="NewTel" id="customerPhone"
                                                placeholder="请输入客户电话">
                                     </div>
                                     <div class="form-group">
                                         <label>客户地址</label>
-                                        <input class="form-control" name="customerAddress" id="customerAddress"
+                                        <input class="form-control" name="NewAddress" id="customerAddress"
                                                placeholder="请输入客户地址">
                                     </div>
                                     <div class="form-group">
                                         <label>客户传真</label>
-                                        <input class="form-control" name="customerFax" placeholder="请输入客户传真">
+                                        <input class="form-control" name="NewFax" placeholder="请输入客户传真">
                                     </div>
                                     <div class="form-group">
-                                        <label>客户邮箱</label>
-                                        <input class="form-control" name="customerEmail" placeholder="请输入客户邮箱">
+                                        <label>客户邮编</label>
+                                        <input class="form-control" name="NewPostCode" placeholder="请输入客户邮编">
                                     </div>
                                     <div class="form-group">
                                         <label>客户银行名称</label>
-                                        <input class="form-control" name="customerBankName" placeholder="请输入客户银行名称">
+                                        <input class="form-control" name="NewBankName" placeholder="请输入客户银行名称">
                                     </div>
                                     <div class="form-group">
                                         <label>客户银行账号</label>
-                                        <input class="form-control" name="customerBankAccount" placeholder="请输入客户银行账号">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>备注</label>
-                                        <textarea class="form-control"
-                                                  name="contractContent" rows="3" placeholder="请输入备注"></textarea>
+                                        <input class="form-control" name="NewBankAccount" placeholder="请输入客户银行账号">
                                     </div>
                                     <button type="submit" class="btn btn-default" onclick="check()">提交</button>
                                     <button type="reset" class="btn btn-default">重置</button>

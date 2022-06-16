@@ -51,8 +51,7 @@ public class update_add_userInfo extends HttpServlet {
         User user = new UserDaoImpl().queryUserInfoById(Integer.parseInt(id));
         user.setPassword(password);
         new UserDaoImpl().updateUserPasswordInfo(user);
-        response.sendRedirect("/search_userInfo");
-
+        response.sendRedirect("search_userInfo");
     }
 }
 

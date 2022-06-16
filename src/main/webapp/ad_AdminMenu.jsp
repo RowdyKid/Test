@@ -51,7 +51,7 @@
                             <a href="ad_AddCustomer.jsp">新增客户</a>
                         </li>
                         <li>
-                            <a href="ad_SearchCustomer.jsp">查询客户</a>
+                            <a href="${pageContext.request.contextPath}/ClientManage">查询客户</a>
                         </li>
                     </ul>
                 </li>
