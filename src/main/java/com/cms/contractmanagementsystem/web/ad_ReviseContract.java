@@ -58,7 +58,8 @@ public class ad_ReviseContract extends HttpServlet {
             contract.SetContent(contractContent);
             contractDao.UpdateEntity(contract);
 
-            request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
+            response.sendRedirect("ad_SearchContract");
+           // request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
 
         }
     }

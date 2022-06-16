@@ -80,7 +80,8 @@ public class ad_DeleteContractDetail extends HttpServlet {
             res03 = statusDao.DeleteEntity(status);
 
             if (res01 && res02 && res03) {
-                request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
+                response.sendRedirect("ad_SearchContract");
+               // request.getRequestDispatcher("ad_AdminMainPage.jsp").forward(request, response);
 
             } else {
                 request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);

@@ -64,7 +64,7 @@
                                 <%--返回按钮--%>
                                 <div class="form-group">
                                     <label>
-                                        <a href="ad_AdminMainPage.jsp">
+                                        <a href="${pageContext.request.contextPath}/ad_SearchContract">
                                             <button type="button" class="btn btn-primary">返回</button>
                                         </a>
                                     </label>
