@@ -117,7 +117,7 @@ public class ClientManage extends HttpServlet {
 
                 if(clientDao.UpdateEntity(client)){
                     SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                    new LogDAO().AddEntity(new Log(0,operatorNo,"修改客户信息,客户号："+id,currTime.format(new Date())));
+
                     out.write("修改成功");
                 }else
                     out.write("修改失败");
@@ -131,8 +131,7 @@ public class ClientManage extends HttpServlet {
             Client client=(Client)clientDao.GetOneEntity(id);
             if(clientDao.DeleteEntity(client)){
                 SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                new LogDAO().AddEntity(new Log(0,operatorNo,"删除客户信息,客户号："+id,currTime.format(new Date())));
-                out.write("删除成功!");
+               out.write("删除成功!");
             }else{
                 out.write("删除失败!");
             }
@@ -163,7 +162,6 @@ public class ClientManage extends HttpServlet {
 
                 if(clientDao.AddEntity(client)){
                     SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                    new LogDAO().AddEntity(new Log(0,operatorNo,"添加新客户",currTime.format(new Date())));
                     out.write("添加客户成功!");
                 }else{
                     out.write("添加客户失败!");
