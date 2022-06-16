@@ -20,7 +20,6 @@ import java.util.List;
  */
 
 @WebServlet("/ad_LogManager")
-
 public class ad_LogManager extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

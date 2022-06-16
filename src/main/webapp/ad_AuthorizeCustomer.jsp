@@ -36,7 +36,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form" action="/add_AuthorizeCustomer" method="post">
+                                <form role="form" action="${pageContext.request.contextPath}/add_AuthorizeCustomer" method="post">
                                     <div class="form-group">
                                         <label>编号</label>
                                         <input class="form-control" name="id" value="<%

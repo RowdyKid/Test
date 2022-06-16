@@ -12,6 +12,4 @@ public interface LogDao {
 
     public List<Log> getAllLogs();
 
-
-
 }

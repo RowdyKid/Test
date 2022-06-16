@@ -47,7 +47,6 @@ public class ClientManage extends HttpServlet {
         // TODO Auto-generated method stub
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        PrintWriter out=response.getWriter();
         Integer operatorNo=(Integer)request.getSession().getAttribute("id");
 
         String type=request.getParameter("type");
@@ -114,28 +113,16 @@ public class ClientManage extends HttpServlet {
                 client.SetBankName(NewBankName);
                 client.SetBankAccount(NewBankAccount);
                 client.SetAddress(NewAddress);
+                clientDao.UpdateEntity(client);
 
-                if(clientDao.UpdateEntity(client)){
-                    SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                    new LogDAO().AddEntity(new Log(0,operatorNo,"修改客户信息,客户号："+id,currTime.format(new Date())));
-                    out.write("修改成功");
-                }else
-                    out.write("修改失败");
 
-            }else
-                out.write("修改失败");
+            }
         }else if(type.equals("delete")){
             //注意：删除客户时  我们只删除客户本身，不删除其他，跟我们之前说的不太一样
             Integer id=Integer.parseInt(request.getParameter("id"));
             ClientDAO clientDao=new ClientDAO();
             Client client=(Client)clientDao.GetOneEntity(id);
-            if(clientDao.DeleteEntity(client)){
-                SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                new LogDAO().AddEntity(new Log(0,operatorNo,"删除客户信息,客户号："+id,currTime.format(new Date())));
-                out.write("删除成功!");
-            }else{
-                out.write("删除失败!");
-            }
+            clientDao.DeleteEntity(client);
 
         }else if(type.equals("add")){
 
@@ -160,17 +147,10 @@ public class ClientManage extends HttpServlet {
                 // client.SetPostCode(NewPostCode);
                 client.SetBankName(NewBankName);
                 client.SetBankAccount(NewBankAccount);
-
-                if(clientDao.AddEntity(client)){
-                    SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                    new LogDAO().AddEntity(new Log(0,operatorNo,"添加新客户",currTime.format(new Date())));
-                    out.write("添加客户成功!");
-                }else{
-                    out.write("添加客户失败!");
-                }
+                clientDao.AddEntity(client);
 
             }else{
-                out.write("客户已存在！");
+                System.out.println("客户已存在！");
             }
         }
     }

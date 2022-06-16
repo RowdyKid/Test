@@ -37,8 +37,10 @@
                             <div class="col-lg-6">
                                 <%--以下为分配合同表单，表单包括分配会签人，分配审批人，分配签订人三张表格，，每个表格有三列，
                                 分别为待分配人员列表，分配按钮和已分配人员列表--%>
-                                <form role="form" action="<%=request.getContextPath()%>/AdContactSplitAdd"  id="formChat" method="post">
-                                    合同编号：<input type="text" readonly name="id" value="<%=request.getAttribute("id") %>"/>
+                                <form role="form" action="<%=request.getContextPath()%>/AdContactSplitAdd" id="formChat"
+                                      method="post">
+                                    合同编号：<input type="text" readonly name="id"
+                                                value="<%=request.getAttribute("id") %>"/>
                                     <%--分配会签人h3标题--%>
                                     <h3>分配会签人</h3>
                                     <%--第一个表格，表格分三列，表头为待分配人员列表，分配按钮和已分配人员列表--%>
@@ -60,7 +62,8 @@
                                                     <%
                                                         for (int i = 0; i < clients.size(); i++) {
                                                     %>
-                                                    <option value="<%=clients.get(i).GetId()%>"><%=clients.get(i).GetName()%></option>
+                                                    <option value="<%=clients.get(i).GetId()%>"><%=clients.get(i).GetName()%>
+                                                    </option>
                                                     <%} %>
                                                 </select>
                                             </td>
@@ -72,7 +75,8 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <select class="form-control" id="signer11"  name="signer11" size="10"></select>
+                                                <select class="form-control" id="signer11" name="signer11"
+                                                        size="10"></select>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -97,7 +101,8 @@
                                                     <%
                                                         for (int i = 0; i < clientss.size(); i++) {
                                                     %>
-                                                    <option value="<%=clientss.get(i).GetId()%>"><%=clientss.get(i).GetName()%></option>
+                                                    <option value="<%=clientss.get(i).GetId()%>"><%=clientss.get(i).GetName()%>
+                                                    </option>
                                                     <%} %>
                                                 </select>
                                             </td>
@@ -135,7 +140,8 @@
                                                     <%
                                                         for (int i = 0; i < client.size(); i++) {
                                                     %>
-                                                    <option value="<%=client.get(i).GetId()%>"><%=client.get(i).GetName()%></option>
+                                                    <option value="<%=client.get(i).GetId()%>"><%=client.get(i).GetName()%>
+                                                    </option>
                                                     <%} %>
                                                 </select>
                                             </td>
@@ -153,15 +159,16 @@
                                         </tr>
                                         </tbody>
                                     </table>
-                                        <table>
-                                            <tr>
-                                                <td colspan="4" style="text-align:center;">
-                                                    <button type="submit" id="submitText" class="btn btn-default">确定</button>
-                                                    <a href="ad_WaittingForDistributeContract.jsp"
-                                                       class="btn btn-default">取消</a>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <table>
+                                        <tr>
+                                            <td colspan="4" style="text-align:center;">
+                                                <button type="submit" id="submitText" class="btn btn-default">确定
+                                                </button>
+                                                <a href="ad_WaittingForDistributeContract.jsp"
+                                                   class="btn btn-default">取消</a>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </form>
                             </div>
                         </div>
@@ -174,51 +181,51 @@
 </body>
 <script type="text/javascript">
     $(function () {
-        $("#signer-1l").click(function(){
+        $("#signer-1l").click(function () {
             var text = $("#signer1").find("option:selected").text().trim();
             var textValue = $("#signer1").find("option:selected").val().trim();
             $("#signer11").empty()
-            $("#signer11").append("<option name='signer11' value="+textValue+">"+text+"</option>")
+            $("#signer11").append("<option name='signer11' value=" + textValue + ">" + text + "</option>")
         })
 
-        $("#signer-1r").click(function(){
+        $("#signer-1r").click(function () {
             $("#signer11").empty()
         })
 
-        $("#signer-2l").click(function(){
+        $("#signer-2l").click(function () {
             var text = $("#signer2").find("option:selected").text().trim();
             var textValue = $("#signer2").find("option:selected").val().trim();
             $("#signer22").empty()
-            $("#signer22").append("<option name='signer22'  value="+textValue+">"+text+"</option>")
+            $("#signer22").append("<option name='signer22'  value=" + textValue + ">" + text + "</option>")
         })
 
-        $("#signer-2r").click(function(){
+        $("#signer-2r").click(function () {
             $("#signer22").empty()
         })
 
-        $("#signer-3l").click(function(){
+        $("#signer-3l").click(function () {
             var text = $("#signer3").find("option:selected").text().trim();
             var textValue = $("#signer3").find("option:selected").val().trim();
             $("#signer33").empty()
-            $("#signer33").append("<option name='signer33'  value="+textValue+">"+text+"</option>")
+            $("#signer33").append("<option name='signer33'  value=" + textValue + ">" + text + "</option>")
         })
 
-        $("#signer-3r").click(function(){
+        $("#signer-3r").click(function () {
             $("#signer33").empty()
         })
 
-        $("#submitText").submit(function(){
+        $("#submitText").submit(function () {
             var text1 = $("#signer11").find("option:selected").text().trim();
             var text2 = $("#signer22").find("option:selected").text().trim();
             var text3 = $("#signer33").find("option:selected").text().trim();
             console.log(text1);
             console.log(text2);
             console.log(text3);
-            if(text1 == null || text2 == null || text3 == null){
+            if (text1 == null || text2 == null || text3 == null) {
                 alert("请确保给合同分配具体人员！！！");
                 return false;
             }
-            if(text1 == "" || text2 == "" || text3 == ""){
+            if (text1 == "" || text2 == "" || text3 == "") {
                 alert("请确保给合同分配具体人员！！！");
                 return false;
             }

@@ -19,7 +19,6 @@ import java.util.Date;
  */
 
 @WebServlet("/add_AuthorizeCustomer")
-
 public class add_AuthorizeCustomer extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -57,8 +56,8 @@ public class add_AuthorizeCustomer extends HttpServlet {
 
         new UserDaoImpl().updateUserInfo(user);
 
-//        request.setAttribute("userInfo", user);
-        response.sendRedirect("/search_userInfo");
+//        跳转到search_userInfo servlet文件中
+        response.sendRedirect("search_userInfo");
 
     }
 }

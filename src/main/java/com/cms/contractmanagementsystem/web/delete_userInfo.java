@@ -59,7 +59,7 @@ public class delete_userInfo extends HttpServlet {
             user.setDel("1");
         }
         new UserDaoImpl().deleteUserInfoById(user);
-        response.sendRedirect("/search_userInfo");
+        response.sendRedirect("search_userInfo");
 
     }
 }

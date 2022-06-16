@@ -7,6 +7,7 @@ import com.cms.contractmanagementsystem.service.UserService;
 import com.cms.contractmanagementsystem.service.UserServiceImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,18 +16,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "login", value = "/login")
+public class Login extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    private UserService userService = new UserServiceImpl();
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        //设置字体
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
 
-
+        UserService userService = new UserServiceImpl();
         //  1、获取请求的参数
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        System.out.println(username);
+        System.out.println(password);
         // 调用 userService.login()登录处理业务
         User loginUser = userService.login(new User(null, username, password, null));
         // 如果等于null,说明登录 失败!

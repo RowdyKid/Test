@@ -57,20 +57,26 @@
 
                                         <%
                                             List<Contract> contractList = (List<Contract>) request.getAttribute("contracts");
-                                        for(int i=0;i<contractList.size();i++)
-                                        {
+                                            for (int i = 0; i < contractList.size(); i++) {
 
                                         %>
                                         <tr>
-                                            <td><%=contractList.get(i).getId()%></td>
-                                             <td><%=contractList.get(i).getName()%></td>
-                                             <td><%=contractList.get(i).getCounterSignerNo()!=0?contractList.get(i).getCounterSignerNo():""%></td>
-                                            <td><%=contractList.get(i).getApproverNo()!=0?contractList.get(i).getApproverNo():""%></td>
-                                            <td><%=contractList.get(i).getSignerNo()!=0?contractList.get(i).getSignerNo():""%></td>
-                                             <td><%=contractList.get(i).getStartTime()%></td>
-                                             <td><%=contractList.get(i).getFinishTime()%></td>
+                                            <td><%=contractList.get(i).getId()%>
+                                            </td>
+                                            <td><%=contractList.get(i).getName()%>
+                                            </td>
+                                            <td><%=contractList.get(i).getCounterSignerNo() != 0 ? contractList.get(i).getCounterSignerNo() : ""%>
+                                            </td>
+                                            <td><%=contractList.get(i).getApproverNo() != 0 ? contractList.get(i).getApproverNo() : ""%>
+                                            </td>
+                                            <td><%=contractList.get(i).getSignerNo() != 0 ? contractList.get(i).getSignerNo() : ""%>
+                                            </td>
+                                            <td><%=contractList.get(i).getStartTime()%>
+                                            </td>
+                                            <td><%=contractList.get(i).getFinishTime()%>
+                                            </td>
                                             <td>
-                                                <a href="/AdContactSplit?id=<%=contractList.get(i).getId()%>">分配</a>
+                                                <a href="${pageContext.request.contextPath}/AdContactSplit?id=<%=contractList.get(i).getId()%>">分配</a>
                                             </td>
                                         </tr>
                                         <%}%>

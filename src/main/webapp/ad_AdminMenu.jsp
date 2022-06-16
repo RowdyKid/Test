@@ -59,7 +59,7 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/search_userInfo">查询用户</a>
+                            <a href="${pageContext.request.contextPath}/search_userInfo">查询用户</a>
                         </li>
                     </ul>
                 </li>
@@ -67,10 +67,10 @@
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 系统管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/ad_Contract">分配合同</a>
+                            <a href="${pageContext.request.contextPath}/ad_Contract">分配合同</a>
                         </li>
                         <li>
-                            <a href="/ad_LogManager">日志管理</a>
+                            <a href="${pageContext.request.contextPath}/ad_LogManager">日志管理</a>
                         </li>
                     </ul>
                 </li>
