@@ -55,7 +55,7 @@
                                 <td><%=contractText%>
                                 </td>
                                 <td>
-                                    <a href="op_OperatorMainPage.jsp">返回</a>
+                                    <a href="${pageContext.request.contextPath}/HaveSignContract">返回</a>
                                 </td>
                             </tr>
                             </tbody>

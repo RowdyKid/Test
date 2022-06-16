@@ -109,6 +109,5 @@ public class WaitingCountersignContract extends HttpServlet {
             }
         }
 
-        return;
     }
 }

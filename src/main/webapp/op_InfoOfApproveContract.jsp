@@ -54,7 +54,7 @@
                                 </td>
                                 <td><%=isPass%>
                                 </td>
-                                <td><a href="op_OperatorMainPage.jsp">返回</a></td>
+                                <td><a href="${pageContext.request.contextPath}/HaveApproveContract">返回</a></td>
                             </tr>
                             </tbody>
                         </table>

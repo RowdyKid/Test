@@ -98,11 +98,10 @@ public class op_SignContract extends HttpServlet{
                 boolean updateStatus = statusDAO.UpdateEntity(status);
                 if (updateOperateFlow && updateOperateFlow && updateStatus) {
                     request.setAttribute("result", "操作成功！");   //操作成功
-                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
                 } else {
                     request.setAttribute("result", "操作成功，但操作、状态、日志信息可能不完整！");
-                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
                 }
+                response.sendRedirect("WaitingSignContract");
             } else {
                 //操作失败
                 request.setAttribute("result", "操作失败！");

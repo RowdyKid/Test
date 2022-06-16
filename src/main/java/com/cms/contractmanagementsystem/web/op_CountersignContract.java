@@ -91,9 +91,9 @@ public class op_CountersignContract extends HttpServlet {
                 status.SetcontractStatus(StatusCode.STATUS_FINISH_COUNTERSIGN);
                 status.SetfinishTime(currTime);
                 boolean updateStatus = statusDAO.UpdateEntity(status);
-                //把操作信息写入日志
-                request.setAttribute("result", "操作成功！");
-                request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
+
+                response.sendRedirect("WaitingCountersignContract");
+               // request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
             } else {
                 request.setAttribute("result", "操作失败！");
                 request.getRequestDispatcher("ErrorPage.jsp").forward(request, response);

@@ -56,7 +56,7 @@
                                     <%=isPass%>
                                 </td>
                                 <td>
-                                    <a href="op_OperatorMainPage.jsp">返回</a>
+                                    <a href="${pageContext.request.contextPath}/HaveCountersignContract">返回</a>
                                 </td>
                             </tr>
                             </tbody>

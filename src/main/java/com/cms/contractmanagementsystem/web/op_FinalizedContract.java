@@ -126,12 +126,10 @@ public class op_FinalizedContract extends HttpServlet {
                 //操作成功与否的提示
                 if (aUpdateOperateFlow && bUpdateOperateFlow && UpdateStatus) {
                     request.setAttribute("result", "操作成功！");   //操作成功
-                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
                 } else {
                     request.setAttribute("result", "操作成功，但操作、状态、日志信息可能不完整！");
-                    request.getRequestDispatcher("op_OperatorMainPage.jsp").forward(request, response);
                 }
-
+                response.sendRedirect("FinalizedContract");
             } else {
                 //定稿失败
                 request.setAttribute("result", "操作失败！");
