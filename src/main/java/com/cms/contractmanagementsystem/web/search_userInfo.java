@@ -50,7 +50,6 @@ public class search_userInfo extends HttpServlet {
         List<User> users = new UserDaoImpl().queryAllUserInfo();
         request.setAttribute("users", users);
         request.getRequestDispatcher("ad_SearchUser.jsp").forward(request, response);
-
     }
 }
 

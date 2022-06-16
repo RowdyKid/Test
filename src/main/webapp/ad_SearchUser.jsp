@@ -34,19 +34,6 @@
                     用户列表
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <form role="form" action="<%=request.getContextPath()%>/FinalizedContract?type=search"
-                                  method="get">
-                                <input type="hidden" name="type" value="search">
-                                <label>
-                                    <input class="form-control" name="contractName" placeholder="请输入用户名字">
-                                </label>
-                                <input type="submit" class="btn btn-default" value="搜索">
-
-                            </form>
-                        </div>
-                    </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
@@ -60,7 +47,6 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             <%
                                 List<User> users = (List<User>) request.getAttribute("users");
                                 for (int i = 0; i < users.size(); i++) { %>
