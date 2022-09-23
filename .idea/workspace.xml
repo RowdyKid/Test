@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5d7adf4-c00d-4a9e-bae5-f443db38e72b" name="Changes" comment="初始化，实现注册登录">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="e5d7adf4-c00d-4a9e-bae5-f443db38e72b" name="Changes" comment="修改注册登录" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +180,7 @@
       <updated>1663933354818</updated>
       <workItem from="1663933356271" duration="8674000" />
       <workItem from="1663945477240" duration="146000" />
-      <workItem from="1663945641902" duration="2804000" />
+      <workItem from="1663945641902" duration="3147000" />
     </task>
     <task id="LOCAL-00001" summary="初始化，实现注册登录">
       <created>1663946406248</created>
@@ -192,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663946406248</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改注册登录">
+      <created>1663948502927</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663948502927</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +215,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初始化，实现注册登录" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始化，实现注册登录" />
+    <MESSAGE value="修改注册登录" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改注册登录" />
   </component>
 </project>
