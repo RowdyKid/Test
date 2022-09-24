@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5d7adf4-c00d-4a9e-bae5-f443db38e72b" name="Changes" comment="添加开源许可证与README">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="e5d7adf4-c00d-4a9e-bae5-f443db38e72b" name="Changes" comment="更新README">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +184,7 @@
       <workItem from="1663933356271" duration="8674000" />
       <workItem from="1663945477240" duration="146000" />
       <workItem from="1663945641902" duration="3342000" />
-      <workItem from="1663982632851" duration="890000" />
+      <workItem from="1663982632851" duration="3120000" />
     </task>
     <task id="LOCAL-00001" summary="初始化，实现注册登录">
       <created>1663946406248</created>
@@ -216,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663983210830</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="更新README">
+      <created>1663983673640</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663983673640</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +243,7 @@
     <MESSAGE value="修改注册登录" />
     <MESSAGE value="更新库" />
     <MESSAGE value="添加开源许可证与README" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加开源许可证与README" />
+    <MESSAGE value="更新README" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新README" />
   </component>
 </project>
