@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5d7adf4-c00d-4a9e-bae5-f443db38e72b" name="Changes" comment="导入美化部件" />
+    <list default="true" id="e5d7adf4-c00d-4a9e-bae5-f443db38e72b" name="Changes" comment="调整目录">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Cinderella/IdeaProjects/SoftwareDefectPrediction/src/main/webapp/assets",
+    "last_opened_file_path": "C:/Users/Cinderella/IdeaProjects/SoftwareDefectPrediction/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,11 +75,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Cinderella\IdeaProjects\SoftwareDefectPrediction\src\main\resources" />
       <recent name="C:\Users\Cinderella\IdeaProjects\SoftwareDefectPrediction\src\main\webapp\assets" />
       <recent name="C:\Users\Cinderella\IdeaProjects\SoftwareDefectPrediction\src\main\webapp" />
       <recent name="C:\Users\Cinderella\IdeaProjects\SoftwareDefectPrediction" />
       <recent name="C:\Users\Cinderella\IdeaProjects\SoftwareDefectPrediction\src\main\java\com\sdp\softwaredefectprediction\dao" />
-      <recent name="C:\Users\Cinderella\IdeaProjects\SoftwareDefectPrediction\src\main\java\com\sdp\softwaredefectprediction" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Cinderella\IdeaProjects\SoftwareDefectPrediction\src\main\webapp\assets\imgs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sdp.softwaredefectprediction.utils" />
@@ -186,7 +192,7 @@
       <workItem from="1663933356271" duration="8674000" />
       <workItem from="1663945477240" duration="146000" />
       <workItem from="1663945641902" duration="3342000" />
-      <workItem from="1663982632851" duration="4492000" />
+      <workItem from="1663982632851" duration="5686000" />
     </task>
     <task id="LOCAL-00001" summary="初始化，实现注册登录">
       <created>1663946406248</created>
@@ -237,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663996953932</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="调整目录">
+      <created>1663997701779</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1663997701779</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +274,7 @@
     <MESSAGE value="添加开源许可证与README" />
     <MESSAGE value="更新README" />
     <MESSAGE value="导入美化部件" />
-    <option name="LAST_COMMIT_MESSAGE" value="导入美化部件" />
+    <MESSAGE value="调整目录" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整目录" />
   </component>
 </project>
