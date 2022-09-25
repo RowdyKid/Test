@@ -80,3 +80,7 @@
 
 #### 部分截图
 - 注册登录
+
+#### 仓库地址
+- https://github.com/RowdyKid/Test （github）
+- https://gitee.com/qi__lin/Test   （gitee）
