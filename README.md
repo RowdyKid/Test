@@ -17,7 +17,24 @@
 |————   lib
 |   |————...
 |————   src
-|   |————...
+|   |————main
+|   |   |————java
+|   |   |   |————com.sdp.softwaredefectprediction
+|   |   |   |   |————dao
+|   |   |   |   |————pojo
+|   |   |   |   |————service
+|   |   |   |   |————utils
+|   |   |   |   |————web
+|   |   |————resources
+|   |   |   |————jdbc.properties
+|   |   |————webapp
+|   |   |   |————assets
+|   |   |   |   |————...
+|   |   |   |————WEB-INF
+|   |   |   |   |————lib
+|   |   |   |   |   |————...
+|   |   |   |   |————web.xml
+|   |   |   |————index.jsp
 |————   target
 |   |————...
 |————   .gitignore
