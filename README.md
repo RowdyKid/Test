@@ -1,4 +1,4 @@
-# Software Defect Prediction
+# Software Defect Prediction        [![Fork me on Gitee](https://gitee.com/qi__lin/Test/widgets/widget_3.svg)](https://gitee.com/qi__lin/Test)
 
 #### 介绍
 **以下是软件缺陷预测项目简介**
@@ -82,5 +82,6 @@
 - 注册登录
 
 #### 仓库地址
-- https://github.com/RowdyKid/Test （github）
+- https://github.com/RowdyKid/Test （github镜像）
 - https://gitee.com/qi__lin/Test   （gitee）
+  [![祁麟/Test](https://gitee.com/qi__lin/Test/widgets/widget_card.svg?colors=393222,ebdfc1,fffae5,d8ca9f,393222,a28b40)](https://gitee.com/qi__lin/Test)
