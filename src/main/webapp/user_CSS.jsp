@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--导入相关美化部件--%>
 <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <link href="assets/metisMenu/metisMenu.min.css" rel="stylesheet">
