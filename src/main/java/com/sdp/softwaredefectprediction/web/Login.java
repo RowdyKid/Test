@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
             req.getSession().setAttribute("nowUserName", username);
             req.getSession().setAttribute("nowUserId", loginUser.getId());
             req.getSession().setAttribute("nowUserEmail",loginUser.getEmail());
-
+            req.getSession().setAttribute("nowUserPassword",loginUser.getPassword());
             System.out.println(loginUser.getId());
             System.out.println(username);
 
