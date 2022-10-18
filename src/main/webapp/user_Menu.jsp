@@ -28,7 +28,7 @@
             <ul class="nav" id="side-menu">
                 <li><a href="user_MainPage.jsp"><i class="fa fa-dashboard fa-fw"></i>系统首页</a></li>
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 数据上传<span class="fa arrow"></span></a>
+                    <a href="Upload.jsp"><i class="fa fa-bar-chart-o fa-fw"></i> 数据上传<span class="fa arrow"></span></a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 缺陷预测<span class="fa arrow"></span></a>

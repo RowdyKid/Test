@@ -178,13 +178,12 @@
                        id="psw">
             </div>
         </div>
-
         <%--登陆、注册按钮--%>
         <div class="action">
             <div class="btn">
                 <input type="submit" value="login" id="submitBtn">
             </div>
-            <a href="Register.jsp " style="color:#fff; text-decoration:none ">
+            <a href ="Register.jsp " style="color:#fff; text-decoration:none ">
                 <div class="btn" id="registerBtn">register</div>
             </a>
         </div>
