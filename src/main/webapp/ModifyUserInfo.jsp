@@ -26,8 +26,9 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <%
-                                    User user = (User)request.getAttribute("userInfo");
-
+//                                    User user = (User)request.getAttribute("userInfo");
+                                    String username = (String) session.getAttribute("nowUserName");
+                                    String userid = (Integer) session.getAttribute("nowUserId");
                                 %>
                                 <form role="form" action="<%=request.getContextPath()%>/update_add_userInfo" method="post">
                                     <div class="form-group">
@@ -39,7 +40,7 @@
                                     <div class="form-group">
                                         <label>用户名称</label>
 <%--                                        <input class="form-control" readonly name="username" value="<%=user.getUsername()%>">--%>
-                                        <input class="form-control" readonly name="username" value="<%=user.getUsername()%>">
+                                        <input class="form-control" readonly name="username" value=username>
                                     </div>
 <%--                                    <div class="form-group">--%>
 <%--                                        <label>邮箱地址</label>--%>

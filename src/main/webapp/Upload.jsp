@@ -57,7 +57,7 @@
                                 <div class="form-group">
                                     <label>附件</label>
                                     <input type="file" name="fileField" class="file" id="fileField" onchange="document.getElementById('textfield').value=this.value">
-                                    <input type="text" name="textfield" id="textfield" readonly="">v
+                                    <input type="text" name="textfield" id="textfield" readonly="">
                                 </div>
                                 <button type="submit" class="btn btn-default" onclick="check()">提交</button>
                                 <button type="reset" class="btn btn-default">重置</button>
