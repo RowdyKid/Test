@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>合同管理系统</title>
+    <title>软件缺陷测试系统</title>
     <%--导入相关美化部件--%>
     <%@include file="user_CSS.jsp" %>
     <%--创建check（）方法
@@ -13,20 +13,20 @@
 --%>
     <script type="text/javascript">
         function check() {
-            var contract_name = document.getElementById("contractName").value;
-            var customer_name = document.getElementById("customerName").value;
-            if (contract_name == "" || customer_name == "") {
-                alert("起草失败！");
-                return false;
-            }
+            // var contract_name = document.getElementById("contractName").value;
+            // var customer_name = document.getElementById("customerName").value;
+            // if (contract_name == "" || customer_name == "") {
+            //     alert("起草失败！");
+            //     return false;
+            // }
             /*验证添加的附件为 doc或jpg或 jpeg或png、或bmp 或 gif 格式。*/
             var file = document.getElementById("file").value;
             var fileType = file.substring(file.lastIndexOf(".") + 1, file.length);
-            if (fileType != "doc" || fileType != "jpg" || fileType != "jpeg" || fileType != "png" || fileType != "bmp" || fileType != "gif") {
-                alert("起草失败！");
+            if (fileType != "doc" || fileType != "doxc" || fileType != "txt" || fileType != "csv" ) {
+                alert("文件格式错误！");
                 return false;
             } else {
-                alert("起草成功！");
+                alert("上传成功！");
                 return true;
             }
         }
@@ -41,14 +41,14 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" style="text-align: center">添加合同</h1>
+            <h1 class="page-header" style="text-align: center">数据上传</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    添加合同
+                    数据上传
                 </div>
                 <div class="panel-body">
                     <div class="row">
