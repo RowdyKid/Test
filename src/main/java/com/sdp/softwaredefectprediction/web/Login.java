@@ -46,16 +46,18 @@ public class Login extends HttpServlet {
             req.getRequestDispatcher("Login.jsp").forward(req, resp);
         } else {
             // 登录 成功
-            // 保存用户信息到 Session 域中
+//             保存用户信息到 Session 域中
             req.getSession().setAttribute("nowUserName", username);
             req.getSession().setAttribute("nowUserId", loginUser.getId());
-            req.getSession().setAttribute("nowUserEmail",loginUser.getEmail());
-            req.getSession().setAttribute("nowUserPassword",loginUser.getPassword());
+//            req.getSession().setAttribute("nowUserEmail",loginUser.getEmail());
+//            req.getSession().setAttribute("nowUserPassword",loginUser.getPassword());
+            req.getSession().setAttribute("nowUser",loginUser);
+
             System.out.println(loginUser.getId());
             System.out.println(username);
 
             Log log = new Log();
-            log.setOperator((Integer) req.getSession().getAttribute("userid"));
+            log.setOperator((Integer) req.getSession().getAttribute("nowUserId"));
             log.setContent("LoginServlet");
             log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             new LogDaoImpl().saveLogInfo(log);

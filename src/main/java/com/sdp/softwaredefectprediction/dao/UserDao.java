@@ -40,6 +40,8 @@ public interface UserDao {
 
     public void updateUserInfo(User user);
 
+    public void updateUserEmailInfo(User user);
+
     public void deleteUserInfoById(User user);
 
     public void updateUserPasswordInfo(User user);

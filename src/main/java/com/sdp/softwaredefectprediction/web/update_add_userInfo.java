@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -36,7 +37,7 @@ public class update_add_userInfo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Log log = new Log();
-        log.setOperator((Integer) request.getSession().getAttribute("userid"));
+        log.setOperator((Integer) request.getSession().getAttribute("nowUserId"));
         log.setContent("update_add_userInfo");
         log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         new LogDaoImpl().saveLogInfo(log);
@@ -47,11 +48,23 @@ public class update_add_userInfo extends HttpServlet {
 
         String id = request.getParameter("id");
         String password = request.getParameter("password");
+        String email = request.getParameter("email");
 
         User user = new UserDaoImpl().queryUserInfoById(Integer.parseInt(id));
+        //数据库修改数据
         user.setPassword(password);
+        user.setEmail(email);
+        //session修改数据
+        User LoginUser = (User) request.getSession().getAttribute("nowUser");
+        LoginUser.setPassword(password);
+        LoginUser.setEmail(email);
+//        request.getSession().setAttribute("nowUserPassword",password);
+//        request.getSession().setAttribute("nowUserEmail",email);
+        //结果布尔型变量赋值
         new UserDaoImpl().updateUserPasswordInfo(user);
-        response.sendRedirect("search_userInfo");
+        new UserDaoImpl().updateUserEmailInfo(user);
+
+        response.sendRedirect("ModifyUserInfo.jsp");
     }
 }
 

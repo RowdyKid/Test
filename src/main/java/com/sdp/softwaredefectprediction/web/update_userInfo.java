@@ -48,7 +48,7 @@ public class update_userInfo extends HttpServlet {
         String id = request.getParameter("id");
         User user = new UserDaoImpl().queryUserInfoById(Integer.parseInt(id));
         request.setAttribute("userInfo",user);
-        request.getRequestDispatcher("ModifyUserInfo.jsp").forward(request,response);
+        request.getRequestDispatcher("ModifyUsername.jsp").forward(request,response);
 
     }
 }
