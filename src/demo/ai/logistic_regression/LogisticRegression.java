@@ -5,10 +5,11 @@ import demo.ai.utils.Matrix;
 
 import java.text.SimpleDateFormat;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import org.knowm.xchart.QuickChart;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
+
 
 //public class LogisticRegression extends LinearRegression {
 public class LogisticRegression {
@@ -150,6 +151,10 @@ public class LogisticRegression {
 
         // 中间矩阵 a * xT 
         a_times_xT = Matrix.times(this.step, xT);
+        
+        double[] time=new double[iterationTimes];
+        double[] accs = new double[iterationTimes];
+        
 
         // 迭代
         for (int times = 0; times < iterationTimes; times++) {
@@ -171,6 +176,10 @@ public class LogisticRegression {
             System.out.printf("迭代第%d次准确率：",times+1);
             System.out.println(distAvg);
             
+            
+            time[times]=times+1;
+            accs[times]=distAvg;
+            
             	
             paramsBefore=parameters;
             paramsTBefore=parametersT;
@@ -180,6 +189,7 @@ public class LogisticRegression {
             distAvgBefore = distAvg;    
             
         }
+        draw(time,accs);
     }
 
 	public void test(float[][] fs, float[][] fs2) throws Exception {
@@ -271,6 +281,14 @@ public class LogisticRegression {
     	
 	}
 
-
+    public void draw(double[] x,double [] y){
+    	
+    	// 创建图表
+        XYChart chart = QuickChart.getChart("逻辑回归", "迭代次数", "准确率", "y(x)", x, y);
+    	 
+		// 进行绘制
+		new SwingWrapper<XYChart>(chart).displayChart();
+    	
+    }
 
 }
