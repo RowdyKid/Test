@@ -1,3 +1,6 @@
+<%@ page import="com.sdp.softwaredefectprediction.utils.Attachment" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,26 +9,17 @@
     <%@include file="user_CSS.jsp" %>
 
     <script type="text/javascript">
-        function check() {
-
-            var file = document.getElementById("file").value;
-            var fileType = file.substring(file.lastIndexOf(".") + 1, file.length);
-            if (fileType != "doc" || fileType != "doxc" || fileType != "txt" || fileType != "csv" ) {
-                alert("文件格式错误！");
-                return false;
-            } else {
-                alert("上传成功！");
-                return true;
-            }
-        }
     </script>
 </head>
 <body>
 <%--整体包裹容器--%>
 <div id="wrapper">
     <%@include file="user_Menu.jsp" %>
+    <%
+        List<Attachment> attachments = (ArrayList<Attachment>) request.getAttribute("attachments");
+    %>
 </div>
-<%--在该页面剩余位置生成合同起草表单，填写内容包括合同名称，客户名称，开始时间，结束时间，合同内容，可以添加附件，包含提交和重置按钮--%>
+
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -57,6 +51,54 @@
                                 </div>
                                 <div>
                                     <label>选择需要预测的数据集</label>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>文件id</th>
+                                                        <th>文件名</th>
+                                                        <th>文件路径</th>
+                                                        <th>文件类型</th>
+                                                        <th>上传时间</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <%if (attachments != null && attachments.size() != 0) {%>
+                                                    <%
+                                                        for (int i=0;i<attachments.size();i++) {
+                                                            Attachment attachment = attachments.get(i);
+                                                    %>
+                                                    <tr>
+                                                        <td><%=attachment.GetId()%>
+                                                        </td>
+                                                        <td><%=attachment.getFilename()%>
+                                                        </td>
+                                                        <td><%=attachment.getFilepath()%>
+                                                        </td>
+                                                        <td><%=attachment.getFiletype()%>
+                                                        </td>
+                                                        <td><%=attachment.getTime()%>
+                                                        </td>
+                                                        <td>
+                                                            <input type="radio" href="${pageContext.request.contextPath}/ChooseFile?id=<%=attachment.GetId()%>&type=revise">选择
+                                                            <a href="${pageContext.request.contextPath}/DeleteFile?id=<%=attachment.GetId()%>">删除</a>
+                                                        </td>
+                                                    </tr>
+                                                    <%}%>
+                                                    <%--否则显示没有数据--%>
+                                                    <%} else {%>
+                                                    <tr>
+                                                        <td colspan="6">没有数据</td>
+                                                    </tr>
+                                                    <%}%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
