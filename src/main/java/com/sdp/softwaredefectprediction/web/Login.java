@@ -4,7 +4,7 @@ import com.sdp.softwaredefectprediction.dao.LogDaoImpl;
 import com.sdp.softwaredefectprediction.pojo.Log;
 import com.sdp.softwaredefectprediction.pojo.User;
 import com.sdp.softwaredefectprediction.service.UserService;
-import com.sdp.softwaredefectprediction.service.UserServiceImpl;
+import com.sdp.softwaredefectprediction.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

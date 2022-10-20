@@ -1,6 +1,6 @@
 package com.sdp.softwaredefectprediction.web;
 
-import com.sdp.softwaredefectprediction.dao.AttachmentDAO;
+import com.sdp.softwaredefectprediction.dao.AttachmentDAOC;
 import com.sdp.softwaredefectprediction.utils.Attachment;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -188,7 +188,7 @@ public class UploadServlet extends HttpServlet {
                         String timeStr = currTime.format(new Date());
                         //上传指定文件
                         Attachment attachment = new Attachment(0,filename,filepath,filetype,timeStr);
-                        AttachmentDAO attachmentDAO = new AttachmentDAO();
+                        AttachmentDAOC attachmentDAO = new AttachmentDAOC();
                         attachmentDAO.AddEntity(attachment);
                     }
 

@@ -82,7 +82,7 @@ public class ad_AddContract extends HttpServlet {
                 if (filename != null) {
                     //上传指定文件
                     Attachment attachment = new Attachment(0,filename,filename,null,timeStr);
-                    AttachmentDAO attachmentDAO = new AttachmentDAO();
+                    AttachmentDAOC attachmentDAO = new AttachmentDAOC();
                     attachmentDAO.AddEntity(attachment);
                 }
 

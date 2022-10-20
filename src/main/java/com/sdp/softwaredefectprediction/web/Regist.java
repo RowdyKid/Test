@@ -2,14 +2,13 @@ package com.sdp.softwaredefectprediction.web;
 
 import com.sdp.softwaredefectprediction.pojo.User;
 import com.sdp.softwaredefectprediction.service.UserService;
-import com.sdp.softwaredefectprediction.service.UserServiceImpl;
+import com.sdp.softwaredefectprediction.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
 
 @WebServlet(name = "Regist", value = "/Regist")

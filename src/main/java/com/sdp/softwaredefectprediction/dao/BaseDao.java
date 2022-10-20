@@ -1,5 +1,6 @@
 package com.sdp.softwaredefectprediction.dao;
 
+import com.sdp.softwaredefectprediction.pojo.Attachment;
 import com.sdp.softwaredefectprediction.pojo.User;
 import com.sdp.softwaredefectprediction.utils.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -68,6 +69,23 @@ public abstract class BaseDao {
         JdbcUtils.close(con);
         String username = user.getUsername();
         return username;
+
+    }
+
+    public String queryAttachmentById(String sql,int id) {
+        Connection con = JdbcUtils.getConnection();
+        QueryRunner queryRunner = new QueryRunner();
+        //2.编写sql  这个SQL 有条件，下面query 需要传参
+        Attachment attachment = null;
+        try {
+            attachment = queryRunner.query(con,sql, new BeanHandler<Attachment>(Attachment.class), id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        JdbcUtils.close(con);
+        String filename=attachment.getFilename();
+        return filename;
 
     }
 

@@ -1,6 +1,7 @@
 package com.sdp.softwaredefectprediction.utils;
 
 
+import java.sql.Timestamp;
 
 public class Attachment implements IEntity {
 
@@ -11,7 +12,7 @@ public class Attachment implements IEntity {
     private String time; //提交时间
 
 
-    public Attachment(){
+    public Attachment(int id, String filename, String filepath, String filetype, Timestamp time){
         this.id=0;
         this.filename=null;
         this.filepath=null;
