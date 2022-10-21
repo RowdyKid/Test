@@ -3,7 +3,7 @@ package com.sdp.softwaredefectprediction.test;
 import java.util.ArrayList;
 
 import com.sdp.softwaredefectprediction.utils.logistic.MatrixDataFile;
-import com.sdp.softwaredefectprediction.web.LogisticRegression;
+import com.sdp.softwaredefectprediction.web.logistic.LogisticRegression;
 
 public class LogisticRegressionTest  {
     public LogisticRegressionTest() {
