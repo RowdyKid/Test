@@ -259,12 +259,15 @@ public class LogisticRegression {
     	line=br.readLine();
     	
     	int i=0;
+    	int clean=0,buggy=0;
         while(line!=null){
         	if(Y[i]==-1){
         		line=line+"clean";
+        		clean++;
         	}
         	else{
         		line=line+"buggy";
+        		buggy++;
         	}
         	i++;
         	out.write(line);
@@ -276,7 +279,7 @@ public class LogisticRegression {
     	out.close();
     	br.close();
     	fis.close();
-    	
+    	System.out.printf("该文件共有%d个buggy,%d个clean\n",buggy,clean);
     	System.out.println("预测完成，文件保存成功");
     	
 	}
