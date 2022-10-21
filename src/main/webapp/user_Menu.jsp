@@ -31,7 +31,7 @@
                     <a href="Upload.jsp"><i class="fa fa-bar-chart-o fa-fw"></i> 数据上传<span class="fa arrow"></span></a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/prediction"><i class="fa fa-bar-chart-o fa-fw"></i> 缺陷预测<span class="fa arrow"></span></a>
+                    <a href="${pageContext.request.contextPath}/Prediction"><i class="fa fa-bar-chart-o fa-fw"></i> 缺陷预测<span class="fa arrow"></span></a>
 
                 </li>
                 <li>

@@ -36,7 +36,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form role="form" action="${pageContext.request.contextPath}/prediction" method="post" enctype="multipart/form-data">
+                            <form action="<%=request.getContextPath()%>/Prediction" method="post">
                                 <div>
                                     <label>选择缺陷预测模型</label>
                                     <div class="panel-body">
@@ -51,8 +51,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label>选择需要预测的数据集id:</label>
-                                    <input type="text" name="fileId"><br>
+                                    <label>选择需要预测的数据集:</label>
+                                    <input type="text" name="fileId" placeholder="请输入文件id"><br>
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="table-responsive">

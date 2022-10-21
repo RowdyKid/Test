@@ -30,4 +30,10 @@ public class AttachmentServiceTest {
             System.out.println(queryAttachment);
         }
     }
+
+    @Test
+    public void queryAttachmentById(){
+        System.out.println( attachmentService.queryAttachmentById(7).getFilepath());
+    }
+
 }

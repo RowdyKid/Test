@@ -34,4 +34,6 @@ public class AttachmentDaoImpl extends BaseDao implements AttachmentDao {
         String sql = "select `id`,`filename`,`filepath`,`filetype`,`time` from attachment";
         return queryForList(Attachment.class,sql);
     }
+
+
 }
