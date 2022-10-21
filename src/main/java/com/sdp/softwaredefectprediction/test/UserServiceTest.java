@@ -2,7 +2,7 @@ package com.sdp.softwaredefectprediction.test;
 
 import com.sdp.softwaredefectprediction.pojo.User;
 import com.sdp.softwaredefectprediction.service.UserService;
-import com.sdp.softwaredefectprediction.service.UserServiceImpl;
+import com.sdp.softwaredefectprediction.service.impl.UserServiceImpl;
 import org.junit.Test;
 
 public class UserServiceTest {

@@ -10,13 +10,7 @@
 
             var file = document.getElementById("file").value;
             var fileType = file.substring(file.lastIndexOf(".") + 1, file.length);
-            if (fileType != "doc" || fileType != "doxc" || fileType != "txt" || fileType != "csv" ) {
-                alert("文件格式错误！");
-                return false;
-            } else {
-                alert("上传成功！");
-                return true;
-            }
+
         }
     </script>
 </head>
@@ -49,8 +43,8 @@
 <%--                                </div>--%>
 <%--                                <button type="submit" class="btn btn-default" onclick="check()">提交</button>--%>
 <%--                                <button type="reset" class="btn btn-default">重置</button>--%>
-                                <input type="file" name="file"><br>
-                                <input type="submit" value="上传">
+                                <input type="file" name="fileField" class="file" id="fileField"><br>
+                                <input type="submit" class="btn btn-default" value="上传" onclick="check()">
                             </form>
                         </div>
                     </div>

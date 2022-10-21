@@ -4,7 +4,7 @@ import com.sdp.softwaredefectprediction.dao.LogDaoImpl;
 import com.sdp.softwaredefectprediction.pojo.Log;
 import com.sdp.softwaredefectprediction.pojo.User;
 import com.sdp.softwaredefectprediction.service.UserService;
-import com.sdp.softwaredefectprediction.service.UserServiceImpl;
+import com.sdp.softwaredefectprediction.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,13 +63,7 @@ public class Login extends HttpServlet {
             new LogDaoImpl().saveLogInfo(log);
 
             req.getRequestDispatcher("user_MainPage.jsp").forward(req, resp);
-//            if (Objects.equals(loginUser.getRid(), 1)) {    //1新注册
-//                req.getRequestDispatcher("NewUserPage.jsp").forward(req, resp);
-//            } else if (Objects.equals(loginUser.getRid(), 2)) { //2系统管理员
-//                req.getRequestDispatcher("user_MainPage.jsp").forward(req, resp);
-//            } else {        //3合同操作员
-//                req.getRequestDispatcher("op_OperatorMainPage.jsp").forward(req, resp);
-//            }
+
         }
     }
 }
