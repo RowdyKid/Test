@@ -23,7 +23,7 @@ class file {
 	                clean++;
 	            }
 	            else buggy++;
-	            line = br.readLine();
+	            //line = br.readLine();
 	        }
 	        br.close();
 	        isr.close();
