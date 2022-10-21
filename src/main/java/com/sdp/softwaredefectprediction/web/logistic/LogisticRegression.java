@@ -6,10 +6,11 @@ import org.knowm.xchart.QuickChart;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
 
-import java.text.SimpleDateFormat;
 import java.io.*;
 import java.util.Calendar;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 //public class LogisticRegression extends LinearRegression {
 public class LogisticRegression {
