@@ -20,7 +20,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('assets/imgs/city.png') no-repeat;
+            background: url('assets/imgs/mountain.jpg') no-repeat;
             background-size: 100% 100%;
         }
 

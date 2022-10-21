@@ -98,6 +98,7 @@ public class UploadServlet extends HttpServlet {
         FILE_TYPE_MAP.put("AC9EBD8F", "qdf"); // Quicken (qdf)
         FILE_TYPE_MAP.put("E3828596", "pwl"); // Windows Password (pwl)
         FILE_TYPE_MAP.put("2E7261FD", "ram"); // Real Audio (ram)
+        FILE_TYPE_MAP.put("5B75726C", "csv");// csv文件
         FILE_TYPE_MAP.put("null", null); // null
     }
 
