@@ -92,7 +92,7 @@
                                 </div>
                                 <div style="top: 10px; bottom: 10px" class="col-lg-12">
                                     预测分析:
-                                    <a href="">下载报告</a>
+                                    <a href="Download.jsp">下载报告</a>
                                 </div>
                             </form>
                         </div>
