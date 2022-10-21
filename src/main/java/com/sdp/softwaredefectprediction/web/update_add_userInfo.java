@@ -1,8 +1,6 @@
 package com.sdp.softwaredefectprediction.web;
 
-import com.sdp.softwaredefectprediction.dao.LogDaoImpl;
 import com.sdp.softwaredefectprediction.dao.UserDaoImpl;
-import com.sdp.softwaredefectprediction.pojo.Log;
 import com.sdp.softwaredefectprediction.pojo.User;
 
 import javax.servlet.ServletException;
@@ -35,12 +33,6 @@ public class update_add_userInfo extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Log log = new Log();
-        log.setOperator((Integer) request.getSession().getAttribute("nowUserId"));
-        log.setContent("update_add_userInfo");
-        log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        new LogDaoImpl().saveLogInfo(log);
 
         //TODO
         request.setCharacterEncoding("utf-8");

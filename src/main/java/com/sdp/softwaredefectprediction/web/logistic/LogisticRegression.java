@@ -1,5 +1,8 @@
 package com.sdp.softwaredefectprediction.web.logistic;
 
+import com.sdp.softwaredefectprediction.pojo.DownloadFile;
+import com.sdp.softwaredefectprediction.service.DownloadFileService;
+import com.sdp.softwaredefectprediction.service.impl.DownloadFileServiceImpl;
 import com.sdp.softwaredefectprediction.utils.logistic.Calculate;
 import com.sdp.softwaredefectprediction.utils.logistic.Matrix;
 import org.knowm.xchart.QuickChart;
@@ -7,10 +10,12 @@ import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
 
 import java.io.*;
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 //public class LogisticRegression extends LinearRegression {
 public class LogisticRegression {
@@ -231,11 +236,24 @@ public class LogisticRegression {
 
     }
 
+    private DownloadFileService downloadFileService = new DownloadFileServiceImpl();
+
     private void writeFile(float[] Y,String sourceFile) throws IOException {
 
         Calendar calendar = Calendar.getInstance(); // get current instance of the calendar
         SimpleDateFormat formatter = new SimpleDateFormat("MM-dd_HHmm");
-        String filePath="D:/DATA/" + formatter.format(calendar.getTime())+"pre"+".csv";
+
+        //获取当前时间
+        SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String timeStr = currTime.format(new Date());
+
+        //获取文件名与文件路径
+        String filename = formatter.format(calendar.getTime())+"pre"+".csv";
+        String filePath = "D:/DATA/" + filename;
+
+        //插入数据库
+        downloadFileService.addDownloadFile(new DownloadFile(null,filename,filePath, Timestamp.valueOf(timeStr)));
+
         File file = new File(filePath);
         //创建目录
         File fileParent = file.getParentFile();

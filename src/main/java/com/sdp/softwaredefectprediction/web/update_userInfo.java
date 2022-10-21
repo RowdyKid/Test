@@ -1,6 +1,5 @@
 package com.sdp.softwaredefectprediction.web;
 
-import com.sdp.softwaredefectprediction.dao.LogDaoImpl;
 import com.sdp.softwaredefectprediction.dao.UserDaoImpl;
 import com.sdp.softwaredefectprediction.pojo.Log;
 import com.sdp.softwaredefectprediction.pojo.User;
@@ -39,7 +38,6 @@ public class update_userInfo extends HttpServlet {
         log.setOperator((Integer) request.getSession().getAttribute("userid"));
         log.setContent("delete_userInfo");
         log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        new LogDaoImpl().saveLogInfo(log);
 
         //TODO
         request.setCharacterEncoding("utf-8");

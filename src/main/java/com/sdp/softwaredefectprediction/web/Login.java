@@ -1,7 +1,5 @@
 package com.sdp.softwaredefectprediction.web;
 
-import com.sdp.softwaredefectprediction.dao.LogDaoImpl;
-import com.sdp.softwaredefectprediction.pojo.Log;
 import com.sdp.softwaredefectprediction.pojo.User;
 import com.sdp.softwaredefectprediction.service.UserService;
 import com.sdp.softwaredefectprediction.service.impl.UserServiceImpl;
@@ -12,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @WebServlet(name = "login", value = "/login")
 public class Login extends HttpServlet {
@@ -55,12 +51,6 @@ public class Login extends HttpServlet {
 
             System.out.println(loginUser.getId());
             System.out.println(username);
-
-            Log log = new Log();
-            log.setOperator((Integer) req.getSession().getAttribute("nowUserId"));
-            log.setContent("LoginServlet");
-            log.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-            new LogDaoImpl().saveLogInfo(log);
 
             req.getRequestDispatcher("user_MainPage.jsp").forward(req, resp);
 
