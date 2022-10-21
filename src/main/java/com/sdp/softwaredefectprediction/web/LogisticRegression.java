@@ -2,6 +2,9 @@ package com.sdp.softwaredefectprediction.web;
 
 import com.sdp.softwaredefectprediction.utils.logistic.Calculate;
 import com.sdp.softwaredefectprediction.utils.logistic.Matrix;
+import org.knowm.xchart.QuickChart;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
 
 import java.text.SimpleDateFormat;
 import java.io.*;
@@ -39,14 +42,14 @@ public class LogisticRegression {
     private float[][] testX;                // 测试数据集合x
     private float[][] testY;                // 测试数据集合y
 
-//    private int moitorCount = 100;                                                // 监控输出数据的数量
+    //    private int moitorCount = 100;                                                // 监控输出数据的数量
 //    private ArrayList<HashMap> moitorTraining = new ArrayList<HashMap>();        // 训练监控数据
 //    private ArrayList<HashMap> moitorTesting;                                    // 测试监控数据
 //
 //    private float totalErrorAvg = 0;        // 总体平均误差
 //    private float totalErrorAvgPercent = 0;    // 总体平均误差比
     private float[][] parametersCopy;        // 参数拷贝
-	private int iterationTimes;
+    private int iterationTimes;
 
     public LogisticRegression() {
     }
@@ -93,17 +96,17 @@ public class LogisticRegression {
     public float[][] getTestY() {
         return testY;
     }
-    
+
     public void setTestXY(float [][]x,float[][]y) {
-    	int tm=x.length;
-    	this.tA = new float[tm][1];
+        int tm=x.length;
+        this.tA = new float[tm][1];
         this.tg = new float[tm][1];
         this.tE = new float[tm][1];
         this.testX=x;
         this.testY=y;
     }
 
-    
+
 
     public void setStep(float alpha) {
         this.step = alpha;
@@ -112,16 +115,16 @@ public class LogisticRegression {
     public void setIterationTimes(int iterationTimes) {
         this.iterationTimes = iterationTimes;
     }
-    
+
     public float[] predict(float[][] parametersT, float[] yp) throws Exception{
-    	Matrix.times(x, parametersT, A);
-    	Calculate.sigmoid(A, g);
+        Matrix.times(x, parametersT, A);
+        Calculate.sigmoid(A, g);
         Matrix.add(g, -1, y, E);
         for(int i=0;i<g.length;i++){
-        	if(g[i][0]/(1-g[i][0])>5)//类别不平衡
-        		yp[i]=1;
-        	else
-        		yp[i]=-1; 		
+            if(g[i][0]/(1-g[i][0])>5)//类别不平衡
+                yp[i]=1;
+            else
+                yp[i]=-1;
         }
         return yp;
     }
@@ -148,129 +151,149 @@ public class LogisticRegression {
         // 转置参数矩阵
         parametersT = Matrix.transpose(parameters);
 
-        // 中间矩阵 a * xT 
+        // 中间矩阵 a * xT
         a_times_xT = Matrix.times(this.step, xT);
+
+        double[] time=new double[iterationTimes];
+        double[] accs = new double[iterationTimes];
+
 
         // 迭代
         for (int times = 0; times < iterationTimes; times++) {
-        	yp=new float[y.length];
-        	for(int i=0;i<y.length;i++){
-        		yp[i]=0;
-        	}
-        	predict(parametersT,yp);
-       
+            yp=new float[y.length];
+            for(int i=0;i<y.length;i++){
+                yp[i]=0;
+            }
+            predict(parametersT,yp);
+
             // 监控输出，求下降程度
             distAll = 0;
             for (int i = 0; i < x.length; i++) {
-            	if(y[i][0]!=yp[i]){
+                if(y[i][0]!=yp[i]){
                     distAll ++;
-            	}
-                
+                }
+
             }
             distAvg = 1-distAll / x.length ;  // j(θ)
             System.out.printf("迭代第%d次准确率：",times+1);
             System.out.println(distAvg);
-            
-            	
+
+
+            time[times]=times+1;
+            accs[times]=distAvg;
+
+
             paramsBefore=parameters;
             paramsTBefore=parametersT;
             Matrix.times(a_times_xT, E, a_times_xT_times_E);
             Matrix.add(parametersT, -1, a_times_xT_times_E, parametersT);
             parameters = Matrix.transpose(parametersT);
-            distAvgBefore = distAvg;    
-            
+            distAvgBefore = distAvg;
+
         }
+        draw(time,accs);
     }
 
-	public void test(float[][] fs, float[][] fs2) throws Exception {
-    	float error=0;
-    	Matrix.times(testX, parametersT, tA);
-    	Calculate.sigmoid(tA, tg);
-    	float[] yp = new float[testX.length];
+    public void test(float[][] fs, float[][] fs2) throws Exception {
+        float error=0;
+        Matrix.times(testX, parametersT, tA);
+        Calculate.sigmoid(tA, tg);
+        float[] yp = new float[testX.length];
         for(int i=0;i<testX.length;i++){
-        	if(tg[i][0]/(1-tg[i][0])>5)
-        		yp[i]=1;
-        	else
-        		yp[i]=-1;
-        	if (yp[i]!=testY[i][0])
-        		error++;	
+            if(tg[i][0]/(1-tg[i][0])>5)
+                yp[i]=1;
+            else
+                yp[i]=-1;
+            if (yp[i]!=testY[i][0])
+                error++;
         }
         float acc=0;
         acc=1-error/testX.length;
         System.out.println("测试集准确率："+acc);
-		
-	}
-	
+
+    }
+
     public void predictFile(float[][] X, String name) throws Exception{
-    	float[] Y=new float[X.length];
-    	int tm=X.length;
-    	float[][] pA = new float[tm][1];
-    	float[][] pg = new float[tm][1];
-    	Matrix.times(X, parametersT, pA);
-    	Calculate.sigmoid(pA, pg);
+        float[] Y=new float[X.length];
+        int tm=X.length;
+        float[][] pA = new float[tm][1];
+        float[][] pg = new float[tm][1];
+        Matrix.times(X, parametersT, pA);
+        Calculate.sigmoid(pA, pg);
         for(int i=0;i<tm;i++){
-        	if(pg[i][0]/(1-pg[i][0])>5)
-        		Y[i]=1;
-        	else
-        		Y[i]=-1;	
+            if(pg[i][0]/(1-pg[i][0])>5)
+                Y[i]=1;
+            else
+                Y[i]=-1;
         }
-        
+
         writeFile(Y,name);
-        
-		
-	}
+
+
+    }
 
     private void writeFile(float[] Y,String sourceFile) throws IOException {
-		
-    	Calendar calendar = Calendar.getInstance(); // get current instance of the calendar
-    	SimpleDateFormat formatter = new SimpleDateFormat("MM-dd_HHmm"); 
-    	String filePath="D:/DATA/" + formatter.format(calendar.getTime())+"pre"+".csv";
-    	File file = new File(filePath);
-    	//创建目录
-    	File fileParent = file.getParentFile();
-    	if (!fileParent.exists()) {
-    		fileParent.mkdirs();
-    	}
-    	//删除并创建新文件
-    	if(file.exists()){
-    		file.delete();
-    	}
-    	file.createNewFile();
-    	FileInputStream fis = new FileInputStream(sourceFile);
-    	BufferedReader br = new BufferedReader(new InputStreamReader(fis,"UTF-8"));
-    	
-    	FileWriter fw=new FileWriter(filePath, true);
-    	PrintWriter out=new PrintWriter(fw);
-    	
-    	String line="";
-    	line=br.readLine();
-    	out.write(line);
-    	out.println();
-    	line=br.readLine();
-    	
-    	int i=0;
-        while(line!=null){
-        	if(Y[i]==-1){
-        		line=line+"clean";
-        	}
-        	else{
-        		line=line+"buggy";
-        	}
-        	i++;
-        	out.write(line);
-        	out.println();
-        	line=br.readLine();
+
+        Calendar calendar = Calendar.getInstance(); // get current instance of the calendar
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd_HHmm");
+        String filePath="D:/DATA/" + formatter.format(calendar.getTime())+"pre"+".csv";
+        File file = new File(filePath);
+        //创建目录
+        File fileParent = file.getParentFile();
+        if (!fileParent.exists()) {
+            fileParent.mkdirs();
         }
-    	
-    	fw.close();
-    	out.close();
-    	br.close();
-    	fis.close();
-    	
-    	System.out.println("预测完成，文件保存成功");
-    	
-	}
+        //删除并创建新文件
+        if(file.exists()){
+            file.delete();
+        }
+        file.createNewFile();
+        FileInputStream fis = new FileInputStream(sourceFile);
+        BufferedReader br = new BufferedReader(new InputStreamReader(fis,"UTF-8"));
 
+        FileWriter fw=new FileWriter(filePath, true);
+        PrintWriter out=new PrintWriter(fw);
 
+        String line="";
+        line=br.readLine();
+        out.write(line);
+        out.println();
+        line=br.readLine();
+
+        int i=0;
+        int clean=0,buggy=0;
+        while(line!=null){
+            if(Y[i]==-1){
+                line=line+"clean";
+                clean++;
+            }
+            else{
+                line=line+"buggy";
+                buggy++;
+            }
+            i++;
+            out.write(line);
+            out.println();
+            line=br.readLine();
+        }
+
+        fw.close();
+        out.close();
+        br.close();
+        fis.close();
+        System.out.printf("该文件共有%d个buggy,%d个clean\n",buggy,clean);
+        System.out.println("预测完成，文件保存成功");
+
+    }
+
+    public void draw(double[] x,double [] y){
+
+        // 创建图表
+        XYChart chart = QuickChart.getChart("逻辑回归", "迭代次数", "准确率", "y(x)", x, y);
+
+        // 进行绘制
+        new SwingWrapper<XYChart>(chart).displayChart();
+
+    }
 
 }
