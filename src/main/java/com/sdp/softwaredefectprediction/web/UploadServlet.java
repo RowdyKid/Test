@@ -1,29 +1,28 @@
 package com.sdp.softwaredefectprediction.web;
 
-import com.sdp.softwaredefectprediction.dao.AttachmentDAOC;
-import com.sdp.softwaredefectprediction.utils.Attachment;
+import com.sdp.softwaredefectprediction.pojo.Attachment;
+import com.sdp.softwaredefectprediction.service.AttachmentService;
+import com.sdp.softwaredefectprediction.service.impl.AttachmentServiceImpl;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -32,8 +31,9 @@ import java.util.Map;
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
 
-
     public final static Map<String, String> FILE_TYPE_MAP = new HashMap<String, String>();
+    private AttachmentService attachmentService = new AttachmentServiceImpl();
+
     private static FileInputStream is;
     static {
         getAllFileType(); // 初始化文件类型信息
@@ -177,8 +177,22 @@ public class UploadServlet extends HttpServlet {
                     filepath = "d:\\DATA\\data" + fileItem.getName();
                     fileItem.write(new File("d:\\DATA\\data" + fileItem.getName()));
 
-
                     String filetype = getFileType(filepath);
+
+                    if (filetype == null){
+                        ServletContext servletContext = getServletContext();
+                        String mimeType = servletContext.getMimeType(filepath);
+                        if (mimeType.equals("text/csv")){
+                            filetype = "csv";
+                        }else if (mimeType.equals("text/plain")){
+                            filetype = "txt";
+                        }
+                        else {
+                            filetype = null;
+                        }
+                    }
+
+
                     System.out.println("Except : " + filetype);
 
                     //上传附件
@@ -188,9 +202,9 @@ public class UploadServlet extends HttpServlet {
                         SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String timeStr = currTime.format(new Date());
                         //上传指定文件
-                        Attachment attachment = new Attachment(0,filename,filepath,filetype,timeStr);
-                        AttachmentDAOC attachmentDAO = new AttachmentDAOC();
-                        attachmentDAO.AddEntity(attachment);
+
+                        attachmentService.addAttachment(new Attachment(null, filename, filepath, filetype, Timestamp.valueOf(timeStr)));
+
                     }
 
                 }
