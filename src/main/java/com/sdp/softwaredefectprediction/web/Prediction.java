@@ -74,6 +74,8 @@ public class Prediction extends HttpServlet {
             if (model.equals("logistic")){
 
                 String filepath1 = attachmentService.queryAttachmentById(Integer.valueOf(fileId)).getFilepath();
+                String fileType = attachmentService.queryAttachmentById(Integer.valueOf(fileId)).getFiletype();
+                request.getSession().setAttribute("fileType", fileType);
                 System.out.println(filepath1);
 
                 String train1="D:/DATA/train - 副本.csv";
@@ -88,7 +90,8 @@ public class Prediction extends HttpServlet {
             }else if (model.equals("SVM")) {
 
                 String filepath2 = attachmentService.queryAttachmentById(Integer.valueOf(fileId)).getFilepath();
-
+                String fileType = attachmentService.queryAttachmentById(Integer.valueOf(fileId)).getFiletype();
+                request.getSession().setAttribute("fileType", fileType);
                 String train2="D:/DATA/JDT11.txt";
 
                 String predict2=filepath2;
