@@ -14,47 +14,12 @@
 <%--        AttachmentService attachmentService = new AttachmentServiceImpl();--%>
 <%--    %>--%>
     <script type="text/javascript">
-        function confirmFile() {
-            var model = $("input[name='rd']:checked").val();
-            var fileType = $("#fileType").val();
-            if (model=="logistic"&&fileType=="csv"){
-                alert("数据校验通过");
-                return true;
-            }else if (model=="logistic"&&fileType!="vsc"){
-                alert("若使用logistic算法，请更换csv格式数据集！");
-                return false;
-            }else if (model=="SVM"&&fileType=="txt"){
-                alert("数据校验通过");
-                return true;
-            }else if (model=="SVM"&&fileType!="txt"){
-                alert("若使用SVM算法，请更换txt格式数据集！");
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-
         $(function (){
             $("#submitBtn").click(function (){
-                //检验文件格式是否正确
-                var model = $("input[name='rd']:checked").val();
-                var fileType = $("#fileType").val();
-                if (model=="logistic"&&fileType=="csv"){
-                    alert("数据校验通过");
-                    return true;
-                }else if (model=="logistic"&&fileType!="vsc"){
-                    alert("若使用logistic算法，请更换csv格式数据集！");
+                var fileId = $("#fileId").val();
+                if (fileId==""){
+                    alert("请输入要预测的文件id！");
                     return false;
-                }else if (model=="SVM"&&fileType=="txt"){
-                    alert("数据校验通过");
-                    return true;
-                }else if (model=="SVM"&&fileType!="txt"){
-                    alert("若使用SVM算法，请更换txt格式数据集！");
-                    return false;
-                }
-                else {
-                    return true;
                 }
             })
         })
@@ -64,7 +29,6 @@
 <%--整体包裹容器--%>
 <div id="wrapper">
     <%@include file="user_Menu.jsp" %>
-
 </div>
 
 <div id="page-wrapper">
@@ -129,17 +93,18 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <button style="top: 10px; bottom: 10px" type="button" id="confirmBtn" onclick="confirmFile()">
+                                    <div class="msg_cont">
                                         <%
-                                            String fileType = (String)session.getAttribute("fileType");
-                                            System.out.println("界面打印"+fileType);
+                                            String message = (String) request.getAttribute("message");
                                         %>
-                                        数据格式校验:
-                                    </button>
-                                    <label id="fileType"><%=fileType%></label>
+                                        <span class="errorMsg">
+                                            数据类型验证：
+                                            <%=message==null?"请选择文件":message%>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <button style="top: 10px; bottom: 10px; background-color: #1ab7ea; color: white" type="submit" id="submitBtn" >开始预测</button>
+                                    <button style="top: 10px; bottom: 10px; background-color: #1ab7ea; color: white" type="submit" id="submitBtn">开始预测</button>
                                 </div>
                                 <div style="top: 10px; bottom: 10px" class="col-lg-12">
                                     预测分析:

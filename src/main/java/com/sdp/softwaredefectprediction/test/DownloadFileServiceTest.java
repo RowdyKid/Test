@@ -22,6 +22,12 @@ public class DownloadFileServiceTest {
 
     @Test
     public void updateDownloadFile() {
+        downloadFileService.updateDownloadFile(new DownloadFile());
+    }
+
+    @Test
+    public void updateDownloadFileBuggyCleanById(){
+        downloadFileService.updateDownloadFileBuggyCleanById(new DownloadFile());
     }
 
     @Test

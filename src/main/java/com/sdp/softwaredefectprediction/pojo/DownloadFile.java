@@ -8,6 +8,10 @@ public class DownloadFile {
     private String filepath;
     private Timestamp time;
 
+    private Integer buggy;
+
+    private Integer clean;
+
     public Integer getId() {
         return id;
     }
@@ -38,6 +42,14 @@ public class DownloadFile {
         this.time = time;
     }
 
+    public Integer getBuggy(){ return buggy; }
+
+    public void setBuggy(){ this.buggy = buggy;}
+
+    public Integer getClean(){return clean;}
+
+    public void setClean(){this.clean = clean;}
+
     @Override
     public String toString() {
         return "Attachment{" +
@@ -45,6 +57,8 @@ public class DownloadFile {
                 ", filename='" + filename + '\'' +
                 ", filepath='" + filepath + '\'' +
                 ", time='" + time + '\'' +
+                ", buggy='" + buggy + '\'' +
+                ", clean='" + clean + '\'' +
                 '}';
     }
 
@@ -56,6 +70,8 @@ public class DownloadFile {
         this.filename = filename;
         this.filepath = filepath;
         this.time = time;
+        this.buggy = buggy;
+        this.clean = clean;
     }
 
 }
