@@ -3,7 +3,6 @@ package com.sdp.softwaredefectprediction.web;
 import com.sdp.softwaredefectprediction.pojo.DownloadFile;
 import com.sdp.softwaredefectprediction.service.DownloadFileService;
 import com.sdp.softwaredefectprediction.service.impl.DownloadFileServiceImpl;
-import com.sdp.softwaredefectprediction.web.logistic.LogisticRegression;
 import org.apache.commons.io.IOUtils;
 
 import javax.servlet.ServletContext;
@@ -15,60 +14,50 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.List;
-
 
 @WebServlet(name = "Download", value = "/Download")
 public class DownloadServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private DownloadFileService downloadFileService = new DownloadFileServiceImpl();
-
     public DownloadServlet(){
         super();
     }
 
+    private DownloadFileService downloadFileService = new DownloadFileServiceImpl();
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        this.doPost(request, response);
+        String downloadFileName = (String) request.getSession().getAttribute("downloadFileName");
+        String downloadFilePath = (String) request.getSession().getAttribute("downloadFilePath");
 
-        System.out.println("正在获取下载表单...");
-        String fileId = request.getParameter("fileId");
-        System.out.println(fileId);
+//        String downloadFileName = "10-21_1547pre.csv";
+//        String downloadFilePath = "D:/DATA/"+downloadFileName;
 
-        if (fileId != null){
-            String downloadFileName = downloadFileService.queryDownloadFileById(Integer.valueOf(fileId)).getFilename();
-            String downloadFilePath = downloadFileService.queryDownloadFileById(Integer.valueOf(fileId)).getFilepath();
+//        String downloadFileName = "10-21_1547pre.csv";
+//        String downloadFilePath = "/assets/file/"+downloadFileName;
 
-            if (downloadFileName!=null && downloadFilePath!=null){
+        System.out.println("get到文件名"+downloadFileName);
+        System.out.println("get到文件路径"+downloadFilePath);
 
-                System.out.println(downloadFileName);
-                System.out.println(downloadFilePath);
+        if (downloadFileName!=null && downloadFilePath!=null){
+            ServletContext servletContext = getServletContext();
 
-                ServletContext servletContext = getServletContext();
+            String mimeType = servletContext.getMimeType(downloadFilePath);
+            System.out.println("下载的文件类型："+ mimeType);
 
-                String mimeType = servletContext.getMimeType(downloadFilePath);
-                System.out.println("下载的文件类型："+ mimeType);
+            response.setContentType(mimeType);
+            response.setHeader("Content-Disposition","attachment;filename="+ downloadFileName);
 
-                response.setContentType(mimeType);
-                response.setHeader("Content-Disposition","attachment;filename="+ downloadFileName);
+            InputStream resourceAsStream = servletContext.getResourceAsStream(downloadFilePath);
+            OutputStream outputStream = response.getOutputStream();
 
-                InputStream resourceAsStream = servletContext.getResourceAsStream(downloadFilePath);
-                OutputStream outputStream = response.getOutputStream();
+            IOUtils.copy(resourceAsStream,outputStream);
 
-                IOUtils.copy(resourceAsStream,outputStream);
-            }
         }
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
-        List<DownloadFile> downloadFiles = downloadFileService.queryDownloadFiles();
-        request.setAttribute("downloadFiles", downloadFiles);
-        request.getRequestDispatcher("Download.jsp").forward(request, response);
 
     }
+
 
 }

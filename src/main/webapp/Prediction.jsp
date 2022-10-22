@@ -58,7 +58,6 @@
                                                     <tr>
                                                         <th>文件id</th>
                                                         <th>文件名</th>
-                                                        <th>文件路径</th>
                                                         <th>文件类型</th>
                                                         <th>上传时间</th>
                                                         <th>操作</th>
@@ -69,7 +68,6 @@
                                                         <tr>
                                                             <td>${attachment.id}</td>
                                                             <td>${attachment.filename}</td>
-                                                            <td>${attachment.filepath}</td>
                                                             <td>${attachment.filetype}</td>
                                                             <td>${attachment.time}</td>
                                                             <td><a href="">删除</a></td>

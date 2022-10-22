@@ -35,7 +35,7 @@
 
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/Download"><i class="fa fa-bar-chart-o fa-fw"></i> 结果展示<span class="fa arrow"></span></a>
+                    <a href="${pageContext.request.contextPath}/DownloadForm"><i class="fa fa-bar-chart-o fa-fw"></i> 结果展示<span class="fa arrow"></span></a>
                 </li>
                 <li>
                     <a href="${pageContext.request.contextPath}/ModifyUserInfo.jsp"><i class="fa fa-bar-chart-o fa-fw"></i> 个人信息<span class="fa arrow"></span></a>

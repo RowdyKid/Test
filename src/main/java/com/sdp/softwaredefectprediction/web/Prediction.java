@@ -89,23 +89,25 @@ public class Prediction extends HttpServlet {
 
                 String filepath2 = attachmentService.queryAttachmentById(Integer.valueOf(fileId)).getFilepath();
 
-                String train2="D:\\DATA\\JDT11.txt";
-                String model_r="D:\\DATA\\model_r.txt";
-                String predict2=filepath2;
+                String train2="D:/DATA/JDT11.txt";
 
+                String predict2=filepath2;
                 Calendar calendar = Calendar.getInstance(); // get current instance of the calendar
                 SimpleDateFormat formatter = new SimpleDateFormat("MM-dd_HHmm");
                 //获取生成的文件名与文件路径
                 String filename = formatter.format(calendar.getTime())+"pre"+".txt";
-                String filePath = "D:\\DATA\\" + filename;
+                String filePath = "C:/Users/Cinderella/Desktop/demo/src/main/webapp/assets/predictFiles/" + filename;
+                String downloadPath = "/assets/predictFiles/"+filename;
 
                 //获取当前时间
                 SimpleDateFormat currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String timeStr = currTime.format(new Date());
 
                 //插入数据库
-                downloadFileService.addDownloadFile(new DownloadFile(null,filename,filePath, Timestamp.valueOf(timeStr)));
+                downloadFileService.addDownloadFile(new DownloadFile(null,filename,downloadPath, Timestamp.valueOf(timeStr)));
 
+                //输出模型文件
+                String model_r="C:/Users/Cinderella/Desktop/demo/src/main/webapp/assets/predictFiles/"+formatter.format(calendar.getTime())+"model_r"+".txt";
                 String out=filePath;
                 int buggy=0;
                 file f=new file();

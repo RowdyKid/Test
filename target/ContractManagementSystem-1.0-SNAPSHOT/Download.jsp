@@ -52,6 +52,11 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
+                                <form role="form" action="${pageContext.request.contextPath}/DownloadForm" method="post">
+                                    <label>选择需要下载的数据集:</label>
+                                    <input type="text" name="fileId" placeholder="请输入文件id"><br>
+                                    <button type="submit" id="submitBtn">确定</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -61,14 +66,18 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    下载报告
+                    <%
+                        String downloadFileName = (String)session.getAttribute("downloadFileName");
+                        System.out.println("界面打印"+downloadFileName);
+                    %>
+                    下载报告:<%=downloadFileName%>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
                             <form role="form" action="${pageContext.request.contextPath}/Download" method="get">
-                                <label>选择需要下载的数据集:</label>
-                                <input type="text" name="fileId" placeholder="请输入文件id"><br>
+<%--                                <label>选择需要下载的数据集:</label>--%>
+<%--                                <input type="text" name="fileId" placeholder="请输入文件id"><br>--%>
                                 <button type="submit" class="btn btn-default">下载</button>
                             </form>
                         </div>
