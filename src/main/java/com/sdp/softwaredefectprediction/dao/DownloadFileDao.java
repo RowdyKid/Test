@@ -12,8 +12,6 @@ public interface DownloadFileDao {
 
     public int updateDownloadFile(DownloadFile downloadFile);
 
-    public int updateDownloadFileBuggyCleanById(DownloadFile downloadFile);
-
     public DownloadFile queryDownloadFileById(Integer id);
 
     public List<DownloadFile> queryDownloadFiles();

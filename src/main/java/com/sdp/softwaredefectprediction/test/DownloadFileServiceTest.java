@@ -26,11 +26,6 @@ public class DownloadFileServiceTest {
     }
 
     @Test
-    public void updateDownloadFileBuggyCleanById(){
-        downloadFileService.updateDownloadFileBuggyCleanById(new DownloadFile());
-    }
-
-    @Test
     public void queryDownloadFileById() {
         System.out.println( downloadFileService.queryDownloadFileById(1).getFilepath());
     }

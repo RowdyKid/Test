@@ -27,9 +27,6 @@ public class DownloadFileServiceImpl implements DownloadFileService {
     }
 
     @Override
-    public void updateDownloadFileBuggyCleanById(DownloadFile downloadFile){downloadFileDao.updateDownloadFileBuggyCleanById(downloadFile);}
-
-    @Override
     public DownloadFile queryDownloadFileById(Integer id) {
         return downloadFileDao.queryDownloadFileById(id);
     }

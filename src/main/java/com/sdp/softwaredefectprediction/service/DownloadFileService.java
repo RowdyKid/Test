@@ -12,8 +12,6 @@ public interface DownloadFileService {
 
     public void updateDownloadFile(DownloadFile downloadFile);
 
-    public void updateDownloadFileBuggyCleanById(DownloadFile downloadFile);
-
     public DownloadFile queryDownloadFileById(Integer id);
 
     public List<DownloadFile> queryDownloadFiles();
