@@ -13,7 +13,7 @@ public class AttachmentDaoTest {
 
     @Test
     public void addAttachment() {
-        attachmentDao.addAttachment(new Attachment(null,"111ceshi.txt","e:\\111ceshi.txt","txt",null));
+        attachmentDao.addAttachment(new Attachment(null,"111ceshi.txt","e:/111ceshi.txt","txt",null));
     }
 
     @Test

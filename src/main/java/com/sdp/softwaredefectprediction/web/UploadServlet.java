@@ -174,8 +174,8 @@ public class UploadServlet extends HttpServlet {
                     System.out.println("表单项的name属性值" + fileItem.getFieldName());
                     filename = fileItem.getName();
                     System.out.println("上传的文件名" + fileItem.getName());
-                    filepath = "C:/Users/Cinderella/Desktop/demo/src/main/webapp/assets/uploadFiles/" + fileItem.getName();
-                    fileItem.write(new File("C:/Users/Cinderella/Desktop/demo/src/main/webapp/assets/uploadFiles/" + fileItem.getName()));
+                    filepath = "C:/Users/Cinderella/IdeaProjects/Test/src/main/webapp/assets/uploadFiles/" + fileItem.getName();
+                    fileItem.write(new File("C:/Users/Cinderella/IdeaProjects/Test/src/main/webapp/assets/uploadFiles/" + fileItem.getName()));
 
                     String filetype = getFileType(filepath);
 

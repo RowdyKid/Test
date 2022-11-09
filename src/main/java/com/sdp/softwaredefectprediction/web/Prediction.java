@@ -107,7 +107,7 @@ public class Prediction extends HttpServlet {
                     SimpleDateFormat formatter = new SimpleDateFormat("MM-dd_HHmm");
                     //获取生成的文件名与文件路径
                     String filename = formatter.format(calendar.getTime())+"pre"+".txt";
-                    String filePath = "C:/Users/Cinderella/Desktop/demo/src/main/webapp/assets/predictFiles/" + filename;
+                    String filePath = "C:/Users/Cinderella/IdeaProjects/Test/src/main/webapp/assets/predictFiles/" + filename;
                     String downloadPath = "/assets/predictFiles/"+filename;
 
                     //获取当前时间
@@ -118,7 +118,7 @@ public class Prediction extends HttpServlet {
                     downloadFileService.addDownloadFile(new DownloadFile(null,filename,downloadPath, Timestamp.valueOf(timeStr)));
 
                     //输出模型文件
-                    String model_r="C:/Users/Cinderella/Desktop/demo/src/main/webapp/assets/predictFiles/"+formatter.format(calendar.getTime())+"model_r"+".txt";
+                    String model_r="C:/Users/Cinderella/IdeaProjects/Test/src/main/webapp/assets/predictFiles/"+formatter.format(calendar.getTime())+"model_r"+".txt";
                     String out=filePath;
                     int buggy=0;
                     file f=new file();

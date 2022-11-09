@@ -249,7 +249,7 @@ public class LogisticRegression {
 
         //获取文件名与文件路径
         String filename = formatter.format(calendar.getTime())+"pre"+".csv";
-        String filePath = "C:/Users/Cinderella/Desktop/demo/src/main/webapp/assets/predictFiles/" + filename;
+        String filePath = "C:/Users/Cinderella/IdeaProjects/Test/src/main/webapp/assets/predictFiles/" + filename;
         String downloadPath = "/assets/predictFiles/"+filename;
 
         //插入数据库
