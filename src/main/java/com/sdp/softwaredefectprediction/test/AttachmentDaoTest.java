@@ -18,6 +18,7 @@ public class AttachmentDaoTest {
 
     @Test
     public void deleteAttachmentById() {
+        attachmentDao.deleteAttachmentById(33);
     }
 
     @Test
@@ -26,6 +27,7 @@ public class AttachmentDaoTest {
 
     @Test
     public void queryAttachmentById() {
+        System.out.println(attachmentDao.queryAttachmentById(32));
     }
 
     @Test
