@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SoftwareDefectPrediction" />
         <module name="demo" />
+        <module name="Test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

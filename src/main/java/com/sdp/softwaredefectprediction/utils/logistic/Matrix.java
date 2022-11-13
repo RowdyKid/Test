@@ -209,8 +209,6 @@ public class Matrix {
 		float result = 0;
 		for(int i=0;i<len;i++){
 			result += left[i]* right[i];
-//			System.out.println(left[i]);
-//			System.out.println(right[i]);
 		}
 		return result;
 	}
