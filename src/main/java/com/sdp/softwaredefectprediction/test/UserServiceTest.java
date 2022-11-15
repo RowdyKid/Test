@@ -11,10 +11,9 @@ public class UserServiceTest {
 
     @Test
     public void registUser() {
-//        userService.registUser(new User(null, "bbj168", "666666",null));
-//        userService.registUser(new User(null, "abc168", "666666", null));
+        userService.registUser(new User(null, "55555", "55555", "email","0"));
     }
-//你说吧  我听者的
+
     @Test
     public void login() {
         System.out.println( userService.login(new User(null, "wzg168", "123456",null, null)) );
@@ -22,7 +21,7 @@ public class UserServiceTest {
 
     @Test
     public void existsUsername() {
-        if (userService.existsUsername("wzg16888")) {
+        if (userService.existsUsername("123456")) {
             System.out.println("用户名已存在！");
         } else {
             System.out.println("用户名可用！");
@@ -31,6 +30,6 @@ public class UserServiceTest {
 
     @Test
     public  void queryusernamebyID(){
-        System.out.println(userService.queryusernamebyID(33));
+        System.out.println(userService.queryusernamebyID(22));
     }
 }
