@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1818c058-de56-42f1-93c6-c245b2d205de" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/xchart_3_8_1___2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xchart-3.8.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/MatrixDataFileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/CalculateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/CalculateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/CommonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/CommonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/LogisticRegressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/LogisticRegressionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/logistic/Calculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/logistic/Calculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/logistic/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/logistic/Common.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/logistic/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/logistic/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/HelloServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/HelloServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/AttachmentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/AttachmentDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/AttachmentDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/AttachmentDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/BaseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/DownloadFileDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/DownloadFileDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/DownloadFileDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/DownloadFileDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/IDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/IDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/impl/implTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/impl/implTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/Attachment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/Attachment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/DownloadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/DownloadFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/pojoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/pojo/pojoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/AttachmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/AttachmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/DownloadFileService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/DownloadFileService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/AttachmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/AttachmentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/DownloadFileServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/DownloadFileServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/implTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/implTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/serviceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/serviceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/AttachmentDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/AttachmentDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/AttachmentServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/AttachmentServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/JdbcUtilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/JdbcUtilsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/LogisticRegressionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/LogisticRegressionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/SVMTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/SVMTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/UserDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/UserDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/UserServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/Attachment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/Attachment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/DownloadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/DownloadFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/IEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/IEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/JdbcUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/JdbcUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Cache$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Cache$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Cache$head_t.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Cache$head_t.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Cache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Cache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Kernel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Kernel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/ONE_CLASS_Q.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/ONE_CLASS_Q.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/QMatrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/QMatrix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/SVC_Q.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/SVC_Q.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/SVR_Q.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/SVR_Q.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Solver$SolutionInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Solver$SolutionInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Solver_NU.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/Solver_NU.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm$decision_function.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm$decision_function.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_parameter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_parameter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_print_interface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_print_interface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_problem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_problem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_train$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_train$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_train.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_train.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/Calculate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/Calculate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/Common.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/Common.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/Matrix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/MatrixDataFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/logistic/MatrixDataFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/utilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/utilsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/AttachmentServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/AttachmentServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/BaseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/BaseServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/DeleteAttachment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/DeleteAttachment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/DownloadFormServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/DownloadFormServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/DownloadServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/DownloadServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Prediction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Prediction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Regist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Regist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/file.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/file.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_predict$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_predict$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_predict$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_predict$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_predict.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_predict.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_train$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_train$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_train.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/SVM/svm_train.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/UploadServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/UploadServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/logistic/LogisticRegression.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/logistic/LogisticRegression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/search_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/search_userInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_add_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_add_userInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_userInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/webTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/webTest.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HTjtzUDWj0u6Yt4DXCDSVtMkak" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\大学学习\专业实训3\Test\lib" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.sdp.softwaredefectprediction.test" />
+      <recent name="com.sdp.softwaredefectprediction.utils.logistic" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MatrixDataFileTest.featureScaling">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixDataFileTest.featureScaling" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
+      <option name="METHOD_NAME" value="featureScaling" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixDataFileTest.getData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
+      <option name="METHOD_NAME" value="getData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixDataFileTest.getSourceFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
+      <option name="METHOD_NAME" value="getSourceFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixDataFileTest.initDatap" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
+      <option name="METHOD_NAME" value="initDatap" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatrixDataFileTest.testInit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
+      <option name="METHOD_NAME" value="testInit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MatrixDataFileTest.featureScaling" />
+        <item itemvalue="JUnit.MatrixDataFileTest.getData" />
+        <item itemvalue="JUnit.MatrixDataFileTest.getSourceFile" />
+        <item itemvalue="JUnit.MatrixDataFileTest.testInit" />
+        <item itemvalue="JUnit.MatrixDataFileTest.initDatap" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1818c058-de56-42f1-93c6-c245b2d205de" name="Changes" comment="" />
+      <created>1668316187762</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668316187762</updated>
+      <workItem from="1668316191056" duration="17711000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

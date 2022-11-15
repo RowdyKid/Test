@@ -11,6 +11,11 @@ public class Common {
 	public Common() {
 	}
 
+	/**
+	 * 读取测试集和训练集文件中的指定列，转换到ArrayList格式，会读取class列
+	 * @param fileName
+	 * @return
+	 */
 	public static ArrayList<String> readFileToArrayList(String fileName) {
 		ArrayList<String> result = new ArrayList<String>();
 		String[] colNames={"CvsEntropy","WCHU_wmc","WCHU_rfc","LDHH_rfc","class"};
@@ -58,7 +63,12 @@ public class Common {
 		}
 		return result;
 	}
-	
+
+	/**
+	 * 读取需预测文件中的指定列，转换到ArrayList格式，不读取class列
+	 * @param fileName
+	 * @return
+	 */
 	public static ArrayList<String> readFileToArrayListp(String fileName) {
 		ArrayList<String> result = new ArrayList<String>();
 		String[] colNames={"CvsEntropy","WCHU_wmc","WCHU_rfc","LDHH_rfc","class"};

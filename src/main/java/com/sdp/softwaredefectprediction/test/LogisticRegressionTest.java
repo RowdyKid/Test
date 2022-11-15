@@ -1,11 +1,13 @@
 package com.sdp.softwaredefectprediction.test;
 
-import java.util.ArrayList;
-
 import com.sdp.softwaredefectprediction.utils.logistic.MatrixDataFile;
 import com.sdp.softwaredefectprediction.web.logistic.LogisticRegression;
 
+import java.util.ArrayList;
+
 public class LogisticRegressionTest  {
+
+
     public LogisticRegressionTest() {
     }
 
