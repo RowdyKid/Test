@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1818c058-de56-42f1-93c6-c245b2d205de" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/svm_trainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/svm_trainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/SVM/svm_train.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/utils/SVM/svm_train.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/MatrixDataFileTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/MatrixDataFileTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/MatrixTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/MatrixTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +38,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/Cinderella/Downloads",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Cinderella/Downloads&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\大学学习\专业实训3\Test\lib" />
@@ -58,7 +63,7 @@
       <recent name="com.sdp.softwaredefectprediction.utils.logistic" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest.queryusernamebyID">
+  <component name="RunManager" selected="JUnit.DownloadFileServiceTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -70,55 +75,71 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatrixDataFileTest.featureScaling" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Test" />
+    <configuration name="DownloadFileDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.dao.DownloadFileDaoImpl" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
-      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
-      <option name="METHOD_NAME" value="featureScaling" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.DownloadFileDaoTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatrixDataFileTest.getData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Test" />
+    <configuration name="DownloadFileServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.service.impl.DownloadFileServiceImpl" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
-      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
-      <option name="METHOD_NAME" value="getData" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.DownloadFileServiceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatrixDataFileTest.getSourceFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Test" />
+    <configuration name="UserDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.dao.UserDao" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.dao.UserDaoImpl" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
-      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.MatrixDataFileTest" />
-      <option name="METHOD_NAME" value="getSourceFile" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.UserDaoTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDaoTest.queryUserByid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserDaoTest.queryUserByUsernameAndPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
@@ -128,42 +149,50 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
       <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.UserDaoTest" />
-      <option name="METHOD_NAME" value="queryUserByid" />
+      <option name="METHOD_NAME" value="queryUserByUsernameAndPassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.queryusernamebyID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.service.UserService" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.service.impl.UserServiceImpl" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.sdp.softwaredefectprediction.test" />
       <option name="MAIN_CLASS_NAME" value="com.sdp.softwaredefectprediction.test.UserServiceTest" />
-      <option name="METHOD_NAME" value="queryusernamebyID" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.MatrixDataFileTest.featureScaling" />
-      <item itemvalue="JUnit.MatrixDataFileTest.getData" />
-      <item itemvalue="JUnit.MatrixDataFileTest.getSourceFile" />
-      <item itemvalue="JUnit.UserServiceTest.queryusernamebyID" />
-      <item itemvalue="JUnit.UserDaoTest.queryUserByid" />
+      <item itemvalue="JUnit.DownloadFileServiceTest" />
+      <item itemvalue="JUnit.DownloadFileDaoTest" />
+      <item itemvalue="JUnit.UserDaoTest.queryUserByUsernameAndPassword" />
+      <item itemvalue="JUnit.UserDaoTest" />
+      <item itemvalue="JUnit.UserServiceTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest.queryusernamebyID" />
-        <item itemvalue="JUnit.UserDaoTest.queryUserByid" />
-        <item itemvalue="JUnit.MatrixDataFileTest.featureScaling" />
-        <item itemvalue="JUnit.MatrixDataFileTest.getData" />
-        <item itemvalue="JUnit.MatrixDataFileTest.getSourceFile" />
+        <item itemvalue="JUnit.DownloadFileServiceTest" />
+        <item itemvalue="JUnit.DownloadFileDaoTest" />
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserDaoTest" />
+        <item itemvalue="JUnit.UserDaoTest.queryUserByUsernameAndPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +205,8 @@
       <option name="presentableId" value="Default" />
       <updated>1668316187762</updated>
       <workItem from="1668316191056" duration="17711000" />
+      <workItem from="1668518954567" duration="378000" />
+      <workItem from="1668576458828" duration="1744000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1668516890679</created>
@@ -184,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668516890679</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changes">
+      <created>1668517034015</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668517034015</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,13 +244,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Test$UserDaoTest.ic" NAME="UserDaoTest 覆盖结果" MODIFIED="1668507034331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Test$UserDaoTest.ic" NAME="UserDaoTest 覆盖结果" MODIFIED="1668577346978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
+      <FILTER>com.sdp.softwaredefectprediction.dao.UserDao</FILTER>
+      <FILTER>com.sdp.softwaredefectprediction.dao.UserDaoImpl</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Test$UserServiceTest_registUser.ic" NAME="UserServiceTest.registUser 覆盖结果" MODIFIED="1668512686978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Test$DownloadFileServiceTest.ic" NAME="DownloadFileServiceTest 覆盖结果" MODIFIED="1668507404666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Test$DownloadFileServiceTest.ic" NAME="DownloadFileServiceTest 覆盖结果" MODIFIED="1668578200631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Test$LogisticRegressionTest.ic" NAME="LogisticRegressionTest 覆盖结果" MODIFIED="1668507471663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -224,8 +264,9 @@
     <SUITE FILE_PATH="coverage/Test$JdbcUtilsTest.ic" NAME="JdbcUtilsTest 覆盖结果" MODIFIED="1668507425184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Test$DownloadFileDaoTest.ic" NAME="DownloadFileDaoTest 覆盖结果" MODIFIED="1668507390284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Test$DownloadFileDaoTest.ic" NAME="DownloadFileDaoTest 覆盖结果" MODIFIED="1668578167729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
+      <FILTER>com.sdp.softwaredefectprediction.dao.DownloadFileDaoImpl</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Test$UserServiceTest_queryusernamebyID.ic" NAME="UserServiceTest.queryusernamebyID 覆盖结果" MODIFIED="1668514584315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
@@ -248,10 +289,12 @@
     <SUITE FILE_PATH="coverage/Test$SVMTest.ic" NAME="SVMTest 覆盖结果" MODIFIED="1668507495968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Test$UserServiceTest.ic" NAME="UserServiceTest 覆盖结果" MODIFIED="1668507188498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Test$UserServiceTest.ic" NAME="UserServiceTest 覆盖结果" MODIFIED="1668577364438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
+      <FILTER>com.sdp.softwaredefectprediction.service.UserService</FILTER>
+      <FILTER>com.sdp.softwaredefectprediction.service.impl.UserServiceImpl</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Test$UserDaoTest_queryUserByUsernameAndPassword.ic" NAME="UserDaoTest.queryUserByUsernameAndPassword 覆盖结果" MODIFIED="1668512022917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Test$UserDaoTest_queryUserByUsernameAndPassword.ic" NAME="UserDaoTest.queryUserByUsernameAndPassword 覆盖结果" MODIFIED="1668577334223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sdp.softwaredefectprediction.test.*</FILTER>
     </SUITE>
   </component>

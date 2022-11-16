@@ -5,24 +5,25 @@ import com.sdp.softwaredefectprediction.service.DownloadFileService;
 import com.sdp.softwaredefectprediction.service.impl.DownloadFileServiceImpl;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class DownloadFileServiceTest {
 
     private DownloadFileService downloadFileService = new DownloadFileServiceImpl();
+    private DownloadFile downloadFile = new DownloadFile(null,"10-21_1940pre.csv","d:/DATA/10-21_1940pre.csv",null);
+    private DownloadFile downloadFile1 = new DownloadFile(1,"10-21_1940pre.csv","d:/Downloads/10-21_1940pre.csv",null);
 
     @Test
     public void addDownloadFile() {
-        downloadFileService.addDownloadFile(new DownloadFile(null,"10-21_1940pre.csv","d:/DATA/10-21_1940pre.csv",null));
+        downloadFileService.addDownloadFile(downloadFile);
     }
 
     @Test
     public void deleteDownloadFileById() {
+        downloadFileService.deleteDownloadFileById(1);
     }
 
     @Test
     public void updateDownloadFile() {
-        downloadFileService.updateDownloadFile(new DownloadFile());
+        downloadFileService.updateDownloadFile(downloadFile1);
     }
 
     @Test
