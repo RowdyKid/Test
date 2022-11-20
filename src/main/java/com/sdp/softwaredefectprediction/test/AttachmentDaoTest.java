@@ -1,11 +1,9 @@
 package com.sdp.softwaredefectprediction.test;
 
 import com.sdp.softwaredefectprediction.dao.AttachmentDao;
-import com.sdp.softwaredefectprediction.dao.AttachmentDaoImpl;
+import com.sdp.softwaredefectprediction.dao.impl.AttachmentDaoImpl;
 import com.sdp.softwaredefectprediction.pojo.Attachment;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class AttachmentDaoTest {
 

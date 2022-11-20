@@ -1,5 +1,7 @@
-package com.sdp.softwaredefectprediction.dao;
+package com.sdp.softwaredefectprediction.dao.impl;
 
+import com.sdp.softwaredefectprediction.dao.BaseDao;
+import com.sdp.softwaredefectprediction.dao.UserDao;
 import com.sdp.softwaredefectprediction.pojo.User;
 
 import java.util.List;

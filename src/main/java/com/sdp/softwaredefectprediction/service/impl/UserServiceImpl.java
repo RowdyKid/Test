@@ -1,7 +1,7 @@
 package com.sdp.softwaredefectprediction.service.impl;
 
 import com.sdp.softwaredefectprediction.dao.UserDao;
-import com.sdp.softwaredefectprediction.dao.UserDaoImpl;
+import com.sdp.softwaredefectprediction.dao.impl.UserDaoImpl;
 import com.sdp.softwaredefectprediction.pojo.User;
 import com.sdp.softwaredefectprediction.service.UserService;
 

@@ -1,7 +1,7 @@
 package com.sdp.softwaredefectprediction.service.impl;
 
 import com.sdp.softwaredefectprediction.dao.AttachmentDao;
-import com.sdp.softwaredefectprediction.dao.AttachmentDaoImpl;
+import com.sdp.softwaredefectprediction.dao.impl.AttachmentDaoImpl;
 import com.sdp.softwaredefectprediction.pojo.Attachment;
 import com.sdp.softwaredefectprediction.service.AttachmentService;
 

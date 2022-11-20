@@ -1,7 +1,7 @@
 package com.sdp.softwaredefectprediction.test;
 
 import com.sdp.softwaredefectprediction.dao.DownloadFileDao;
-import com.sdp.softwaredefectprediction.dao.DownloadFileDaoImpl;
+import com.sdp.softwaredefectprediction.dao.impl.DownloadFileDaoImpl;
 import com.sdp.softwaredefectprediction.pojo.DownloadFile;
 import org.junit.Test;
 
