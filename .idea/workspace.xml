@@ -4,10 +4,83 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1818c058-de56-42f1-93c6-c245b2d205de" name="Changes" comment="新建集成测试">
+    <list default="true" id="1818c058-de56-42f1-93c6-c245b2d205de" name="Changes" comment="集成测试">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/AttachmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/BaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/DownloadFileDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/IDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/impl/AttachmentDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/impl/DownloadFileDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/dao/impl/implTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/pojo/Attachment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/pojo/DownloadFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/pojo/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/pojo/pojoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/AttachmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/DownloadFileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/impl/AttachmentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/impl/DownloadFileServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/impl/implTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/service/serviceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/Attachment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/DownloadFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/IEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/JdbcUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/Log.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm.m4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm_model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm_node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm_parameter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm_predict.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm_print_interface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm_problem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/SVM/svm_train.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/logistic/Calculate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/logistic/Common.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/logistic/Matrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/logistic/MatrixDataFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/utils/utilsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/AttachmentServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/BaseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/DeleteAttachment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/DownloadFormServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/DownloadServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/Prediction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/Regist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/SVM/file.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/SVM/svm_predict.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/SVM/svm_train.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/UploadServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/logistic/LogisticRegression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/logistic/LogisticRegressionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/search_userInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/update_add_userInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/update_userInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sdp/softwaredefectprediction/web/webTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/jdbc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/LogisticRegressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/logistic/LogisticRegressionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/Prediction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/Prediction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ContractManagementSystem-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ContractManagementSystem-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/AttachmentDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/DownloadFileDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/dao/UserDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/AttachmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/AttachmentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/DownloadFileServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/DownloadFileServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/AttachmentDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/AttachmentDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/LogisticRegressionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/UserDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/UserDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Prediction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/Prediction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/search_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/search_userInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_add_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_add_userInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_userInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/web/update_userInfo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,22 +111,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Cinderella/Downloads&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Cinderella/IdeaProjects/Test/src/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\大学学习\专业实训3\Test\lib" />
+      <recent name="C:\Users\Cinderella\IdeaProjects\Test\src\test" />
+      <recent name="C:\Users\Cinderella\IdeaProjects\Test\src\test\resources" />
+      <recent name="C:\Users\Cinderella\IdeaProjects\Test\src\test\java\com\sdp\softwaredefectprediction\web" />
+      <recent name="C:\Users\Cinderella\IdeaProjects\Test\src\test\java\com\sdp\softwaredefectprediction\utils" />
+      <recent name="C:\Users\Cinderella\IdeaProjects\Test\src\test\java\com\sdp\softwaredefectprediction\service" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -63,7 +140,7 @@
       <recent name="com.sdp.softwaredefectprediction.utils.logistic" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DownloadFileServiceTest">
+  <component name="RunManager" selected="Tomcat 服务器.Tomcat 8.5.79">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -179,12 +256,100 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tomcat 8.5.79" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.79" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="SoftwareDefectPrediction:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/SoftwareDefectPrediction_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="4114bf3e-c66b-4aa8-96ef-2b53419ad636" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51094" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SoftwareDefectPrediction:war" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JUnit.DownloadFileServiceTest" />
       <item itemvalue="JUnit.DownloadFileDaoTest" />
       <item itemvalue="JUnit.UserDaoTest.queryUserByUsernameAndPassword" />
       <item itemvalue="JUnit.UserDaoTest" />
       <item itemvalue="JUnit.UserServiceTest" />
+      <item itemvalue="Tomcat 服务器.Tomcat 8.5.79" />
     </list>
     <recent_temporary>
       <list>
@@ -210,7 +375,8 @@
       <workItem from="1668582166042" duration="3105000" />
       <workItem from="1668916023883" duration="6053000" />
       <workItem from="1669000617878" duration="3635000" />
-      <workItem from="1669012517610" duration="1846000" />
+      <workItem from="1669012517610" duration="3018000" />
+      <workItem from="1669039341576" duration="727000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1668516890679</created>
@@ -240,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668917577444</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="集成测试">
+      <created>1669014494303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669014494303</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +434,8 @@
     <MESSAGE value="Changes" />
     <MESSAGE value="下载文件测试" />
     <MESSAGE value="新建集成测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="新建集成测试" />
+    <MESSAGE value="集成测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="集成测试" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Test$UserDaoTest.ic" NAME="UserDaoTest 覆盖结果" MODIFIED="1668577346978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
