@@ -1,7 +1,6 @@
-package com.sdp.softwaredefectprediction.test;
+package com.sdp.softwaredefectprediction.web.logistic;
 
 import com.sdp.softwaredefectprediction.utils.logistic.MatrixDataFile;
-import com.sdp.softwaredefectprediction.web.logistic.LogisticRegression;
 
 import java.util.ArrayList;
 

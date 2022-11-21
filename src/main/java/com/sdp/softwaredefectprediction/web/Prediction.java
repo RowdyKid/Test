@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static com.sdp.softwaredefectprediction.test.LogisticRegressionTest.testConcrete;
+import static com.sdp.softwaredefectprediction.web.logistic.LogisticRegressionTest.testConcrete;
 
 
 @WebServlet(name = "Prediction", value = "/Prediction")

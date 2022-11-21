@@ -4,23 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1818c058-de56-42f1-93c6-c245b2d205de" name="Changes" comment="下载文件测试">
+    <list default="true" id="1818c058-de56-42f1-93c6-c245b2d205de" name="Changes" comment="新建集成测试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/dao/AttachmentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/dao/impl/AttachmentDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/dao/DownloadFileDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/dao/impl/DownloadFileDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/service/impl/AttachmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/service/impl/AttachmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/service/impl/DownloadFileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/service/impl/DownloadFileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/AttachmentDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/AttachmentDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/UserDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/search_userInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/search_userInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/update_add_userInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/update_add_userInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/update_userInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/update_userInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/test/DownloadFileServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_train.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdp/softwaredefectprediction/utils/SVM/svm_train.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/test/LogisticRegressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/logistic/LogisticRegressionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/Prediction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdp/softwaredefectprediction/web/Prediction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +79,7 @@
       <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.web.logistic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
@@ -112,7 +99,7 @@
       <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.web.logistic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
@@ -132,7 +119,7 @@
       <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.web.logistic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
@@ -156,7 +143,7 @@
       <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.web.logistic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -172,7 +159,7 @@
       <module name="SoftwareDefectPrediction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sdp.softwaredefectprediction.test.*" />
+          <option name="PATTERN" value="com.sdp.softwaredefectprediction.web.logistic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
@@ -221,7 +208,9 @@
       <workItem from="1668518954567" duration="378000" />
       <workItem from="1668576458828" duration="2121000" />
       <workItem from="1668582166042" duration="3105000" />
-      <workItem from="1668916023883" duration="1452000" />
+      <workItem from="1668916023883" duration="6053000" />
+      <workItem from="1669000617878" duration="3635000" />
+      <workItem from="1669012517610" duration="1846000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1668516890679</created>
@@ -244,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668578517594</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="新建集成测试">
+      <created>1668917577444</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668917577444</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +260,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes" />
     <MESSAGE value="下载文件测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="下载文件测试" />
+    <MESSAGE value="新建集成测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="新建集成测试" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Test$UserDaoTest.ic" NAME="UserDaoTest 覆盖结果" MODIFIED="1668577346978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
