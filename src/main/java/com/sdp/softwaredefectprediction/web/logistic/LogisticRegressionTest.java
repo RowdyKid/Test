@@ -28,7 +28,7 @@ public class LogisticRegressionTest  {
         LogisticRegression LR = new LogisticRegression();
         LR.setXY(trainData.get(0),trainData.get(1));
         LR.setTestXY(testData.get(0),testData.get(1));
-        LR.train(new float[]{1, 1,1,1,1}, 0.0001f, 1000);
+        LR.train(new float[]{1, 1,1,1,1}, 0.001f, 1);
 
         // 测试模型
         LR.test(testData.get(0), testData.get(1));
@@ -44,7 +44,7 @@ public class LogisticRegressionTest  {
     public static void main(String[] args) throws Exception {
     	String train="D:/DATA/train - 副本.csv";
     	String test="D:/DATA/test - 副本.csv";
-    	String predict="D:/DATA/test.csv";
+    	String predict="D:/DATA/test - 副本 - 副本.csv";
         testConcrete(train,test,predict);
     }
     

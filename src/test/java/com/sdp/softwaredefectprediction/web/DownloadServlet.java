@@ -31,12 +31,6 @@ public class DownloadServlet extends HttpServlet {
         String downloadFileName = (String) request.getSession().getAttribute("downloadFileName");
         String downloadFilePath = (String) request.getSession().getAttribute("downloadFilePath");
 
-//        String downloadFileName = "10-21_1547pre.csv";
-//        String downloadFilePath = "D:/DATA/"+downloadFileName;
-
-//        String downloadFileName = "10-21_1547pre.csv";
-//        String downloadFilePath = "/assets/file/"+downloadFileName;
-
         System.out.println("get到文件名"+downloadFileName);
         System.out.println("get到文件路径"+downloadFilePath);
 

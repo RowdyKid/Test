@@ -11,8 +11,6 @@ import org.knowm.xchart.XYChart;
 
 import java.io.*;
 import java.sql.Timestamp;
-import java.util.Calendar;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,7 +24,7 @@ public class LogisticRegression {
     private float[][] x;                    // 特征矩阵
     private float[][] parameters;            // 参数矩阵
     private float[][] y;                    // 标签矩阵(只用第一1列) -1 or 1
-    private float step = 0.0001f;            // 步长step,即公式中的 a
+    private float step = 0.00001f;            // 步长step,即公式中的 a
 //    private int iterationTimes = 10;        // 迭代次数
 
     private int m;                            // 特征矩阵x的行数
@@ -125,7 +123,7 @@ public class LogisticRegression {
         Calculate.sigmoid(A, g);
         Matrix.add(g, -1, y, E);
         for(int i=0;i<g.length;i++){
-            if(g[i][0]/(1-g[i][0])>5)//类别不平衡
+            if(g[i][0]/(1-g[i][0])>4)//类别不平衡
                 yp[i]=1;
             else
                 yp[i]=-1;
@@ -203,18 +201,47 @@ public class LogisticRegression {
         Matrix.times(testX, parametersT, tA);
         Calculate.sigmoid(tA, tg);
         float[] yp = new float[testX.length];
+        float TP=0, FN=0, FP=0, TN=0;
         for(int i=0;i<testX.length;i++){
-            if(tg[i][0]/(1-tg[i][0])>5)
-                yp[i]=1;
-            else
-                yp[i]=-1;
+            if(tg[i][0]/(1-tg[i][0])>1.1) {
+                yp[i] = 1;
+            }
+            else {
+                yp[i] = -1;
+            }
+            if ((yp[i]==1) && (testY[i][0]==1)){
+                TP=TP+1;
+            }
+            else if((yp[i]==-1) && (testY[i][0]==-1)){
+                TN=TN+1;
+            }
+            else if(yp[i]==1 && testY[i][0]==-1){
+                FP=FP+1;
+            }
+            else if(yp[i]==-1 && testY[i][0]==1){
+                FN=FN+1;
+            }
             if (yp[i]!=testY[i][0])
                 error++;
         }
         float acc=0;
         acc=1-error/testX.length;
         System.out.println("测试集准确率："+acc);
-
+        System.out.println("TP："+TP);
+        System.out.println("FN："+FN);
+        System.out.println("FP："+FP);
+        System.out.println("TN："+TN);
+        float PPV=0, TPR=0, specificity=0,F05=0, F1=0;
+        PPV=TP/(TP+FP);
+        TPR=TP/(TP+FN);
+        specificity=TN/(FP+TN);
+        F05= (float) (1.25*PPV*TPR/(0.25*PPV+TPR));
+        F1=2*PPV*TPR/(PPV+TPR);
+        System.out.println("精确度PPV："+PPV);
+        System.out.println("召回率TPR："+TPR);
+        System.out.println("特异度specificity："+specificity);
+        System.out.println("F0.5分数："+F05);
+        System.out.println("F1分数："+F1);
     }
 
     public void predictFile(float[][] X, String name) throws Exception{
@@ -225,7 +252,7 @@ public class LogisticRegression {
         Matrix.times(X, parametersT, pA);
         Calculate.sigmoid(pA, pg);
         for(int i=0;i<tm;i++){
-            if(pg[i][0]/(1-pg[i][0])>5)
+            if(pg[i][0]/(1-pg[i][0])>4)
                 Y[i]=1;
             else
                 Y[i]=-1;
