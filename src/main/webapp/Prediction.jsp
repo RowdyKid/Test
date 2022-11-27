@@ -83,7 +83,7 @@
                                                             <td>${attachment.filename}</td>
                                                             <td>${attachment.filetype}</td>
                                                             <td>${attachment.time}</td>
-                                                            <td><a class="deleteClass" href="<%=request.getContextPath()%>/DeleteAttachment?action=delete&id=${attachment.id}">删除</a></td>
+                                                            <td><a class="deleteClass" href="${pageContext.request.contextPath}/DeleteAttachment?action=delete&id=${attachment.id}">删除</a></td>
                                                         </tr>
                                                     </c:forEach>
                                                     </tbody>

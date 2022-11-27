@@ -15,7 +15,7 @@ import java.io.IOException;
 public class DeleteAttachment extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         this.doPost(request, response);
         System.out.println(request.getParameter("id"));
         AttachmentService attachmentService = new AttachmentServiceImpl();
