@@ -51,7 +51,7 @@
                                     <div class="form-group">
                                         <label>新的密码</label>
 <%--                                        <input class="form-control" name="password" value="<%=user.getPassword()%>">--%>
-                                        <input class="form-control" name="password" value="<%=user.getPassword()%>">
+                                        <input class="form-control" name="password" minlength="5" maxlength="12" value="<%=user.getPassword()%>" required="required" onkeyup="this.value=this.value.replace(/[^\w_]/g,'');">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">修改</button>
